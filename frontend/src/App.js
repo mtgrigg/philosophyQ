@@ -7,6 +7,7 @@ import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import { Modal } from './context/Modal';
 import TweetsPage from "./components/Tweets";
+import SingleTweet from "./components/SingleTweet"
 
 function App() {
   const dispatch = useDispatch();
@@ -33,8 +34,11 @@ function App() {
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route path='/tweets'>
+          <Route exact path='/tweets'>
             <TweetsPage />
+          </Route>
+          <Route path='/tweets/:tweetId'>
+            <SingleTweet />
           </Route>
         </Switch>
       )}

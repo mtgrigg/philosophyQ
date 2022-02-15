@@ -24,9 +24,11 @@ return (
 <div>
     {tweetArray.map((tweet)=>{
         return(
-        <div>
+            <NavLink key={tweet.id} to={`/tweets/${tweet.id}`}>
+        <div >
             {tweet.tweet}
             </div>
+            </NavLink>
         )
 
     })}

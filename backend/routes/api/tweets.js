@@ -14,5 +14,16 @@ router.get(
     })
 )
 
+router.get(
+    '/:id',
+    asyncHandler(async function(req,res){
+        const tweets = await Tweet.findByPk(req.params.id);
+
+        if(tweets){
+            return res.json(tweets)
+        }
+    })
+)
+
 
 module.exports = router;
