@@ -21,6 +21,17 @@ const getComment = comments => ({
     }
   };
 
+  export const getCommentsFeed = () => async dispatch => {
+    const response = await csrfFetch(`/api/comments`);
+
+
+    if (response.ok) {
+      const comments = await response.json();
+      dispatch(getComment(comments));
+
+    }
+  };
+
 
   const initialState = {};
         const commentReducer = (state = initialState, action) => {

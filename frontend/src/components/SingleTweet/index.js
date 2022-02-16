@@ -6,6 +6,7 @@ import {getSingleTweet} from '../../store/tweets';
 import { Link } from 'react-router-dom';
 import { getComments } from '../../store/comments';
 import { getUsers } from '../../store/users';
+import CommentDisplay from '../CommentsDisplay';
 
 
 const SingleTweet = ({tweet}) => {
@@ -60,7 +61,9 @@ const currentUserId = currentUser?.id
         { commentsArray.map((comment)=>{
 
             return(
+                <>
        <div key={comment.id}>{comment?.comment}</div>
+       </>
             )
         })}
 

@@ -4,6 +4,9 @@ import { getTweets } from '../../store/tweets';
 import { useEffect } from 'react';
 import SingleTweet from '../SingleTweet';
 import { useParams } from 'react-router-dom';
+import TweetAssembly from '../TweetAssembly';
+import { getUsers } from '../../store/users';
+import CommentDisplay from '../CommentsDisplay';
 
 
 const TweetsPage = () => {
@@ -20,6 +23,7 @@ const dispatch = useDispatch();
 useEffect(() => {
 
          dispatch(getTweets());
+         dispatch(getUsers())
 
 
 
@@ -27,6 +31,11 @@ useEffect(() => {
 
 const tweetObj = useSelector(state=> state.tweet)
 const tweetArray= Object.values(tweetObj)
+
+const users = useSelector(state=>state.users)
+const usersArray= Object.values(users)
+
+
 
 
 
@@ -43,18 +52,33 @@ return (
         )
 
     })} */}
-    {tweetArray.map((tweet)=>{
+    {/* {tweetArray.map((tweet)=>{
             return(
             <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
         <div >
+
             {tweet.tweet}
             </div>
             </NavLink>
             )
-        // return <SingleTweet key={tweet.id} tweet={tweet} />
 
 
-    })}
+
+    })} */}
+
+    {tweetArray.map((tweet)=>{
+        return(
+            <>
+        <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
+
+            <TweetAssembly tweets={tweet} />
+        </NavLink>
+        <CommentDisplay  tweetId={tweet.id}/>
+        </>
+        )
+
+    }
+)}
 
 </div>
 

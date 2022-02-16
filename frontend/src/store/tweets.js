@@ -27,6 +27,7 @@ export const getTweets = () => async dispatch => {
 
 }
 
+
 export const getSingleTweet = (tweetId) => async dispatch => {
     const response = await csrfFetch(`/api/tweets/${tweetId}`)
     if(response.ok){

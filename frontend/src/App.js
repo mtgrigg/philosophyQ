@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import { Modal } from './context/Modal';
 import TweetsPage from "./components/Tweets";
 import SingleTweet from "./components/SingleTweet"
+import TweetAssembly from './components/TweetAssembly';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route  path='/tweets/:tweetId'>
             <SingleTweet />
+          </Route>
+          <Route  path='/kevin'>
+            <TweetAssembly />
           </Route>
         </Switch>
       )}
