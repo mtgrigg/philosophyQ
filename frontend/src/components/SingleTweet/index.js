@@ -13,6 +13,11 @@ const SingleTweet = () => {
 
     const tweets = useSelector(state => state.tweet);
     const tweet = tweets[tweetId]
+
+    const user = useSelector(state => state.session.user);
+const userId = user?.id
+
+console.log(user, "THIS IS USER")
     console.log(tweet, "THIS IS TWEET")
 
 
@@ -25,7 +30,7 @@ const SingleTweet = () => {
 
     return(
         <>
-
+       {userId === tweet?.userId && <div>{user?.username}</div>}
         <div>{tweet?.tweet}</div>
 
       </>
