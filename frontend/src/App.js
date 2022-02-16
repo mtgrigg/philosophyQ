@@ -31,13 +31,13 @@ function App() {
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route> */}
-          <Route path='/signup'>
+          <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
           <Route exact path='/tweets'>
             <TweetsPage />
           </Route>
-          <Route path='/tweets/:tweetId'>
+          <Route  path='/tweets/:tweetId'>
             <SingleTweet />
           </Route>
         </Switch>

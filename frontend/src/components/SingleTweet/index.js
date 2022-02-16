@@ -13,21 +13,22 @@ const SingleTweet = () => {
 
     const tweets = useSelector(state => state.tweet);
     const tweet = tweets[tweetId]
-
-    console.log(tweet, "THIS IS TWEET ID")
+    console.log(tweet, "THIS IS TWEET")
 
 
     useEffect(()=>{
-        const singleTweet = dispatch(getSingleTweet(tweetId));
-        if(singleTweet){
-            return singleTweet
-        }
+         dispatch(getSingleTweet(tweetId));
+
+
     }, [dispatch, tweetId])
 
 
     return(
+        <>
 
-        <div>{tweet.tweet}</div>
+        <div>{tweet?.tweet}</div>
+
+      </>
     )
 
 

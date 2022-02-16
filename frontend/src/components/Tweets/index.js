@@ -9,8 +9,8 @@ const TweetsPage = () => {
 const dispatch = useDispatch();
 
 useEffect(()=>{
-const getAllTweets= dispatch(getTweets());
-return getAllTweets
+ dispatch(getTweets());
+
 
 }, [dispatch])
 

@@ -12,6 +12,8 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [imgUrl, setImgUrl] = useState([]);
+  const [bio, setBio] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -19,7 +21,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ email, username, password, imgUrl, bio }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -68,6 +70,24 @@ function SignupFormPage() {
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          imgUrl
+          <input
+            type="text"
+            value={imgUrl}
+            onChange={(e) => setImgUrl(e.target.value)}
+
+          />
+        </label>
+        <label>
+          Bio
+          <input
+            type="text"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
             required
           />
         </label>

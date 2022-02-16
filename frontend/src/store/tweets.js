@@ -40,20 +40,28 @@ export const getSingleTweet = (tweetId) => async dispatch => {
 const intialState = {};
 
 const tweetReducer = (state= intialState, action) =>{
-    let newState = {};
+
     switch(action.type){
 
         case GET:
+            let newState = {};
             action.tweets.forEach(tweet => {
                 newState[tweet.id]= tweet;
 
             });
             return {...state, ...newState}
-        case ADD:
-            return{...state, [action.tweet.id]:action.tweet}
+        case ADD:{
+            return{
+                ...state,
+                [action.tweet.id]:{
 
-         default:
+                ...action.tweet}
+            }
+        }
+
+         default:{
         return state;
+         }
     }
 
 
