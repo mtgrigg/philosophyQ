@@ -7,6 +7,7 @@ import { getComments } from '../../store/comments';
 import { getUsers } from '../../store/users';
 import SingleTweet from '../SingleTweet';
 import CommentDisplay from '../CommentsDisplay';
+// import { createTweet } from '../../store/tweets';
 
 
 const TweetAssembly = ({tweets}) => {
@@ -32,12 +33,14 @@ const filteredComments= commentsArray.filter(comment=>comment.tweetId == tweets.
 const users = useSelector(state=>state.users)
 const usersArray= Object.values(users)
 
-console.log(tweets.id, "THSI IS TWEETS")
+console.log(tweets, "THSI IS BBOBOBOBOB")
 
 return (
     <>
-<div>{tweets.tweet}</div>
-{/* <CommentDisplay  tweetId={tweets.id}/> */}
+<div className="t">{tweets.tweet} ---this is tweet assembly </div>
+<div><img src={tweets.imgUrl} alt=''/>---this is tweet assembly image </div>
+{/* <img src={tweets.imgUrl} alt=''/> */}
+<CommentDisplay  tweetId={tweets.id}/>
 </>
 
 )

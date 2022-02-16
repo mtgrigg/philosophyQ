@@ -37,6 +37,17 @@ export const getSingleTweet = (tweetId) => async dispatch => {
 
 }
 
+export const createTweet = ({tweet,imgUrl, userId}) => async dispatch => {
+    const response = await csrfFetch(`/api/tweets`, {
+      method: 'POST',
+      body: JSON.stringify({tweet, imgUrl, userId}),
+    })
+    if (response.ok) {
+      const newTweet = await response.json();
+     return await dispatch(addTweet(newTweet))
+    }
+  }
+
 
 const intialState = {};
 

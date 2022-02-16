@@ -22,6 +22,17 @@ const getUser = users => ({
     }
   };
 
+  export const getSingleUsers = () => async dispatch => {
+    const response = await csrfFetch(`/api/tweets`);
+
+
+    if (response.ok) {
+      const users = await response.json();
+      dispatch(getUser(users));
+
+    }
+  };
+
   const initialState = {};
   const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -32,7 +43,7 @@ const getUser = users => ({
         });
         return {
           ...allUsers,
-          ...state,
+          // ...state,
       };
 
       }

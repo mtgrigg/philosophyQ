@@ -8,6 +8,7 @@ import TweetAssembly from '../TweetAssembly';
 import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
+import CreateTweet from '../CreateTweet';
 
 
 const TweetsPage = () => {
@@ -43,37 +44,17 @@ const usersArray= Object.values(users)
 return (
 
 <div>
-    {/* {tweetArray.map((tweet)=>{
-        return(
-            <NavLink key={tweet.id} to={`/tweets/${tweet.id}`}>
-        <div >
-            {tweet.tweet}
-            </div>
-            </NavLink>
-        )
 
-    })} */}
-    {/* {tweetArray.map((tweet)=>{
-            return(
-            <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
-        <div >
-
-            {tweet.tweet}
-            </div>
-            </NavLink>
-            )
-
-
-
-    })} */}
+    <CreateTweet />
 
     {tweetArray.map((tweet)=>{
         return(
             <>
-         <UserDisplay tweetId={tweet.id}/>
+         <UserDisplay tweetId={tweet.userId}/>
         <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
-
+            {/* <SingleTweet tweetss={tweet.id}/> */}
             <TweetAssembly tweets={tweet} />
+            {/* {tweet.tweet} */}
         </NavLink>
         <CommentDisplay  tweetId={tweet.id}/>
         </>

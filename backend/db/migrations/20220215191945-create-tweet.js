@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {model: 'Users'},
       },
       imgUrl: {
+        allowNull: false,
         type: Sequelize.STRING(1000)
       },
       tweet: {
