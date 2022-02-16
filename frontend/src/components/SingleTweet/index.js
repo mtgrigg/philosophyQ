@@ -57,6 +57,7 @@ const currentUserId = currentUser?.id
 
         <div>{userz?.username}</div>
         <img src= {userz?.imgUrl} alt=''/>
+        <div>{userz?.bio}</div>
         <div>{tweetz?.tweet}</div>
         { commentsArray.map((comment)=>{
 
