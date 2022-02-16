@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import TweetAssembly from '../TweetAssembly';
 import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
+import UserDisplay from '../UsersDisplay';
 
 
 const TweetsPage = () => {
@@ -69,6 +70,7 @@ return (
     {tweetArray.map((tweet)=>{
         return(
             <>
+         <UserDisplay tweetId={tweet.id}/>
         <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
 
             <TweetAssembly tweets={tweet} />

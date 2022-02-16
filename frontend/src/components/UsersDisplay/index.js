@@ -1,24 +1,19 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCommentsFeed} from '../../store/comments';
 import { getUsers } from '../../store/users';
 
 
-const CommentDisplay = ({tweetId, commentsProp}) =>{
+const UserDisplay = ({tweetId, commentsProp}) =>{
     const dispatch = useDispatch()
 
     useEffect(() => {
 
-         dispatch(getCommentsFeed());
+
          dispatch(getUsers());
 
 
 
     }, [dispatch, tweetId])
-
-    const commentsArray= useSelector(state => state.comments)
-    const comments= Object.values(commentsArray)
-    const filtered= comments.filter(comment=> comment.tweetId === tweetId)
 
     const usersArray= useSelector(state => state.users)
     const users= Object.values(usersArray)
@@ -28,11 +23,14 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
     return(
         <div>
         <div >
-        { filtered.map((comment) => {
+        { filteredUsers.map((user) => {
               return (
+<>
+                <img src={user.imgUrl} alt =''/>
                 <div>
-                {comment.comment}
+                {user.username}
                 </div>
+</>
               );
 
             })}
@@ -43,4 +41,4 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
 }
 
 
-export default CommentDisplay;
+export default UserDisplay;
