@@ -19,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       const user = await User.scope('loginUser').findOne({
         where: {
             email: credential,
+            
+
         },
       });
       if (user && user.validatePassword(password)) {
