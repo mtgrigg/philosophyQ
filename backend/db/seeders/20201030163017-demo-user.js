@@ -8,7 +8,7 @@ module.exports = {
       {
         username: 'Demo-lition',
         email: 'demo@user.io',
-        imgUrl:'',
+        imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTED50wZ1HCLB0madDUClOFjR08OuCyF-xDsA&usqp=CAU',
         bio:'big honkey tonkey',
         hashedPassword: bcrypt.hashSync('password'),
       },

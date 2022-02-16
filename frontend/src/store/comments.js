@@ -23,7 +23,6 @@ const getComment = comments => ({
 
 
   const initialState = {};
-  //pokedex, a couple blogs, and a little help. To be totally honest, I dont completley grasp whats goign on here yet, but I will.
         const commentReducer = (state = initialState, action) => {
           switch (action.type) {
             case GET: {

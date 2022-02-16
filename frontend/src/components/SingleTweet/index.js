@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import {getSingleTweet} from '../../store/tweets';
 import { Link } from 'react-router-dom';
 import { getComments } from '../../store/comments';
+import { getUsers } from '../../store/users';
 
 
 const SingleTweet = ({tweet}) => {
@@ -20,22 +21,28 @@ const SingleTweet = ({tweet}) => {
     const commentsArray= Object.values(comments)
     const filteredComments = commentsArray.filter(comment => comment.tweetId===tweetId)
 
+    const users = useSelector(state=>state.users)
+    const usersArray= Object.values(users)
+    const userz= users[tweetId]
 
-console.log(commentsArray, 'THIS IS TWEET')
 
-    const user = useSelector(state => state.session.user);
-const userId = user?.id
+
+console.log(userz, 'THIS IS TWEET')
+
+    const currentUser = useSelector(state => state.session.user);
+const currentUserId = currentUser?.id
 
     useEffect(()=>{
             dispatch(getSingleTweet(tweetId));
             dispatch(getComments(tweetId))
+            dispatch(getUsers(tweetId))
 
     }, [dispatch, tweetId])
 
 
     return(
         <>
-       {userId === tweetz?.userId && <div>{user?.username}</div>}
+       {currentUserId === tweetz?.userId && <div>{currentUser?.username}</div>}
        {/* {tweetsArray.map((tweetx)=>{
            return(
         <Link key={tweetx?.id} to={`/tweets/${tweetx.id}`}>
@@ -47,12 +54,13 @@ const userId = user?.id
            )
        })} */}
 
-
+        <div>{userz?.username}</div>
+        <img src= {userz?.imgUrl} alt=''/>
         <div>{tweetz?.tweet}</div>
         { commentsArray.map((comment)=>{
 
             return(
-       <div>{comment?.comment}</div>
+       <div key={comment.id}>{comment?.comment}</div>
             )
         })}
 
