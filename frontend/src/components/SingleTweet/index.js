@@ -74,8 +74,8 @@ const SingleTweet = ({tweetss}) => {
     const currentUserId = currentUser?.id
 
     useEffect(() => {
-      dispatch(getTweets());
-      dispatch(getUsers());
+      dispatch(getTweets(tweetId));
+      dispatch(getUsers(tweetId));
       dispatch(getComments(tweetId));
     }, [dispatch, tweetId])
 
