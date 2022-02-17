@@ -11,6 +11,7 @@ import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
 import {deleteTweet} from '../../store/tweets'
 import EditTweet from '../EditTweet';
+import EditComment from '../EditComment';
 
 
 
@@ -101,7 +102,9 @@ const SingleTweet = ({tweetss}) => {
 
 return(
     <>
+    <EditComment commentInfo={comment}/>
 {tweetz.id === comment.tweetId && <div key={comment.id}>{comment?.comment}</div>}
+
 </>
 )
 })}
