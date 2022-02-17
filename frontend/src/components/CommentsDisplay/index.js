@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCommentsFeed} from '../../store/comments';
+import EditComment from '../EditComment';
 
 
 const CommentDisplay = ({tweetId, commentsProp}) =>{
@@ -22,11 +23,15 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
         <div >
         { filtered.map((comment) => {
               return (
+                  <>
                 <div>
 
                 {comment.comment}
                 ---this is the comment---
                 </div>
+                <EditComment commentInfo={comment}/>
+
+                </>
               );
 
             })}
