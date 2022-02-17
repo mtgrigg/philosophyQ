@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {getSingleTweet} from '../../store/tweets';
@@ -8,6 +8,7 @@ import { getComments } from '../../store/comments';
 import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
+import EditTweet from '../EditTweet';
 // import user from '../../../../backend/db/models/user';
 
 
@@ -26,6 +27,7 @@ const SingleTweet = ({tweetss}) => {
 
     const users = useSelector(state=>state.users)
     const usersArray= Object.values(users)
+    console.log(usersArray, 'THIS IS USERS ARRAY')
     const userz= users[tweetId]
     const filteredUsers= usersArray.filter(user => user.id === tweetss)
 
@@ -34,30 +36,27 @@ const SingleTweet = ({tweetss}) => {
     const tweetz = tweets[tweetId]
     const tweetUserId = tweetsArray.map(tweet => tweet.userId)
 
+const [loaded,setLoaded]= useState(false)
 
-
-    console.log(tweetUserId, 'THIS IS TWEET')
+    console.log(tweetsArray, 'THIS IS TWEETSARRAY')
 
     const currentUser = useSelector(state => state.session.user);
 const currentUserId = currentUser?.id
 
+    // useEffect(()=>{
+
+    //     setTid(tweetId)
+    // }, [])
+
     useEffect(()=>{
-        (async ()=> {
-
-           await  dispatch(getSingleTweet(tweetId));
-           await  dispatch(getComments(tweetId))
-          await  dispatch(getUsers())
 
 
-
-        })()
-
-
-
+          dispatch(getSingleTweet(tweetId));
+          dispatch(getComments(tweetId))
+        dispatch(getUsers())
 
 
-
-    }, [dispatch, tweetId])
+    }, [dispatch])
 
 
     return(
@@ -69,7 +68,8 @@ const currentUserId = currentUser?.id
             return(
                 <>
                 <div>
-                {tweetsArray.filter(tweet=>tweet.userId === user.id).map((tweet)=>{
+
+                { tweetsArray.filter(tweet=>tweet.userId === user.id).map((tweet)=>{
                         return(
                             <>
                             <div>
@@ -93,6 +93,7 @@ const currentUserId = currentUser?.id
         {/* <div>{userz?.username}</div> */}
         <div>{tweetz?.tweet}</div>
         <img src={tweetz?.imgUrl} alt=''/>
+        <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id}/>
         {/* { commentsArray.filter(comment=> comment?.tweetId === tweetss?.id).map((comment)=>{
 
             return(

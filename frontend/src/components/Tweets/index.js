@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTweets } from '../../store/tweets';
 import { useEffect } from 'react';
@@ -14,6 +14,7 @@ import CreateTweet from '../CreateTweet';
 const TweetsPage = () => {
 
 const dispatch = useDispatch();
+const history= useHistory();
 
 
 // useEffect(()=>{
@@ -54,9 +55,10 @@ return (
         <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
             {/* <SingleTweet tweetss={tweet.id}/> */}
             <TweetAssembly tweets={tweet} />
-            {/* {tweet.tweet} */}
+
         </NavLink>
-        <CommentDisplay  tweetId={tweet.id}/>
+        {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
+        {/* <CommentDisplay  tweetId={tweet.id}/> */}
         </>
         )
 

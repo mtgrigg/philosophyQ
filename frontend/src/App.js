@@ -38,7 +38,7 @@ function App() {
           <Route exact path='/tweets'>
             <TweetsPage />
           </Route>
-          <Route  path='/tweets/:tweetId'>
+          <Route path='/tweets/:tweetId'>
             <SingleTweet />
           </Route>
           <Route  path='/kevin'>

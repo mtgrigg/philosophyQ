@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET = 'tweets/GET';
 const ADD = 'tweets/ADD';
+const UPDATE = 'tweets/UPDATE'
 
 
 
@@ -14,6 +15,21 @@ const addTweet = tweet => ({
     type:ADD,
     tweet
 })
+
+export const editTweet = (tweet) => async dispatch => {
+    const response = await csrfFetch(`/api/tweets/${tweet.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(tweet),
+    })
+    if (response.ok) {
+      const editedTweet = await response.json();
+      const updated= dispatch(addTweet(editedTweet))
+      return updated;
+    }
+  }
+
+
+
 
 export const getTweets = () => async dispatch => {
 
@@ -70,6 +86,15 @@ const tweetReducer = (state= intialState, action) =>{
                 ...action.tweet}
             }
         }
+        case UPDATE:{
+            return {
+                ...state,
+                [action.tweet.id]: {
+                  ...state[action.tweet.id],
+                  ...action.tweet,
+                }
+              };
+          }
 
          default:{
         return state;

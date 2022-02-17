@@ -23,7 +23,9 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
         { filtered.map((comment) => {
               return (
                 <div>
+
                 {comment.comment}
+                ---this is the comment---
                 </div>
               );
 

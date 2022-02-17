@@ -22,6 +22,7 @@ router.get(
         const tweets = await Tweet.findByPk(req.params.id);
 
         if(tweets){
+            // res.redirect('/:id')
             return res.json(tweets)
         }
     })
@@ -49,6 +50,17 @@ router.post(
     })
   );
 
+  router.put(
+    '/:id',
+    asyncHandler(async function(req, res) {
+        const editedTweet = await Tweet.findByPk(req.params.id);
+        const thisTweet= await editedTweet.update(req.body);
+
+        return res.json(thisTweet);
+
+      })
+
+  );
 
 
 

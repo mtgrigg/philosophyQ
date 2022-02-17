@@ -37,10 +37,11 @@ console.log(tweets, "THSI IS BBOBOBOBOB")
 
 return (
     <>
-<div className="t">{tweets.tweet} ---this is tweet assembly </div>
-<div><img src={tweets.imgUrl} alt=''/>---this is tweet assembly image </div>
+<div className="t">{tweets.tweet} ---this is tweet assembly-- this is the tweet </div>
+<div><img src={tweets.imgUrl} alt=''/> </div>
 {/* <img src={tweets.imgUrl} alt=''/> */}
 <CommentDisplay  tweetId={tweets.id}/>
+
 </>
 
 )
