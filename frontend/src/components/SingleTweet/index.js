@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {getSingleTweet} from '../../store/tweets';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { getComments } from '../../store/comments';
 import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
 import EditTweet from '../EditTweet';
+import {deleteTweet} from '../../store/tweets'
 // import user from '../../../../backend/db/models/user';
 
 
@@ -16,7 +17,7 @@ import EditTweet from '../EditTweet';
 
 const SingleTweet = ({tweetss}) => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const { tweetId } = useParams();
 
 
@@ -58,6 +59,16 @@ const currentUserId = currentUser?.id
 
     }, [dispatch])
 
+    const handleDeleteButton = async (e) => {
+        e.preventDefault();
+        const doDelete = await dispatch(deleteTweet(tweetz));
+
+          history.push("/tweets");
+
+
+
+      }
+
 
     return(
         <>
@@ -94,6 +105,9 @@ const currentUserId = currentUser?.id
         <div>{tweetz?.tweet}</div>
         <img src={tweetz?.imgUrl} alt=''/>
         <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id}/>
+        <div >
+           <button  onClick={handleDeleteButton}>Delete Tweet</button>
+        </div>
         {/* { commentsArray.filter(comment=> comment?.tweetId === tweetss?.id).map((comment)=>{
 
             return(

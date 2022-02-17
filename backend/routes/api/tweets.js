@@ -63,6 +63,18 @@ router.post(
   );
 
 
+  router.delete(
+    '/:id',
+    asyncHandler(async function(req, res) {
+      const tweet = await Tweet.findByPk(req.params.id);
+      if(tweet){
+      await tweet.destroy();
+      }
+      return res.json(req.body);
+  })
+);
+
+
 
 
 

@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET = 'tweets/GET';
 const ADD = 'tweets/ADD';
 const UPDATE = 'tweets/UPDATE'
+const REMOVE = 'tweets/REMOVE'
 
 
 
@@ -16,6 +17,11 @@ const addTweet = tweet => ({
     tweet
 })
 
+const removeTweet = tweetId => ({
+    type: REMOVE,
+    tweetId,
+  });
+
 export const editTweet = (tweet) => async dispatch => {
     const response = await csrfFetch(`/api/tweets/${tweet.id}`, {
       method: 'PUT',
@@ -25,6 +31,17 @@ export const editTweet = (tweet) => async dispatch => {
       const editedTweet = await response.json();
       const updated= dispatch(addTweet(editedTweet))
       return updated;
+    }
+  }
+
+  export const deleteTweet = (tweet) => async dispatch => {
+    const response = await csrfFetch(`/api/tweets/${tweet.id}`, {
+      method: 'DELETE',
+      body: JSON.stringify(tweet),
+    })
+    if (response.ok) {
+      dispatch(removeTweet(tweet.id))
+      return true;
     }
   }
 
@@ -94,6 +111,11 @@ const tweetReducer = (state= intialState, action) =>{
                   ...action.tweet,
                 }
               };
+          }
+          case REMOVE: {
+            const newState = { ...state };
+            delete newState[ action.tweetId];
+            return newState;
           }
 
          default:{
