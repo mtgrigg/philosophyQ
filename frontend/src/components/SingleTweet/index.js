@@ -27,27 +27,27 @@ const SingleTweet = ({tweetss}) => {
 
 
   // grab ALL users
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state?.users)
     const usersArray = Object.values(users)
 
   // grab ALL tweets
-    const tweets = useSelector(state => state.tweet);
+    const tweets = useSelector(state => state?.tweet);
     // console.log(tweets, "THIS IS TWWEETTSSS")
     const tweetsArray = Object.values(tweets)
 
 
 
-  const [targetTweet] = tweetsArray.filter(tweet => tweet.id === +tweetId);
+  const [targetTweet] = tweetsArray.filter(tweet => tweet?.id === +tweetId);
 //   console.log(tweetsArray, "THIS IS TARGET TWEET")
 
 
-  const [targetUser] = usersArray.filter(user => user.id === targetTweet.userId);
+  const [targetUser] = usersArray.filter(user => user?.id === targetTweet?.userId);
 //   console.log(usersArray, "THIS IS TARGET USSERRR")
 
     // grab comments
-    const comments = useSelector(state => state.comments)
+    const comments = useSelector(state => state?.comments)
     const commentsArray = Object.values(comments);
-    const [targetComment] = commentsArray.filter(comment => comment.tweetId === targetTweet.id);
+    const [targetComment] = commentsArray.filter(comment => comment?.tweetId === targetTweet?.id);
 
 
 
@@ -74,9 +74,15 @@ const SingleTweet = ({tweetss}) => {
     const currentUserId = currentUser?.id
 
     useEffect(() => {
-      dispatch(getTweets(tweetId));
-      dispatch(getUsers(tweetId));
-      dispatch(getComments(tweetId));
+        (async()=>{
+            await dispatch(getTweets(tweetId));
+            await dispatch(getUsers(tweetId));
+            await dispatch(getComments(tweetId));
+
+        })()
+    //   dispatch(getTweets(tweetId));
+    //   dispatch(getUsers(tweetId));
+    //   dispatch(getComments(tweetId));
     }, [dispatch, tweetId])
 
 
@@ -121,7 +127,7 @@ return(
     <>
     <EditComment commentInfo={comment}/>
     <button  onClick={handleDelete}>Delete Comment</button>
-{tweetz.id === comment.tweetId && <div key={comment.id}>{comment?.comment}</div>}
+{tweetz?.id === comment?.tweetId && <div key={comment?.id}>{comment?.comment}</div>}
 
 </>
 )
