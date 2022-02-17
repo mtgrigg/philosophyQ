@@ -77,7 +77,7 @@ const SingleTweet = ({tweetss}) => {
       dispatch(getTweets());
       dispatch(getUsers());
       dispatch(getComments(tweetId));
-    }, [dispatch])
+    }, [dispatch, tweetId])
 
 
 
@@ -92,8 +92,10 @@ const SingleTweet = ({tweetss}) => {
       }
 
       const handleDelete = (e) => {
-        e.preventDefault();
-      const deleteInfo =dispatch(deleteComment(targetComment))
+
+      dispatch(deleteComment(targetComment))
+
+      history.push(`/tweets/${tweetId}`);
 
     }
 
