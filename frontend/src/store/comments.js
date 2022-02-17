@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET = 'comments/GET';
 const ADD = 'comments/ADD';
 const UPDATE = 'comments/UPDATE'
+const REMOVE = 'comments/REMOVE'
 
 
 
@@ -15,6 +16,23 @@ const getComment = comments => ({
     type: ADD,
     comment,
   });
+
+  const removeComment = commentId => ({
+    type: REMOVE,
+    commentId,
+  });
+
+  export const deleteComment = (comment) => async dispatch => {
+    const response = await csrfFetch(`/api/tweets/${comment.id}/comments`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(comment),
+    })
+    if (response.ok) {
+      dispatch(removeComment(comment.id))
+      return true
+    }
+  }
 
 
   export const createComment = (comment) => async dispatch => {
@@ -91,6 +109,11 @@ const getComment = comments => ({
                 ...action.comment,
               }
             };
+        }
+        case REMOVE: {
+          const newState = { ...state };
+          delete newState[ action.commentId];
+          return newState;
         }
         default: {
             return state;

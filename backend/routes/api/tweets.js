@@ -106,6 +106,15 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
 
   );
 
+  router.delete(
+    '/:id/comments',
+    asyncHandler(async function(req, res) {
+    const comment = await Comment.findByPk(req.params.id);
+    comment.destroy();
+    return res.json(req.body);
+  })
+);
+
 
 
 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {getSingleTweet} from '../../store/tweets';
 import { Link, useHistory  } from 'react-router-dom';
-import { getComments } from '../../store/comments';
+import { getComments, deleteComment } from '../../store/comments';
 import { getUsers } from '../../store/users';
 import { getTweets } from '../../store/tweets';
 import CommentDisplay from '../CommentsDisplay';
@@ -22,9 +22,9 @@ const SingleTweet = ({tweetss}) => {
     const {tweetId} = useParams();
     // console.log(tweetId, "THIS IS TWEETEYEDDD")
 
-  // grab comments
-    const comments = useSelector(state => state.comments)
-    const commentsArray = Object.values(comments);
+
+
+
 
   // grab ALL users
     const users = useSelector(state => state.users)
@@ -35,12 +35,21 @@ const SingleTweet = ({tweetss}) => {
     // console.log(tweets, "THIS IS TWWEETTSSS")
     const tweetsArray = Object.values(tweets)
 
+
+
   const [targetTweet] = tweetsArray.filter(tweet => tweet.id === +tweetId);
-//   console.log(targetTweet, "THIS IS TARGET TWEET")
+  console.log(tweetsArray, "THIS IS TARGET TWEET")
 
 
   const [targetUser] = usersArray.filter(user => user.id === targetTweet.userId);
-//   console.log(targetUser, "THIS IS TARGET USSERRR")
+  console.log(usersArray, "THIS IS TARGET USSERRR")
+
+    // grab comments
+    const comments = useSelector(state => state.comments)
+    const commentsArray = Object.values(comments);
+    const [targetComment] = commentsArray.filter(comment => comment.tweetId === targetTweet.id);
+
+
 
   function userCard(user) {
 
@@ -82,6 +91,12 @@ const SingleTweet = ({tweetss}) => {
 
       }
 
+      const handleDelete = (e) => {
+        e.preventDefault();
+      const deleteInfo =dispatch(deleteComment(targetComment))
+
+    }
+
     return(
         <>
 
@@ -103,6 +118,7 @@ const SingleTweet = ({tweetss}) => {
 return(
     <>
     <EditComment commentInfo={comment}/>
+    <button  onClick={handleDelete}>Delete Comment</button>
 {tweetz.id === comment.tweetId && <div key={comment.id}>{comment?.comment}</div>}
 
 </>
