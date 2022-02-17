@@ -10,6 +10,7 @@ import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
 import EditTweet from '../EditTweet';
 import {deleteTweet} from '../../store/tweets'
+import CreateComment from '../CreateComment';
 // import user from '../../../../backend/db/models/user';
 
 
@@ -116,10 +117,12 @@ const currentUserId = currentUser?.id
        </>
             )
         })} */}
+          <CreateComment  tweetId={tweetz?.id}/>
          { commentsArray.map((comment)=>{
 
 return(
     <>
+
 <div key={comment.id}>{comment?.comment}</div>
 </>
 )

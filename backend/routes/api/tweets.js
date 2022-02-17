@@ -83,6 +83,15 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
     return res.json(comments);
   }));
 
+  router.post(
+    '/:id/comments',
+    asyncHandler(async function(req, res, next) {
+        const newComment = await Comment.create(req.body);
+
+        return res.json(newComment);
+    })
+  );
+
 
 
 
