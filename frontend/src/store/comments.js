@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET = 'comments/GET';
 const ADD = 'comments/ADD';
+const UPDATE = 'comments/UPDATE'
 
 
 
@@ -28,6 +29,18 @@ const getComment = comments => ({
       return comment;
     }
 
+  }
+
+  export const editComment = (info) => async dispatch => {
+    const response = await csrfFetch(`/api/tweets/${info.id}/comments`, {
+      method: 'PUT',
+      body: JSON.stringify(info),
+    })
+    if (response.ok) {
+      const editedComment = await response.json();
+      dispatch(addComment(editedComment))
+      return editedComment;
+    }
   }
 
 
@@ -69,6 +82,16 @@ const getComment = comments => ({
 
         }
         case ADD:  return {...state, [action.comment.id]: action.comment}
+
+        case UPDATE:{
+          return {
+              ...state,
+              [action.comment.id]: {
+                ...state[action.comment.id],
+                ...action.comment,
+              }
+            };
+        }
         default: {
             return state;
         }

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  {editComment}  from '../../store/comments';
 import { useHistory } from 'react-router-dom';
-import { getComments } from '../../store/comments';
 
 
 const EditComment = ({commentInfo}) => {
