@@ -92,6 +92,20 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
     })
   );
 
+  router.put(
+    '/:id(\\d+)/comments',
+    asyncHandler(async function(req, res) {
+
+        let editedComment = await Comment.findByPk(req.params.id);
+
+        let thisComment= await editedComment.update(req.body);
+
+        return res.json(thisComment);//editedImage
+
+      })
+
+  );
+
 
 
 

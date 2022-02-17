@@ -12,6 +12,7 @@ import EditTweet from '../EditTweet';
 import {deleteTweet} from '../../store/tweets'
 import CreateComment from '../CreateComment';
 // import user from '../../../../backend/db/models/user';
+import EditComment from '../EditComment';
 
 
 
@@ -124,10 +125,12 @@ return(
     <>
 
 <div key={comment.id}>{comment?.comment}</div>
+
 </>
 )
 })}
         <CommentDisplay tweetId={tweetss?.id}/>
+    
 
 
       </>

@@ -25,11 +25,12 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
               return (
                   <>
                 <div>
-
+                <EditComment commentInfo={comment}/>
                 {comment.comment}
                 ---this is the comment---
+
                 </div>
-                <EditComment commentInfo={comment}/>
+
 
                 </>
               );

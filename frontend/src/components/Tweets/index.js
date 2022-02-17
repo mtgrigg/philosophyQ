@@ -54,9 +54,10 @@ return (
          <UserDisplay tweetId={tweet.userId}/>
         <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
             {/* <SingleTweet tweetss={tweet.id}/> */}
-            <TweetAssembly tweets={tweet} />
+            {tweet.tweet}
 
         </NavLink>
+        <TweetAssembly tweets={tweet} />
         {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
         {/* <CommentDisplay  tweetId={tweet.id}/> */}
         </>
