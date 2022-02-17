@@ -38,11 +38,11 @@ const SingleTweet = ({tweetss}) => {
 
 
   const [targetTweet] = tweetsArray.filter(tweet => tweet.id === +tweetId);
-  console.log(tweetsArray, "THIS IS TARGET TWEET")
+//   console.log(tweetsArray, "THIS IS TARGET TWEET")
 
 
   const [targetUser] = usersArray.filter(user => user.id === targetTweet.userId);
-  console.log(usersArray, "THIS IS TARGET USSERRR")
+//   console.log(usersArray, "THIS IS TARGET USSERRR")
 
     // grab comments
     const comments = useSelector(state => state.comments)
