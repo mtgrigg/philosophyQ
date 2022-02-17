@@ -33,7 +33,7 @@ const filteredComments= commentsArray.filter(comment=>comment.tweetId == tweets.
 const users = useSelector(state=>state.users)
 const usersArray= Object.values(users)
 
-console.log(tweets, "THSI IS BBOBOBOBOB")
+// console.log(tweets, "THSI IS BBOBOBOBOB")
 
 return (
     <>

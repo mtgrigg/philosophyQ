@@ -36,7 +36,7 @@ router.post(
 
 
     const { email, password, username, imgUrl, bio } = req.body;
-    console.log( req.body, "THIS IS REQ BODY")
+    // console.log( req.body, "THIS IS REQ BODY")
     const user = await User.signup({ email, username, password, bio, imgUrl });
 
 

@@ -32,7 +32,7 @@ router.post(
     '/',
     asyncHandler(async function(req, res) {
         const newTweet = await Tweet.create(req.body);
-        console.log(newTweet, "THIS IS NEW TWEET")
+        // console.log(newTweet, "THIS IS NEW TWEET")
         if(newTweet){
             return res.json(newTweet);
         }

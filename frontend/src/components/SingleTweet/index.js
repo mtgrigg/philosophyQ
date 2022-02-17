@@ -19,7 +19,7 @@ const SingleTweet = ({tweetss}) => {
     const history = useHistory();
 
     const {tweetId} = useParams();
-    console.log(tweetId, "THIS IS TWEETEYEDDD")
+    // console.log(tweetId, "THIS IS TWEETEYEDDD")
 
   // grab comments
     const comments = useSelector(state => state.comments)
@@ -31,15 +31,15 @@ const SingleTweet = ({tweetss}) => {
 
   // grab ALL tweets
     const tweets = useSelector(state => state.tweet);
-    console.log(tweets, "THIS IS TWWEETTSSS")
+    // console.log(tweets, "THIS IS TWWEETTSSS")
     const tweetsArray = Object.values(tweets)
 
   const [targetTweet] = tweetsArray.filter(tweet => tweet.id === +tweetId);
-  console.log(targetTweet, "THIS IS TARGET TWEET")
+//   console.log(targetTweet, "THIS IS TARGET TWEET")
 
 
   const [targetUser] = usersArray.filter(user => user.id === targetTweet.userId);
-  console.log(targetUser, "THIS IS TARGET USSERRR")
+//   console.log(targetUser, "THIS IS TARGET USSERRR")
 
   function userCard(user) {
 

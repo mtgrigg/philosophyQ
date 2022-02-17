@@ -32,7 +32,7 @@ const CreateTweet = () => {
 
 
   };
-  console.log(imgUrl, 'THIS IS IAMGEEIMAGE')
+//   console.log(imgUrl, 'THIS IS IAMGEEIMAGE')
 
 
   return (

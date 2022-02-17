@@ -13,7 +13,7 @@ const CommentButtons = ({commentInfo}) => {
 
     const [edit, setEdit] = useState(false);
 
-    console.log("AM I HERE OR AM I NOT AAAAGHHHHHH")
+    // console.log("AM I HERE OR AM I NOT AAAAGHHHHHH")
 
     const preSession= commentInfo?.userId
     const sessionId = userId === preSession
