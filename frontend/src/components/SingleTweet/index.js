@@ -111,11 +111,13 @@ const SingleTweet = ({tweetss}) => {
 
     }
 
+    // console.log(tweetUserId, 'THIS IS TWEETUSERIS')
+
     return(
         <>
 
 <div >
-           <button  onClick={handleDeleteButton}>Delete Tweet</button>
+          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}>Delete Tweet</button>}
         </div>
           {userCard(targetUser)}
 
