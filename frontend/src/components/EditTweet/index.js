@@ -31,10 +31,10 @@ const [edit, setEdit] = useState(true);
 
        const newTweet= await dispatch(editTweet(payload))
 
-
+       if(newTweet){
         history.push(`/tweets/${id}`);
         window.location.reload();
-
+    }
 
 
   };
