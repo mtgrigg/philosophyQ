@@ -124,7 +124,7 @@ const SingleTweet = ({tweetss}) => {
         {/* <div>{userz?.username}</div> */}
         <div>{tweetz?.tweet}</div>
         <img src={tweetz?.imgUrl} alt=''/>
-        <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id}/>
+        <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId}/>
 
         <CreateComment  tweetId={tweetId}/>
 
