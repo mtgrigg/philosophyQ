@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUsers } from '../../store/users';
+import './UsersDisplay.css';
 
 
 const UserDisplay = ({tweetId, commentsProp}) =>{
@@ -26,7 +27,9 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
         { filteredUsers.map((user) => {
               return (
 <>
-                <img src={user.imgUrl} alt =''/>
+                <div >
+                <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed'/>
+                </div>
                 <div>
                 {user.username}
                 </div>

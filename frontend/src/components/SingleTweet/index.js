@@ -14,6 +14,7 @@ import EditTweet from '../EditTweet';
 import EditComment from '../EditComment';
 import CreateComment from '../CreateComment';
 import { Redirect } from "react-router-dom";
+import './SingleTweet.css'
 
 
 
@@ -72,7 +73,7 @@ const SingleTweet = ({tweetss}) => {
         <div>
           <div>{username}</div>
           <div>{bio}</div>
-          <img src={imgUrl} alt='' />
+          <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage'/>
         </div>
       </>
     );
@@ -166,7 +167,7 @@ return(
     return(
         <>
          {comment?.userId === users?.id  && <div>{users.username}</div>}
-         {comment?.userId === users?.id  && <img src={users.imgUrl} alt=''/>}
+         {comment?.userId === users?.id  && <img src={users.imgUrl} alt='' className='userProfilePicOnComment'/>}
          </>
     )
 })}

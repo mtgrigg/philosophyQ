@@ -1,0 +1,14 @@
+.userProfilePicOnSingleTweetPage{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+
+}
+
+
+.userProfilePicOnComment{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+
+}
