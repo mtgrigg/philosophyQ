@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     Tweet.belongsTo(models.User, {foreignKey: "userId", hooks: true})
+
+    Tweet.hasMany(models.Comment, { foreignKey: 'tweetId', onDelete: 'cascade', hooks: true });
     }
   };
   Tweet.init({
