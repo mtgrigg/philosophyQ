@@ -12,6 +12,7 @@ import UserDisplay from '../UsersDisplay';
 import {deleteTweet} from '../../store/tweets'
 import EditTweet from '../EditTweet';
 import EditComment from '../EditComment';
+import CreateComment from '../CreateComment';
 
 
 
@@ -119,6 +120,8 @@ const SingleTweet = ({tweetss}) => {
         <div>{tweetz?.tweet}</div>
         <img src={tweetz?.imgUrl} alt=''/>
         <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id}/>
+
+        <CreateComment  tweetId={tweetId}/>
 
 
          { commentsArray.map((comment)=>{

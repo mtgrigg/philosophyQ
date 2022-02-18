@@ -34,6 +34,8 @@ const CreateComment = ({tweetId}) => {
 
        const newTweet= await dispatch(createComment(payload))
 
+       setComment("")
+
       if(newTweet){
         history.push(`/tweets/${tweetId}`);
       }
