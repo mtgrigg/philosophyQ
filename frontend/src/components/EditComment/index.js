@@ -48,7 +48,7 @@ const EditComment = ({commentInfo}) => {
 
 }
 
-
+// console.log(commentInfo, "THIS IS COMMENTIFNO")
 
   return (
     <div >

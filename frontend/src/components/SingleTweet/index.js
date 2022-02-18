@@ -13,6 +13,7 @@ import {deleteTweet} from '../../store/tweets'
 import EditTweet from '../EditTweet';
 import EditComment from '../EditComment';
 import CreateComment from '../CreateComment';
+import { Redirect } from "react-router-dom";
 
 
 
@@ -31,9 +32,11 @@ const SingleTweet = ({tweetss}) => {
     const users = useSelector(state => state?.users)
     const usersArray = Object.values(users)
 
+    console.log(usersArray, "THIS IS USERSARRAY")
+
   // grab ALL tweets
     const tweets = useSelector(state => state?.tweet);
-    // console.log(tweets, "THIS IS TWWEETTSSS")
+
     const tweetsArray = Object.values(tweets)
 
 
@@ -50,9 +53,13 @@ const SingleTweet = ({tweetss}) => {
     const commentsArray = Object.values(comments);
     const [targetComment] = commentsArray.filter(comment => comment?.tweetId === targetTweet?.id);
 
-    const [usersComment] = commentsArray.filter(comment => comment?.userId);
+    // const [commentUserId] = commentsArray.map(comment => comment?.userId);
+    // console.log(commentUserId, "THIS IS CommentUSERID")
 
-    // console.log(usersComment?.userId,"THIS IS USERSCOMMENT")
+
+    // const [commentsUser] = usersArray.filter(user => user?.id=== usersComment.userId);
+
+    //   console.log(commentsUser.id,"THIS IS USERSCOMMENT")
 
 
 
@@ -74,6 +81,7 @@ const SingleTweet = ({tweetss}) => {
 
     const tweetz = tweets[tweetId]
     const tweetUserId = tweetsArray.filter(tweet => tweet.userId)
+    const tweetCommentId = tweetsArray.filter(tweet => tweet?.id)
 
     const currentUser = useSelector(state => state.session.user);
     const currentUserId = currentUser?.id
@@ -94,9 +102,17 @@ const SingleTweet = ({tweetss}) => {
 
         const handleDeleteButton = (e) => {
 
-        dispatch(deleteTweet(targetTweet));
+        // dispatch(deleteTweet(targetTweet));
 
-          history.push("/tweets");
+         (async()=>{
+
+           await dispatch(deleteTweet(targetTweet));
+
+              history.push("/tweets");
+        })();
+
+
+
 
 
 
@@ -110,13 +126,13 @@ const SingleTweet = ({tweetss}) => {
         // })()
         dispatch(deleteComment(targetComment))
 
-
+//i dont think this is being used here anymore
 
     //   history.push(`/tweets/${tweetId}`);
 
     }
 
-    // console.log(tweetUserId, 'THIS IS TWEETUSERIS')
+    // console.log(tweetz, 'THIS IS TWEETzzzz')
 
     return(
         <>
@@ -142,9 +158,18 @@ return(
     <>
    {(comment?.userId === currentUserId) && <EditComment commentInfo={comment}/>}
 
-{tweetz?.id === comment?.tweetId && <div key={comment?.id}>{comment?.comment}</div>}
+{(tweetz?.id === comment?.tweetId) && <div key={comment.id}>{comment?.comment}</div>}
+{/* {comment?.userId == usersArray?.id  && <div>{usersArray.username}</div>} */}
 {/* {(comment?.userId === currentUserId) &&<button  onClick={handleDelete}>Delete Comment</button>} */}
+{usersArray.map((users)=>{
 
+    return(
+        <>
+         {comment?.userId === users?.id  && <div>{users.username}</div>}
+         {comment?.userId === users?.id  && <img src={users.imgUrl} alt=''/>}
+         </>
+    )
+})}
 </>
 )
 })}
