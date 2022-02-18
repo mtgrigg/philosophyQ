@@ -48,7 +48,7 @@ return (
 
     <CreateTweet />
 
-    {tweetArray.map((tweet)=>{
+    {tweetArray.reverse().map((tweet)=>{
         return(
             <>
          <UserDisplay tweetId={tweet.userId}/>
