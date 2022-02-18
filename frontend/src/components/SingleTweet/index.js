@@ -50,6 +50,10 @@ const SingleTweet = ({tweetss}) => {
     const commentsArray = Object.values(comments);
     const [targetComment] = commentsArray.filter(comment => comment?.tweetId === targetTweet?.id);
 
+    const [usersComment] = commentsArray.filter(comment => comment?.userId);
+
+    // console.log(usersComment?.userId,"THIS IS USERSCOMMENT")
+
 
 
   function userCard(user) {
@@ -100,14 +104,15 @@ const SingleTweet = ({tweetss}) => {
 
       const handleDelete = (e) => {
 
-        (async()=>{
+        // (async()=>{
 
-           await dispatch(deleteComment(targetComment))
-        })()
+        //    await dispatch(deleteComment(targetComment))
+        // })()
+        dispatch(deleteComment(targetComment))
 
 
 
-      history.push(`/tweets/${tweetId}`);
+    //   history.push(`/tweets/${tweetId}`);
 
     }
 
@@ -135,9 +140,10 @@ const SingleTweet = ({tweetss}) => {
 
 return(
     <>
-    <EditComment commentInfo={comment}/>
-    <button  onClick={handleDelete}>Delete Comment</button>
+   {(comment?.userId === currentUserId) && <EditComment commentInfo={comment}/>}
+
 {tweetz?.id === comment?.tweetId && <div key={comment?.id}>{comment?.comment}</div>}
+{/* {(comment?.userId === currentUserId) &&<button  onClick={handleDelete}>Delete Comment</button>} */}
 
 </>
 )
