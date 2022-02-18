@@ -15,7 +15,7 @@ function SignupFormPage() {
   const [imgUrl, setImgUrl] = useState([]);
   const [bio, setBio] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/tweets" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +28,12 @@ function SignupFormPage() {
         });
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
+  };
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    const demo= dispatch(sessionActions.login({credential: "demo@user.io", password: 'password' }));
+    return demo
   };
 
   return (
@@ -92,6 +98,7 @@ function SignupFormPage() {
           />
         </label>
         <button type="submit">Sign Up</button>
+        <button className='demoButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
     </>
   );

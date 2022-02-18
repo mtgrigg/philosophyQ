@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/tweets" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +21,12 @@ function LoginFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+  };
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    const demo= dispatch(sessionActions.login({credential: "demo@user.io", password: 'password' }));
+    return demo
   };
 
   return (
@@ -51,6 +57,7 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button className='demoButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
     </>
   );
