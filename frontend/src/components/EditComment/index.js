@@ -13,6 +13,7 @@ const EditComment = ({commentInfo}) => {
 
 
  const [comment, setComment] = useState("");
+ const [edit, setEdit] = useState(false);
 
 //  console.log(commentInfo.id, "THIS IS COMMENTINFO")
 
@@ -56,7 +57,7 @@ const EditComment = ({commentInfo}) => {
           <>
         <form onSubmit={handleSubmit}>
 
-          <h1 > Edit Comment </h1>
+          {/* <h1 > Edit Comment </h1> */}
           <div >
       </div>
           <input
@@ -66,9 +67,9 @@ const EditComment = ({commentInfo}) => {
             onChange={(e) => setComment(e.target.value)}
           />
 
-          <button  type="submit">Edit comment</button>
+         { <button  type="submit" >Submit Edit comment</button> }
         </form>
-       {(userId===commentInfo.userId) && <button  onClick={handleDelete}>Delete Comment</button>}
+        <button  onClick={handleDelete}>Delete Comment</button>
         </>
         )
       }

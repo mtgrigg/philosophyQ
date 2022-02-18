@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCommentsFeed} from '../../store/comments';
-import EditComment from '../EditComment';
+import CommentButtons from '../EditComment';
 
 
 const CommentDisplay = ({tweetId, commentsProp}) =>{
@@ -25,7 +25,7 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
               return (
                   <>
                 <div>
-                {/* <EditComment commentInfo={comment}/> */}
+                {/* <CommentButtons key={comment.id} commentInfo={comment} tweetId={comment.tweetId}/> */}
                 {comment.comment}
                 ---this is the comment---
 

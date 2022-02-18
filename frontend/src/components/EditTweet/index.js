@@ -4,12 +4,14 @@ import  {editTweet}  from '../../store/tweets';
 import { useHistory } from 'react-router-dom';
 
 
-const EditTweet = ({tweetTweet, tweetImg, tweetId, tweetCreater}) => {
+const EditTweet = ({tweetTweet, tweetImg, tweetId, tweetCreater, hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
   const user = useSelector(state => state.session.user);
   const userId= user?.id;
 const id= tweetId
+
+const [edit, setEdit] = useState(true);
 
 // console.log(tweetCreater, "THIS IS id")
 
@@ -29,9 +31,10 @@ const id= tweetId
 
        const newTweet= await dispatch(editTweet(payload))
 
-      if(newTweet){
+
         history.push(`/tweets/${id}`);
-      }
+        window.location.reload();
+
 
 
   };
@@ -58,7 +61,7 @@ const id= tweetId
             value={tweet}
             onChange={(e) => setTweet(e.target.value)}
           />
-          <button  type="submit">Edit tweet</button>
+           <button  type="submit" >Submit edit</button>
         </form>
         )
       }
