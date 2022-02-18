@@ -124,7 +124,7 @@ const SingleTweet = ({tweetss}) => {
         <CreateComment  tweetId={tweetId}/>
 
 
-         { commentsArray.map((comment)=>{
+         { commentsArray.reverse().map((comment) =>{
 
 return(
     <>
