@@ -100,7 +100,12 @@ const SingleTweet = ({tweetss}) => {
 
       const handleDelete = (e) => {
 
-      dispatch(deleteComment(targetComment))
+        (async()=>{
+
+           await dispatch(deleteComment(targetComment))
+        })()
+
+
 
       history.push(`/tweets/${tweetId}`);
 
