@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import LoginFormModal from '../LoginFormModal';
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -118,8 +119,11 @@ function SignupFormPage() {
         </label>
         <button type="submit"  className='signUpButton'>Sign Up</button>
         <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
- 
+
+
       </form>
+      <div className='loginModalSignUpPage'>Already have an account? <LoginFormModal /></div>
+
       </div>
       </div>
     </>

@@ -10,13 +10,13 @@
 
 /* background-color:#ecf0f3 ; */
 width: max-content;
-height:800px;
+height:850px;
 padding:40px;
 border-radius: 20px;
 box-sizing: border-box;
 
 margin-left: 30% ;
-margin-top: 4%;
+margin-top: 1%;
 
 box-shadow: 14px 14px 20px #cbced1,
 -9px -9px 20px rgb(185, 184, 184);
@@ -95,4 +95,11 @@ color:white;
     flex-flow: column;
     /* display: block; */
 
+}
+
+.loginModalSignUpPage{
+    color:white;
+    background:black ;
+
+    margin-top: 20px;
 }
