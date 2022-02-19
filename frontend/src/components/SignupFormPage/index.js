@@ -44,12 +44,14 @@ function SignupFormPage() {
 
       <div className="signUpContainer">
         <div className='signUpLogo'></div>
+        <div className='siteTitleSignUpPage ' >PhilosophyQ</div>
       <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <div>Email</div>
         <label>
-          Email
+          {/* Email */}
           <input
           className='signUpInput'
             type="text"
@@ -58,8 +60,9 @@ function SignupFormPage() {
             required
           />
         </label>
+        <div>Username</div>
         <label>
-          Username
+          {/* Username */}
           <input
           className='signUpInput'
             type="text"
@@ -68,8 +71,9 @@ function SignupFormPage() {
             required
           />
         </label>
+        <div>Password</div>
         <label>
-          Password
+          {/* Password */}
           <input
           className='signUpInput'
             type="password"
@@ -78,8 +82,9 @@ function SignupFormPage() {
             required
           />
         </label>
+        <div>Confirm Password</div>
         <label>
-          Confirm Password
+          {/* Confirm Password */}
           <input
           className='signUpInput'
             type="password"
@@ -88,8 +93,9 @@ function SignupFormPage() {
             required
           />
         </label>
+        <div>Profile Photo (Optional Url)</div>
         <label>
-          imgUrl
+          {/* imgUrl */}
           <input
           className='signUpInput'
             type="text"
@@ -98,10 +104,12 @@ function SignupFormPage() {
 
           />
         </label>
+        <div> User Bio</div>
         <label>
-          Bio
+          {/* Bio */}
           <input
           className='signUpInput'
+          id="bioButton"
             type="text"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
@@ -110,6 +118,7 @@ function SignupFormPage() {
         </label>
         <button type="submit"  className='signUpButton'>Sign Up</button>
         <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
+ 
       </form>
       </div>
       </div>

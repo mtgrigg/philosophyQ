@@ -19,7 +19,7 @@ margin-left: 30% ;
 margin-top: 4%;
 
 box-shadow: 14px 14px 20px #cbced1,
--14px -14px 20px rgb(185, 184, 184);
+-9px -9px 20px rgb(185, 184, 184);
 }
 
 .leftBackGroundSignUp{
@@ -37,7 +37,16 @@ box-shadow: 14px 14px 20px #cbced1,
     box-sizing: border-box;
 
     box-shadow: 7px 7px 10px #cbced1,
-     -7px -7px 10px white;
+     -3px -3px 10px white;
+}
+
+.siteTitleSignUpPage {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    color:#1DA1F2;
 }
 
 .signUpInput{
@@ -45,14 +54,22 @@ box-shadow: 14px 14px 20px #cbced1,
 background-color: #ecf0f3;
 /* padding:10px;
 padding-left:20px; */
-height:50px;
+height:25px;
 font-size:14px;
 border-radius: 50px;
+width:200px;
 
 box-shadow: inset 6px 6px 6px #cbced1,
 inset -6px -6px 6px white;
+overflow:scroll;
 
 
+}
+#bioButton{
+    height:100px;
+    border-radius: 10px;
+    width:200px;
+    overflow:scroll;
 }
 
 .signUpButton{
@@ -64,8 +81,8 @@ inset -6px -6px 6px white;
     font-weight: 900;
     transition: 0.5s;
 color:white;
-    box-shadow:  6px 6px 6px #cbced1,
- -6px -6px 6px white;
+    /* box-shadow:  3px 3px 3px #eae8e8,
+ -2px -2px 2px rgb(0, 0, 0); */
 
 
 }
