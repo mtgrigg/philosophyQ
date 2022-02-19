@@ -37,6 +37,10 @@ function SignupFormPage() {
     return demo
   };
 
+
+
+
+
   return (
     <>
     <div className='flexHelp'>
@@ -119,6 +123,8 @@ function SignupFormPage() {
         </label>
         <button type="submit"  className='signUpButton'>Sign Up</button>
         <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
+        <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Nietsche(Demo)</button>
+        <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Wittgenstein(Demo)</button>
 
 
       </form>

@@ -1,0 +1,15 @@
+.loggedInButton{
+    padding: 15.5px 18px ;
+    font-size: 17px;
+
+    background-color:rgb(248, 241, 235) ;
+    border: none;
+    /* border-radius: 4px; */
+    color: rgb(133, 28, 28);
+    transition: all 0.2s ease;
+    margin-left: 5px;
+
+    margin-top: 10px;
+
+
+  }
