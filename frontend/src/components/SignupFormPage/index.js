@@ -38,14 +38,20 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='flexHelp'>
+    <div className="leftBackGroundSignUp"></div>
+
+
+      <div className="signUpContainer">
+        <div className='signUpLogo'></div>
+      <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
           Email
           <input
+          className='signUpInput'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -55,6 +61,7 @@ function SignupFormPage() {
         <label>
           Username
           <input
+          className='signUpInput'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -64,6 +71,7 @@ function SignupFormPage() {
         <label>
           Password
           <input
+          className='signUpInput'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -73,6 +81,7 @@ function SignupFormPage() {
         <label>
           Confirm Password
           <input
+          className='signUpInput'
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -82,6 +91,7 @@ function SignupFormPage() {
         <label>
           imgUrl
           <input
+          className='signUpInput'
             type="text"
             value={imgUrl}
             onChange={(e) => setImgUrl(e.target.value)}
@@ -91,15 +101,18 @@ function SignupFormPage() {
         <label>
           Bio
           <input
+          className='signUpInput'
             type="text"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
-        <button className='demoButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
+        <button type="submit"  className='signUpButton'>Sign Up</button>
+        <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
+      </div>
+      </div>
     </>
   );
 }

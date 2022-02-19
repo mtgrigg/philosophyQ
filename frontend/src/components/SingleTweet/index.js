@@ -71,11 +71,23 @@ const SingleTweet = ({tweetss}) => {
     const {username, imgUrl, bio} = user;
     return (
       <>
-        <div>
-          <div>{username}</div>
-          <div>{bio}</div>
-          <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage'/>
+        <div className='userInfoSingleTweetPageWrapper'>
+            <div>
+        <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage'/>
         </div>
+        <div className='singletweetUserNameWrapper'>
+          {/* <div>{username}</div> */}
+          <div>@{username}</div>
+          {/* <div className='singleTweetUserBio'>{bio}</div> */}
+          </div>
+
+
+         </div>
+        <div className='singletweetBioNameWrapper'>
+        {/* <div>{username}</div> */}
+        <div>Bio:</div>
+          <div>{bio}</div>
+          </div>
       </>
     );
   }
@@ -138,18 +150,24 @@ const SingleTweet = ({tweetss}) => {
 
     return(
         <>
+        <div className='singleTweetBody'>
 
-<div >
-          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}>Delete Tweet</button>}
-        </div>
+
           {userCard(targetUser)}
+          </div>
+          <div className='singleTweetBody2'>
 
        {/* {currentUserId === tweetz?.userId && <div>{currentUser?.username}</div>} */}
         {/* <img src= {userz?.imgUrl} alt=''/> */}
         {/* <div>{userz?.username}</div> */}
+        <div className='singleTweetImgAndCreateAt'>
+        <img src={tweetz?.imgUrl} alt=''/>
         <div>{tweetz?.tweet}</div>
         <div>{tweetz?.createdAt}</div>
-        <img src={tweetz?.imgUrl} alt=''/>
+        </div>
+        <div >
+          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}>Delete Tweet</button>}
+        </div>
         {(tweetz?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>Edit Tweet</button>}
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
 
@@ -181,9 +199,10 @@ return(
 )
 })}
         {/* <CommentDisplay tweetId={tweetss?.id}/> */}
+        </div>
 
+</>
 
-      </>
     )
 
 

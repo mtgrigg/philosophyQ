@@ -1,7 +1,7 @@
 .userProfilePicOnSingleTweetPage{
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 140px;
+    width: 140px;
 
 }
 
@@ -11,4 +11,57 @@
     height: 50px;
     width: 50px;
 
+}
+
+
+.singleTweetBody{
+    background: black;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    position: fixed;
+    top:205px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.singleTweetBody2{
+    background: black;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    position: absolute;
+    top:575px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.singletweetBioNameWrapper{
+margin-left: 20px;
+margin-top: 20px;
+
+
+}
+
+
+.userInfoSingleTweetPageWrapper{
+justify-content:flex-start;
+    display: flex;
+}
+
+.singletweetUserNameWrapper{
+
+    margin-left: 20px;
+    padding: 25px;
+    margin-top: 30px;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+
+.singleTweetImgAndCreateAt{
+    margin-left: 10px;
+    margin-bottom: 30px;
 }

@@ -9,6 +9,7 @@ import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
 import CreateTweet from '../CreateTweet';
+import './Tweets.css'
 
 
 const TweetsPage = () => {
@@ -44,7 +45,7 @@ const usersArray= Object.values(users)
 
 return (
 
-<div>
+<div className='tweetFeedBody'>
 
     <CreateTweet />
 

@@ -32,7 +32,7 @@ function App() {
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route> */}
-          <Route exact path='/signup'>
+          <Route exact path='/'>
             <SignupFormPage />
           </Route>
           <Route exact path='/tweets'>
