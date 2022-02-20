@@ -53,7 +53,7 @@ return (
         return(
             <>
          <UserDisplay tweetId={tweet.userId}/>
-        <NavLink key={tweet.id} to={`/tweets/${tweet.id}`} tweet={tweet}>
+        <NavLink key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
             {/* <SingleTweet tweetss={tweet.id}/> */}
             {/* {tweet.tweet} */}
             <div>button</div>

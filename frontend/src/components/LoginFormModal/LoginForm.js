@@ -38,8 +38,10 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
+    <div className='flexHelpLogin'>
+      <div className="logInContainer">
       <form onSubmit={handleSubmit}>
+        Login
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -66,6 +68,8 @@ function LoginForm() {
         <button type="submit">Log In</button>
         <button className='demoButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
+      </div>
+      </div>
     </>
   );
 }

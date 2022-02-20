@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCommentsFeed} from '../../store/comments';
 import CommentButtons from '../EditComment';
+import "./CommentsDisplay.css";
 
 
 const CommentDisplay = ({tweetId, commentsProp}) =>{
@@ -19,24 +20,31 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
 
 
     return(
-        <div>
-        <div >
-        { filtered.map((comment) => {
-              return (
-                  <>
-                <div>
-                {/* <CommentButtons key={comment.id} commentInfo={comment} tweetId={comment.tweetId}/> */}
-                {comment.comment}
-                ---this is the comment---
+      //   <div>
+      //   <div >
+      //   { filtered.map((comment) => {
+      //         return (
+      //             <>
+      //           <div>
+      //           {/* <CommentButtons key={comment.id} commentInfo={comment} tweetId={comment.tweetId}/> */}
+      //           {comment.comment}
+      //           ---this is the comment---
 
-                </div>
+      //           </div>
 
 
-                </>
-              );
+      //           </>
+      //         );
 
-            })}
-        </ div>
+      //       })}
+      //   </ div>
+      // </div>
+      <div className='commentsDisplayTweetFeed'>
+<i class="fas fa-comment" ></i>
+      <div>
+
+      {filtered.length > 0 && filtered.length }
+      </div>
       </div>
     )
 

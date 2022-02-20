@@ -109,7 +109,7 @@ function SignupFormPage() {
 
           />
         </label>
-        <div> User Bio</div>
+        <div> User Bio (Optional)</div>
         <label>
           {/* Bio */}
           <input
