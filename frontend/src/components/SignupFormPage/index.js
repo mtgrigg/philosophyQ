@@ -33,10 +33,20 @@ function SignupFormPage() {
 
   const demoLogin = (e) => {
     e.preventDefault();
-    const demo= dispatch(sessionActions.login({credential: "demo@user.io", password: 'password' }));
+    const demo= dispatch(sessionActions.login({credential: "socrates@user.io", password: 'password' }));
     return demo
   };
 
+  const demoLogin1 = (e) => {
+    e.preventDefault();
+    const demo= dispatch(sessionActions.login({credential: "nietzsche@user.io", password: 'password' }));
+    return demo
+  };
+  const demoLogin2 = (e) => {
+    e.preventDefault();
+    const demo= dispatch(sessionActions.login({credential: "wittgenstein@user.io", password: 'password' }));
+    return demo
+  };
 
 
 
@@ -129,8 +139,8 @@ function SignupFormPage() {
         </label>
         <button type="submit"  className='signUpButton'>Sign Up</button>
         <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
-        <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Nietzsche(Demo)</button>
-        <button  className='signUpButton' onClick={demoLogin}  type="submit">Log in as Wittgenstein(Demo)</button>
+        <button  className='signUpButton' onClick={demoLogin1}  type="submit">Log in as Nietzsche(Demo)</button>
+        <button  className='signUpButton' onClick={demoLogin2}  type="submit">Log in as Wittgenstein(Demo)</button>
 
 
       </form>

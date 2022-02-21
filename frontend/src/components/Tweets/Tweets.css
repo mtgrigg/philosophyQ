@@ -15,7 +15,13 @@
         border-radius: 2em;
         padding-left: 30em;
         padding-right: 30em;
-        padding-top: 55px;
+        padding-top: 5px;
+}
+
+.userPhotoNextToCreateATweet{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
 }
 
 
@@ -41,7 +47,15 @@
 
 .createTweetForm{
 
+display: flex;
+justify-content: center;
 
+border: solid rgb(124, 124, 124) .1px;
+border-width: thin;
+padding:20px;
+margin-left: 30em;
+margin-right: 30em;
+padding-bottom:10px ;
 
 }
 

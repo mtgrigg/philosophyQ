@@ -40,27 +40,32 @@ const CreateTweet = () => {
 
 
   return (
-    <div  >
+    <div className='createTweetWrapper' >
       { userId && (
-        <form className='createTweetPageForm' onSubmit={handleSubmit}>
+        <>
+        <form  onSubmit={handleSubmit}>
 
-          <h1 > Create Tweet </h1>
+
           <div >
       </div>
-          <input
+          {/* <input
             type="text"
             placeholder="Optional media upload"
             value={imgUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-          />
-          <input
+          /> */}
+          <textarea
+          className= "newTweetInput"
             type="text"
-            placeholder="Create new tweet"
+            placeholder="What's Happening?"
             value={tweet}
             onChange={(e) => setTweet(e.target.value)}
           />
-          <button  type="submit">Create new tweet</button>
+           < button className='createTweetButton'   type="submit">Tweet</button>
+
         </form>
+
+         </>
         )
       }
     </div>

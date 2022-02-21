@@ -62,11 +62,14 @@ return (
        {usersArray.map((user)=>{
            return(
                <div>
-           {user?.id === userId && <img src={user.imgUrl} alt=''/> }
+
+           {user?.id === userId && <img src={user.imgUrl} alt='' className='userPhotoNextToCreateATweet'/> }
+
            {user?.id === userId && <div>{user.username}</div>}
            </div>
            )
        })}
+        <i class="fas fa-check-circle"></i>
      <CreateTweet />
     </div>
     <div className='divider'></div>

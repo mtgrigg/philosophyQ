@@ -25,7 +25,7 @@ function LoginFormPage() {
 
   const demoLogin = (e) => {
     e.preventDefault();
-    const demo= dispatch(sessionActions.login({credential: "demo@user.io", password: 'password' }));
+    const demo= dispatch(sessionActions.login({credential:"demo@user.io" , password: 'password' }));
     return demo
   };
 
