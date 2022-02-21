@@ -94,8 +94,10 @@ return (
         return(
             <>
             <div className= 'tweetFeedSingleTweetWrapper'>
-                 <NavLink key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
+                 <NavLink  key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
+                     <div className='userPhotoTweetFeed'>
          <UserDisplay tweetId={tweet.userId}/>
+         </div>
 
             {/* <SingleTweet tweetss={tweet.id}/> */}
             {/* {tweet.tweet} */}
@@ -104,7 +106,7 @@ return (
 
         <TweetAssembly key ={tweet.id} tweets={tweet} />
         </NavLink>
-        
+
         {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
         {/* <CommentDisplay  tweetId={tweet.id}/> */}
         </div>
