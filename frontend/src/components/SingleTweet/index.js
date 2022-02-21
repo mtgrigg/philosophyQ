@@ -200,7 +200,7 @@ return(
 
     return(
         <>
-         {comment?.userId === users?.id  && <div>{users.username}</div>}
+         {comment?.userId === users?.id  && <div>@{users.username}</div>}
          {comment?.userId === users?.id  && <img src={users.imgUrl} alt='' className='userProfilePicOnComment'/>}
          </>
     )

@@ -10,6 +10,9 @@
     color: white;
     background-color: black;
     margin-left: 5em  ;
+    border: none;
+    overflow: auto;
+    outline: none;
 
 }
 

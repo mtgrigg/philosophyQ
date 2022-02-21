@@ -31,7 +31,7 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
                 <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed'/>
                 </div>
                 <div>
-                {user.username}
+                @{user.username}
                 <i class="fas fa-check-circle"></i>
                 </div>
 </>

@@ -9,6 +9,7 @@ import { getUsers } from '../../store/users';
 import CommentDisplay from '../CommentsDisplay';
 import UserDisplay from '../UsersDisplay';
 import CreateTweet from '../CreateTweet';
+import Navigation from '../Navigation'
 import './Tweets.css'
 
 
@@ -48,8 +49,10 @@ const usersArray= Object.values(users)
 
 return (
     <>
-
-
+    <div className='feedColumns'>
+ {/* <div className='navigationOnFeed' id='left'>
+<Navigation />
+</div> */}
 {/* <div>
     <input type="checkbox" id="animation" />
 <label  for="animation">Show animation</label>
@@ -58,14 +61,15 @@ return (
 
  <div className='tweetFeedBody'>
 </div> */}
-   <div className='createTweetForm'>
+   <div className='createTweetForm' id='middle'>
+
        {usersArray.map((user)=>{
            return(
                <div>
 
            {user?.id === userId && <img src={user.imgUrl} alt='' className='userPhotoNextToCreateATweet'/> }
 
-           {user?.id === userId && <div>{user.username}</div>}
+           {user?.id === userId && <div>@{user.username}</div>}
            </div>
            )
        })}
@@ -114,7 +118,7 @@ return (
 
     </div>
     {/* </div> */}
-
+    </div>
  </>
 
 )
