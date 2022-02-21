@@ -5,3 +5,41 @@
 li {
   list-style: none;
 }
+
+
+.topnav{
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+}
+
+.topnav a{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: orange;
+}
+
+
+.topnav a:hover {
+  background-color: orangered;
+  color: black;
+}
+
+
+.topnav a.active {
+  /* background-color: #c10e0e; */
+  color: white;
+}
+
+.signUpButtonNav{
+  margin-left: 90%;
+
+}
+
+.loginButtonNav{
+  margin-left: 20px;
+  background-color:;
+}

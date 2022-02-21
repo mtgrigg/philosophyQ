@@ -92,6 +92,7 @@ return (
 
     {tweetArray.reverse().map((tweet)=>{
         return(
+            <>
             <div className= 'tweetFeedSingleTweetWrapper'>
                  <NavLink key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
          <UserDisplay tweetId={tweet.userId}/>
@@ -103,14 +104,18 @@ return (
 
         <TweetAssembly key ={tweet.id} tweets={tweet} />
         </NavLink>
+        
         {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
         {/* <CommentDisplay  tweetId={tweet.id}/> */}
         </div>
+
+        </>
         )
 
     }
 )}
 </div>
+
 
 </div>
 
