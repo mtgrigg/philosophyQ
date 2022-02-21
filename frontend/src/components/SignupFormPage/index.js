@@ -128,7 +128,7 @@ function SignupFormPage() {
         <div> User Bio (Optional)</div>
         <label>
           {/* Bio */}
-          <input
+          <textarea
           className='signUpInput'
           id="bioButton"
             type="text"
