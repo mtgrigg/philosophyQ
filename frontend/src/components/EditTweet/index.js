@@ -32,8 +32,9 @@ const [edit, setEdit] = useState(true);
        const newTweet= await dispatch(editTweet(payload))
 
        if(newTweet){
-        history.push(`/tweets/${id}`);
-        window.location.reload();
+        // history.push(`/tweets/${id}`);
+        // window.location.reload();
+        hideForm()
     }
 
 
@@ -46,7 +47,7 @@ const [edit, setEdit] = useState(true);
       { (userId === tweetCreater) && (
         <form onSubmit={handleSubmit}>
 
-          <h1 > Edit Tweet </h1>
+
           <div >
       </div>
           <input

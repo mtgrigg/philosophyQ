@@ -16,6 +16,7 @@ import CreateComment from '../CreateComment';
 import { Redirect } from "react-router-dom";
 import './SingleTweet.css'
 import { useState } from 'react';
+import CommentFunctions from '../CommentFunctions';
 
 
 
@@ -27,6 +28,7 @@ const SingleTweet = ({tweetss}) => {
     // console.log(tweetId, "THIS IS TWEETEYEDDD")
 
     const [edit, setEdit] = useState(false);
+    const [editComment, setEditComment] = useState(false);
 
 
 
@@ -166,9 +168,10 @@ const SingleTweet = ({tweetss}) => {
         <div>{tweetz?.createdAt}</div>
         </div>
         <div >
-          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}>Delete Tweet</button>}
+          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}><i class="fa fa-trash" aria-hidden="true"></i></button>}
         </div>
-        {(tweetz?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>Edit Tweet</button>}
+        {(tweetz?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>  <i class="fas fa-edit"></i></button>}
+
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
 
         <CreateComment  tweetId={tweetId}/>
@@ -178,12 +181,19 @@ const SingleTweet = ({tweetss}) => {
 
 return(
     <>
-     {(comment?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>Edit Comment</button>}
-   {(comment?.userId === currentUserId) && edit && <EditComment commentInfo={comment} hideForm={() => setEdit(false)}/>}
+     {/* {(comment?.userId === currentUserId) && <button  onClick={() => setEditComment(!editComment)}>Edit Comment</button>} */}
+   {/* {(comment?.userId === currentUserId) && editComment && <EditComment commentInfo={comment} hideForm={() => setEditComment(false)}/>} */}
+
+
+
    {/* {(comment?.userId === currentUserId) &&  <CommentDisplay tweetId={tweetId} commentInfo={comment} />} */}
+
+
+
 
 {(tweetz?.id === comment?.tweetId) && <div key={comment.id}>{comment?.comment}</div>}
 {(tweetz?.id === comment?.tweetId) && <div >{comment?.createdAt}</div>}
+<CommentFunctions commentInfo={comment}/>
 {/* {comment?.userId == usersArray?.id  && <div>{usersArray.username}</div>} */}
 {/* {(comment?.userId === currentUserId) &&<button  onClick={handleDelete}>Delete Comment</button>} */}
 {usersArray.map((users)=>{

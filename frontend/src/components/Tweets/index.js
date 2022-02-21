@@ -17,6 +17,9 @@ const TweetsPage = () => {
 const dispatch = useDispatch();
 const history= useHistory();
 
+const user = useSelector(state => state.session.user);
+const userId = user?.id
+
 
 // useEffect(()=>{
 //  dispatch(getTweets());
@@ -44,31 +47,72 @@ const usersArray= Object.values(users)
 
 
 return (
+    <>
+
+
+{/* <div>
+    <input type="checkbox" id="animation" />
+<label  for="animation">Show animation</label>
+
+<div class="match"></div>
+
+ <div className='tweetFeedBody'>
+</div> */}
+   <div className='createTweetForm'>
+       {usersArray.map((user)=>{
+           return(
+               <div>
+           {user?.id === userId && <img src={user.imgUrl} alt=''/> }
+           {user?.id === userId && <div>{user.username}</div>}
+           </div>
+           )
+       })}
+     <CreateTweet />
+    </div>
+    <div className='divider'></div>
+<div className='tweetsPage'>
+ {/* <div className='createTweetForm'> */}
+
+    {/* </div> */}
+
 
 <div className='tweetFeedBody'>
+    {/* <div className='createTweetForm'>
+     <CreateTweet />
+    </div> */}
 
-    <CreateTweet />
+    {/* <div className='tweetArraySingTweetFeedWrapper'> */}
 
     {tweetArray.reverse().map((tweet)=>{
         return(
-            <>
+            <div className= 'tweetFeedSingleTweetWrapper'>
+                 <NavLink key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
          <UserDisplay tweetId={tweet.userId}/>
-        <NavLink key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
+
             {/* <SingleTweet tweetss={tweet.id}/> */}
             {/* {tweet.tweet} */}
-            <div>button</div>
+            {/* <div>{tweet.tweet}</div> */}
 
-        </NavLink>
+
         <TweetAssembly key ={tweet.id} tweets={tweet} />
+        </NavLink>
         {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
         {/* <CommentDisplay  tweetId={tweet.id}/> */}
-        </>
+        </div>
         )
 
     }
 )}
+</div>
 
 </div>
+
+    <div id='footer'>
+
+    </div>
+    {/* </div> */}
+
+ </>
 
 )
 

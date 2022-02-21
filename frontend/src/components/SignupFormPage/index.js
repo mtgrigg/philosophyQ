@@ -43,12 +43,18 @@ function SignupFormPage() {
 
   return (
     <>
-    <div className='flexHelp'>
-    <div className="leftBackGroundSignUp"></div>
+<div className='flexHelp'>
+    {/* <div className="leftBackGroundSignUp"></div> */}
+    <div className='flameWrapper'>
+    {/* <input type="checkbox" id="animation" />
+<label for="animation"></label> */}
+
+<div class="match"></div>
+</div>
 
 
       <div className="signUpContainer">
-        <div className='signUpLogo'></div>
+        <div className='signUpLogo'> </div>
         <div className='siteTitleSignUpPage ' >PhilosophyQ</div>
       <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
@@ -131,6 +137,7 @@ function SignupFormPage() {
       <div className='loginModalSignUpPage'>Already have an account? <LoginFormModal /></div>
 
       </div>
+
       </div>
     </>
   );

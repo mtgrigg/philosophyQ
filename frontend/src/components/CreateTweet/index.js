@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  {createTweet}  from '../../store/tweets';
 import { useHistory } from 'react-router-dom';
+import "./CreateTweet.css";
 
 
 const CreateTweet = () => {
@@ -39,9 +40,9 @@ const CreateTweet = () => {
 
 
   return (
-    <div >
+    <div  >
       { userId && (
-        <form onSubmit={handleSubmit}>
+        <form className='createTweetPageForm' onSubmit={handleSubmit}>
 
           <h1 > Create Tweet </h1>
           <div >

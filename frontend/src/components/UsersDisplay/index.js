@@ -32,6 +32,7 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
                 </div>
                 <div>
                 {user.username}
+                <i class="fas fa-check-circle"></i>
                 </div>
 </>
               );

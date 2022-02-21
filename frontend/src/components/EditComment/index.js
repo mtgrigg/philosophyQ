@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { getComments, deleteComment } from '../../store/comments';
 
 
-const EditComment = ({commentInfo}) => {
+const EditComment = ({commentInfo, hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
   const user = useSelector(state => state.session.user);
@@ -30,7 +30,9 @@ const EditComment = ({commentInfo}) => {
 
        const editedComment= await dispatch(editComment(payload))
 
-
+       if (editedComment) {
+        hideForm();
+    }
 
 
   };
@@ -53,6 +55,7 @@ const EditComment = ({commentInfo}) => {
 
   return (
     <div >
+
       { userId && (
           <>
         <form onSubmit={handleSubmit}>
@@ -69,7 +72,7 @@ const EditComment = ({commentInfo}) => {
 
          { <button  type="submit" >Submit Edit comment</button> }
         </form>
-        <button  onClick={handleDelete}>Delete Comment</button>
+        <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button>
         </>
         )
       }

@@ -1,6 +1,6 @@
 .loginModalSignUpPageButton{
     background: black;
-    color: white;
+    color: #e78803;
     cursor: pointer;
     padding: 0;
 border: none;
@@ -25,5 +25,3 @@ border: none;
     /* display: flex;
     flex-flow: column; */
 }
-
-

@@ -1,12 +1,56 @@
 .tweetFeedBody{
-    background: black;
-        color: white;
+    /* background: black; */
+        /* color: white;
         border-radius: 1em;
         padding: 1em;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        /* margin-top: 45%; */
+        /* left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
+
+        overflow:scroll;  */
+        /* left: 50%; */
+        /* margin-right: -50%; */
+        border-radius: 2em;
+        padding-left: 30em;
+        padding-right: 30em;
+        padding-top: 55px;
+}
+
+
+.feedWrapper{
+    /* display:grid;
+    grid-template-columns: fr; */
+
+}
+
+
+.tweetFeedSingleTweetWrapper{
+    border: solid rgb(124, 124, 124) .1px;
+    border-width: thin;
+    padding:20px;
+    padding-left: 90px;
+    padding-right: 90px;
+
+
+}
+.divider{
+    margin-top: 30px;
+}
+
+.createTweetForm{
+
+
+
+}
+
+.tweetArraySingTweetFeedWrapper{
+
+}
+
+.tweetsPage{
+
+
 
 }
