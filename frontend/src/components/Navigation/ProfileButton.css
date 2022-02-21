@@ -17,7 +17,7 @@
   .profile-dropdown{
     display: flex;
     justify-content: end;
-    margin-left: 80%;
+    margin-left: 74%;
     margin-top: 20px;
   }
 
@@ -25,7 +25,7 @@
   .logOutButton{
     display: flex;
     justify-content: end;
-    margin-left: 95%;
+    margin-left: 90%;
     padding:10px;
     background-color: orange;
     color: white;
