@@ -28,4 +28,13 @@
 .createTweetButton{
     margin-top: 40px;
     margin-left: 30em;
+    padding:10px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+.createTweetButton:hover{
+    background-color: orangered;
+    cursor: pointer;
 }
