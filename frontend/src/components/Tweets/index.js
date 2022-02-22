@@ -1,4 +1,4 @@
-import {NavLink, useHistory } from 'react-router-dom';
+import {NavLink, useHistory, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTweets } from '../../store/tweets';
 import { useEffect } from 'react';
@@ -11,6 +11,7 @@ import UserDisplay from '../UsersDisplay';
 import CreateTweet from '../CreateTweet';
 import Navigation from '../Navigation'
 import './Tweets.css'
+
 
 
 const TweetsPage = () => {
@@ -77,23 +78,29 @@ return (
      <CreateTweet />
     </div>
     <div className='divider'></div>
-<div className='tweetsPage'>
+{/* <div className='tweetsPage'> */}
  {/* <div className='createTweetForm'> */}
 
     {/* </div> */}
 
 
 <div className='tweetFeedBody'>
+
     {/* <div className='createTweetForm'>
      <CreateTweet />
     </div> */}
 
     {/* <div className='tweetArraySingTweetFeedWrapper'> */}
+    <Link id='test2' to='https://github.com/mtgrigg'>
+
+    <i class="fa-brands fa-github fa-4x"></i>
+
+    </Link>
 
     {tweetArray.reverse().map((tweet)=>{
         return(
             <>
-            <div className= 'tweetFeedSingleTweetWrapper'>
+            <div className= 'tweetFeedSingleTweetWrapper' id='item2'>
                  <NavLink  key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
                      <div className='userPhotoTweetFeed'>
          <UserDisplay tweetId={tweet.userId}/>
@@ -116,16 +123,16 @@ return (
 
     }
 )}
-</div>
 
 
 </div>
 
-    <div id='footer'>
 
-    </div>
+</div>
+
+
     {/* </div> */}
-    </div>
+    {/* </div> */}
  </>
 
 )

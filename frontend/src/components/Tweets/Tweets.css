@@ -13,9 +13,18 @@
         /* left: 50%; */
         /* margin-right: -50%; */
         border-radius: 2em;
-        padding-left: 27em;
-        padding-right: 27em;
+        margin-left: 24em;
+        margin-right: 27em;
         padding-top: 5px;
+}
+
+#test2{
+  margin-left: 1300px;
+  display: flex;
+  flex-direction: column;
+ size:60px;
+ color: inherit;
+ text-decoration: inherit;
 }
 
 .userPhotoNextToCreateATweet{
@@ -45,7 +54,7 @@ margin-top:140px;
     border-width: thin;
     padding:20px;
     /* padding-left: 90px; */
-    /* padding-right: 0px; */
+    margin-left: 90px;
     word-wrap: break-word;
     line-break: strict;
     /* color: inherit;
@@ -107,23 +116,26 @@ padding-top:90px;
 }
 
 .tweetsPage{
-
-
+    /* display:grid; */
+    /* grid-template-columns: 4fr 1fr 1fr ; */
+    /* grid-template-columns: auto auto auto ; */
 
 }
 
 
-/* .feedColumns{
-    display:grid;
-    grid-template-columns: 2fr 2fr  ;
+.feedColumns{
+    /* display:grid;
+    grid-template-columns: 2fr 2fr  ; */
+}
     /* content: "";
     display: table;
     clear: both;
-}*/
+}
 
 /* #left{
     width: 20%;
 }
+
 
 #middle{
     width: 50%;
@@ -132,3 +144,16 @@ padding-top:90px;
 .tweetAssemblyOnFeed{
     /* margin-left: 50px; */
 }
+
+#item1{
+ /* margin-right: 100px; */
+}
+
+#item2{
+    /* margin-right: 100px; */
+    /* grid-row: 1 */
+   }
+
+   #item3{
+    /* margin-right: 100px; */
+   }
