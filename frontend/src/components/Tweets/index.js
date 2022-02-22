@@ -91,11 +91,11 @@ return (
     </div> */}
 
     {/* <div className='tweetArraySingTweetFeedWrapper'> */}
-    <Link id='test2' to='https://github.com/mtgrigg'>
+    <a id='test2' href='https://github.com/mtgrigg' >
 
     <i class="fa-brands fa-github fa-4x"></i>
 
-    </Link>
+    </a>
 
     {tweetArray.reverse().map((tweet)=>{
         return(
