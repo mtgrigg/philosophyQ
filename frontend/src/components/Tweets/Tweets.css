@@ -48,9 +48,22 @@ margin-top:140px;
     padding-right: 90px; */
     word-wrap: break-word;
     line-break: strict;
+    /* color: inherit;
+    text-decoration: inherit; */
+
 
     /* display: grid;
     justify-items: start; */
+
+
+}
+
+.tweetFeedSingleTweetWrapper a{
+
+    color: inherit;
+    text-decoration: inherit;
+
+
 
 
 }
