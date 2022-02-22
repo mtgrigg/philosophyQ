@@ -39,13 +39,16 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
       //       })}
       //   </ div>
       // </div>
+      <>
       <div className='commentsDisplayTweetFeed'>
 <i class="fas fa-comment" ></i>
-      <div>
+
+      <div className='numberOfComments'>
 
       {filtered.length > 0 && filtered.length }
       </div>
       </div>
+      </>
     )
 
 }

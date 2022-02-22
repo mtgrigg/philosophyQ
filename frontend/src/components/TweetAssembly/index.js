@@ -40,7 +40,11 @@ return (
 <div className="t">{tweets.tweet} ---this is tweet assembly-- this is the tweet </div>
 <div><img src={tweets.imgUrl} alt=''/> </div>
 {/* <img src={tweets.imgUrl} alt=''/> */}
+<div className='createdAtAndCommentsDiv'>
+
 <CommentDisplay  tweetId={tweets.id}/>
+<div>{tweets.createdAt}</div>
+</div>
 
 </div>
 

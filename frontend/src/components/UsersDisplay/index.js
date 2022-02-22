@@ -22,7 +22,7 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
 
 
     return(
-        <div>
+        <div className='userDisplayWrapper'>
         <div >
         { filteredUsers.map((user) => {
               return (
