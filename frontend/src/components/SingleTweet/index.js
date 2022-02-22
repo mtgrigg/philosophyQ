@@ -87,7 +87,7 @@ const SingleTweet = ({tweetss}) => {
          </div>
          <br></br>
         {/* <div className='singletweetBioNameWrapper'> */}
-          <div className='singletweetBioNameWrapper'>Bio:{bio}</div>
+          <div className='singletweetBioNameWrapper'>{bio}</div>
           {/* </div> */}
       </>
     );
@@ -165,14 +165,14 @@ const SingleTweet = ({tweetss}) => {
         <img src={tweetz?.imgUrl} alt=''/>
         <div>{tweetz?.tweet}</div>
         <div>{tweetz?.createdAt}</div>
-        </div>
+        {/* </div> */}
         <div >
           {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}><i class="fa fa-trash" aria-hidden="true"></i></button>}
         </div>
         {(tweetz?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>  <i class="fas fa-edit"></i></button>}
 
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
-
+        </div>
         <CreateComment  tweetId={tweetId}/>
 
 

@@ -90,10 +90,12 @@ margin-top: 50px;
     display:flex;
     justify-content: center;
     margin-top: 60px;
+    padding-right: 90px;
+    
 
     border: solid rgb(47, 47, 47) .1px;
     border-width: thin;
-    padding:20px;
+    padding:40px;
     /* padding-left: 90px; */
 
     word-wrap: break-word;
