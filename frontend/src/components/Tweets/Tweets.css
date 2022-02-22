@@ -32,6 +32,10 @@
  text-decoration: inherit;
  color: orangered;
 }
+
+#test2:hover{
+    color: orange;
+}
 #test3{
     /* margin-left: 10%; */
 
@@ -41,6 +45,10 @@
    color: inherit;
    text-decoration: inherit;
    color: orangered;
+  }
+
+  #test3:hover{
+      color:orange;
   }
 
 .userPhotoNextToCreateATweet{
