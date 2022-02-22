@@ -50,7 +50,9 @@ const usersArray= Object.values(users)
 
 return (
     <>
+
     <div className='feedColumns'>
+
  {/* <div className='navigationOnFeed' id='left'>
 <Navigation />
 </div> */}
@@ -77,11 +79,18 @@ return (
         {/* <i class="fas fa-check-circle"></i> */}
      <CreateTweet />
     </div>
-    <div className='divider'></div>
-{/* <div className='tweetsPage'> */}
- {/* <div className='createTweetForm'> */}
+    <div id='wrapLogos'>
+    <a id='test3' href='https://www.linkedin.com/in/maxim-grigg-42a4451a9/' >
 
-    {/* </div> */}
+<i class="fa-brands fa-linkedin fa-6x"></i>
+
+</a>
+<a id='test2' href='https://github.com/mtgrigg' >
+
+<i class="fa-brands fa-github fa-6x"></i>
+
+</a>
+</div>
 
 
 <div className='tweetFeedBody'>
@@ -91,11 +100,8 @@ return (
     </div> */}
 
     {/* <div className='tweetArraySingTweetFeedWrapper'> */}
-    <a id='test2' href='https://github.com/mtgrigg' >
 
-    <i class="fa-brands fa-github fa-4x"></i>
 
-    </a>
 
     {tweetArray.reverse().map((tweet)=>{
         return(
@@ -129,7 +135,9 @@ return (
 
 
 </div>
-
+<div id='footer'>
+   
+</div>
 
     {/* </div> */}
     {/* </div> */}
