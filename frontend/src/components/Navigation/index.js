@@ -31,6 +31,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
+    <>
     <div className='topnav'>
     <ul>
       <li>
@@ -38,7 +39,10 @@ function Navigation({ isLoaded }){
         {isLoaded && sessionLinks}
       </li>
     </ul>
+
     </div>
+    <div id='titleP'>Philosophy Twitter</div>
+    </>
   );
 }
 

@@ -136,7 +136,8 @@ return (
 
 </div>
 <div id='footer'>
-   
+   <img src='https://pixy.org/download/1616150/' id='one'alt=''/>
+   <img src='https://pixy.org/download/1616150/' id='two' alt=''/>
 </div>
 
     {/* </div> */}

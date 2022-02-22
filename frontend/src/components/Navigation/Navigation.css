@@ -22,6 +22,15 @@ li {
   background-color: orange;
 }
 
+#titleP{
+display: flex;
+justify-content: center;
+font-size: 60px;
+color: orangered;
+font-weight: bolder;
+font-family: cursive;
+/* margin-left: 400px; */
+}
 
 .topnav a:hover {
   background-color: orangered;
