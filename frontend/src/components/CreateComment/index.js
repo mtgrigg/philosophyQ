@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import  {createComment}  from '../../store/comments';
 import { useHistory } from 'react-router-dom';
 import { getComments } from '../../store/comments';
+import "./CreateComment.css";
 
 
 const CreateComment = ({tweetId}) => {
@@ -48,20 +49,22 @@ const CreateComment = ({tweetId}) => {
   return (
     <div >
       { userId && (
-        <form onSubmit={handleSubmit}>
+        <div className='createCommentWrapper'>
+        <form id='createCommentForm 'onSubmit={handleSubmit}>
 
-          <h1 > Create Comment </h1>
-          <div >
-      </div>
-          <input
+          <h3 id='h3Create'> Tweet a reply </h3>
+
+          <textarea
+          className='createCommentInput'
             type="text"
-            placeholder="Make new comment"
+            placeholder="Tweet your reply..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
 
-          <button  type="submit">Create new comment</button>
+          <button className='createCommentButton' type="submit">Tweet</button>
         </form>
+        </div>
         )
       }
     </div>

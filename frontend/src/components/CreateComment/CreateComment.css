@@ -1,0 +1,46 @@
+#h3Create{
+    display: flex;
+    justify-content: center;
+    color: orangered;
+    margin-top:40px;
+}
+.createCommentInput{
+    height:100px;
+    width: 400px;
+    max-width: 400px;
+    color: white;
+    background-color: black;
+    /* margin-left: 1em  ; */
+    border: none;
+    overflow: auto;
+    outline: none;
+    display: flex;
+    justify-content: center;
+}
+
+.createCommentButton{
+    display: flex;
+   justify-content: center;
+   margin-left: 170px;
+
+    padding:10px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+.createCommentButton:hover{
+    background-color: orangered;
+}
+
+.createCommentWrapper{
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+
+}
+
+#createCommentForm {
+    display: flex;
+   justify-content: center;
+}
