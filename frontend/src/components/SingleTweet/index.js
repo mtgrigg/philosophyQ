@@ -85,11 +85,10 @@ const SingleTweet = ({tweetss}) => {
 
 
          </div>
-        <div className='singletweetBioNameWrapper'>
-        {/* <div>{username}</div> */}
-        <div>Bio:</div>
-          <div>{bio}</div>
-          </div>
+         <br></br>
+        {/* <div className='singletweetBioNameWrapper'> */}
+          <div className='singletweetBioNameWrapper'>Bio:{bio}</div>
+          {/* </div> */}
       </>
     );
   }
@@ -152,11 +151,11 @@ const SingleTweet = ({tweetss}) => {
 
     return(
         <>
-        <div className='singleTweetBody'>
+        {/* <div className='singleTweetBody'> */}
 
 
           {userCard(targetUser)}
-          </div>
+          {/* </div> */}
           <div className='singleTweetBody2'>
 
        {/* {currentUserId === tweetz?.userId && <div>{currentUser?.username}</div>} */}

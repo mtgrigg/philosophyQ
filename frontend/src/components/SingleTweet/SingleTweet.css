@@ -17,23 +17,42 @@
 
 
 .singleTweetBody{
-    margin-left: 35%;
+    /* margin-left: 35%; */
 margin-top: 70px;
+display:flex;
+justify-content: center;
 
 
 }
 
 .singleTweetBody2{
-    border-radius: 2em;
+    /* border-radius: 2em;
     margin-left: 30em;
     margin-right: 27em;
-    padding-top: 5px;
+    padding-top: 5px; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
 }
 
 .singletweetBioNameWrapper{
-margin-left: 20px;
-margin-top: 20px;
+/* margin-left: 20px;
+margin-top: 20px; */
+/* float:bottom; */
+display:flex;
+align-items: center;
+justify-content: center;
+margin-top: 50px;
+
+
+/* border: solid rgb(47, 47, 47) .1px;
+    border-width: thin;
+    padding:20px; */
+    /* padding-left: 90px; */
+
+    word-wrap: break-word;
+    line-break: strict;
 
 
 }
@@ -42,6 +61,10 @@ margin-top: 20px;
 .userInfoSingleTweetPageWrapper{
 /* justify-content:flex-start;
     display: flex; */
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-top: 80px;
 }
 
 .singletweetUserNameWrapper{
@@ -51,15 +74,28 @@ margin-top: 20px;
     margin-top: 30px;
     font-size: x-large;
     font-weight: bolder; */
-    margin-left: 13%;
+    /* margin-left: 13%; */
+    /* margin-top: 30px; */
     display: flex;
     align-items: center;
     font-size: 30px;
+    margin-left: 20px;
 }
 
 
 .singleTweetImgAndCreateAt{
-    margin-left: 10px;
+    /* margin-left: 10px;
     margin-bottom: 30px;
-    margin-left: 35%
+    margin-left: 35%; */
+    display:flex;
+    justify-content: center;
+    margin-top: 60px;
+
+    border: solid rgb(47, 47, 47) .1px;
+    border-width: thin;
+    padding:20px;
+    /* padding-left: 90px; */
+
+    word-wrap: break-word;
+    line-break: strict;
 }
