@@ -73,7 +73,7 @@ return (
            </div>
            )
        })}
-        <i class="fas fa-check-circle"></i>
+        {/* <i class="fas fa-check-circle"></i> */}
      <CreateTweet />
     </div>
     <div className='divider'></div>
@@ -104,7 +104,7 @@ return (
             {/* <div>{tweet.tweet}</div> */}
 
 
-        <TweetAssembly key ={tweet.id} tweets={tweet} />
+        <TweetAssembly className='test' key ={tweet.id} tweets={tweet} />
         </NavLink>
 
         {/* <button onClick={()=>history.push(`/tweets/${tweet.id}`)}>Go to individual tweets page</button> */}
