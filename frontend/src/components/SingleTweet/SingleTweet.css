@@ -87,17 +87,54 @@ margin-top: 50px;
     /* margin-left: 10px;
     margin-bottom: 30px;
     margin-left: 35%; */
-    display:flex;
-    justify-content: center;
-    margin-top: 60px;
+    /* display:flex;
+    justify-content: center; */
+    margin-top: 70px;
     padding-right: 90px;
-    
+    width:600px;
 
     border: solid rgb(47, 47, 47) .1px;
     border-width: thin;
-    padding:40px;
+    padding:30px;
     /* padding-left: 90px; */
 
     word-wrap: break-word;
     line-break: strict;
+}
+
+#buttonone {
+    background-color: black;
+    color: orange;
+    border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#buttonone:hover{
+    background-color: black;
+    color: orangered;
+}
+
+.singleTweetsButton{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+
+
+
+#singleTweet{
+    display: flex;
+justify-content: center;
+}
+
+#singleCreatedAt{
+    /* margin-top: 70px; */
+    color:orange;
+    display: flex;
+    justify-content: flex-end;
+
 }

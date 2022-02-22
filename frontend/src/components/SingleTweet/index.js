@@ -108,16 +108,12 @@ const SingleTweet = ({tweetss}) => {
             await dispatch(getComments(tweetId));
 
         })()
-    //   dispatch(getTweets(tweetId));
-    //   dispatch(getUsers(tweetId));
-    //   dispatch(getComments(tweetId));
     }, [dispatch, tweetId])
 
 
 
         const handleDeleteButton = (e) => {
 
-        // dispatch(deleteTweet(targetTweet));
 
          (async()=>{
 
@@ -135,43 +131,38 @@ const SingleTweet = ({tweetss}) => {
 
       const handleDelete = (e) => {
 
-        // (async()=>{
-
-        //    await dispatch(deleteComment(targetComment))
-        // })()
         dispatch(deleteComment(targetComment))
-
-//i dont think this is being used here anymore
-
-    //   history.push(`/tweets/${tweetId}`);
 
     }
 
-    // console.log(tweetz, 'THIS IS TWEETzzzz')
 
     return(
         <>
-        {/* <div className='singleTweetBody'> */}
+
 
 
           {userCard(targetUser)}
-          {/* </div> */}
+
           <div className='singleTweetBody2'>
 
-       {/* {currentUserId === tweetz?.userId && <div>{currentUser?.username}</div>} */}
-        {/* <img src= {userz?.imgUrl} alt=''/> */}
-        {/* <div>{userz?.username}</div> */}
         <div className='singleTweetImgAndCreateAt'>
+          {/* <img src={targetUser.imgUrl} /> */}
+        <div id='singleCreatedAt'>{tweetz?.createdAt}</div>
         <img src={tweetz?.imgUrl} alt=''/>
-        <div>{tweetz?.tweet}</div>
-        <div>{tweetz?.createdAt}</div>
-        {/* </div> */}
-        <div >
-          {(tweetz?.userId === currentUserId) && <button  onClick={handleDeleteButton}><i class="fa fa-trash" aria-hidden="true"></i></button>}
-        </div>
-        {(tweetz?.userId === currentUserId) && <button  onClick={() => setEdit(!edit)}>  <i class="fas fa-edit"></i></button>}
+
+        <div id='singleTweet'>{tweetz?.tweet}</div>
+
+
+
+
+
+        <div className='singleTweetsButton' >
+
+        {(tweetz?.userId === currentUserId) && <button  id='buttonone' onClick={() => setEdit(!edit)}>  <i class="fas fa-edit"></i></button>}
+          {(tweetz?.userId === currentUserId) && <button id='buttonone' onClick={handleDeleteButton}><i class="fa-solid fa-trash-can"></i></button>}
 
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
+        </div>
         </div>
         <CreateComment  tweetId={tweetId}/>
 
@@ -180,21 +171,12 @@ const SingleTweet = ({tweetss}) => {
 
 return(
     <>
-     {/* {(comment?.userId === currentUserId) && <button  onClick={() => setEditComment(!editComment)}>Edit Comment</button>} */}
-   {/* {(comment?.userId === currentUserId) && editComment && <EditComment commentInfo={comment} hideForm={() => setEditComment(false)}/>} */}
-
-
-
-   {/* {(comment?.userId === currentUserId) &&  <CommentDisplay tweetId={tweetId} commentInfo={comment} />} */}
-
-
 
 
 {(tweetz?.id === comment?.tweetId) && <div key={comment.id}>{comment?.comment}</div>}
 {(tweetz?.id === comment?.tweetId) && <div >{comment?.createdAt}</div>}
 <CommentFunctions commentInfo={comment}/>
-{/* {comment?.userId == usersArray?.id  && <div>{usersArray.username}</div>} */}
-{/* {(comment?.userId === currentUserId) &&<button  onClick={handleDelete}>Delete Comment</button>} */}
+
 {usersArray.map((users)=>{
 
     return(
@@ -207,7 +189,6 @@ return(
 </>
 )
 })}
-        {/* <CommentDisplay tweetId={tweetss?.id}/> */}
         </div>
 
 </>
