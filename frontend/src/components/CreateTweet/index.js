@@ -27,16 +27,10 @@ const CreateTweet = () => {
 
        const newTweet= await dispatch(createTweet(payload))
 
-      // if(newTweet){
-      //   history.push(`/tweets/${newTweet.tweet.id}`);
-      // }
-      // if(newTweet){
-      //   history.push(`/tweets`);
-      // }
+    setTweet("")
 
 
   };
-//   console.log(imgUrl, 'THIS IS IAMGEEIMAGE')
 
 
   return (
