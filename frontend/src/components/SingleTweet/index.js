@@ -145,8 +145,8 @@ const SingleTweet = ({tweetss}) => {
 
         <div className='singleTweetsButton' >
 
-        {(tweetz?.userId === currentUserId) && tweetz?.id ? <button  id='buttonone' onClick={() => setEdit(!edit)}>  <i class="fas fa-edit "></i></button>: 'Hmmmmm...This page does not exist.. Please click home and choose a valid link.'}
-          {(tweetz?.userId === currentUserId) && tweetz?.id && <button id='buttonone' onClick={handleDeleteButton}><i class="fa-solid fa-trash-can "></i></button>}
+        {(tweetz?.userId === currentUserId) && targetTweet &&  <button  id='buttonone' onClick={() => setEdit(!edit)}>  <i class="fas fa-edit "></i></button>}
+          {(tweetz?.userId === currentUserId) && targetTweet &&  <button id='buttonone' onClick={handleDeleteButton}><i class="fa-solid fa-trash-can "></i></button>}
 
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
         </div>
