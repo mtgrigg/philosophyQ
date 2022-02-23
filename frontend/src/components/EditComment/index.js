@@ -12,7 +12,7 @@ const EditComment = ({commentInfo, hideForm}) => {
   const userId= user?.id;
 
 
- const [comment, setComment] = useState("");
+ const [comment, setComment] = useState(commentInfo.comment);
  const [edit, setEdit] = useState(false);
 
 //  console.log(commentInfo.id, "THIS IS COMMENTINFO")
@@ -65,7 +65,7 @@ const EditComment = ({commentInfo, hideForm}) => {
       </div>
           <input
             type="text"
-            placeholder="Edit comment"
+            placeholder={comment}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
