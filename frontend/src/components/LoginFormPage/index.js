@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -65,6 +65,9 @@ function LoginFormPage() {
         <button  className='logInButton'type="submit">Log In</button>
         <button className='logInButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
+      <div id='loginWords'>
+      <NavLink  to='/' className='loginModalSignUpPage'> Need an account? Sign up</NavLink>
+      </div>
       </div>
       </div>
     </>
