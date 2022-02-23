@@ -114,12 +114,23 @@ color:white;
 .loginModalSignUpPage{
     color:white;
     background:black ;
+  text-decoration: none;
+    margin-top: 80px;
+}
 
-    margin-top: 20px;
+.loginModalSignUpPage:hover{
+  color:orangered;
+  background:black ;
+
 }
 
 
-
+#loginWords{
+  /* margin-top: 20px;
+  display: flex;
+  align-items: center; */
+  margin-top: 20px;
+}
 
 
 

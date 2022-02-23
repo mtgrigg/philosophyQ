@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import LoginFormModal from '../LoginFormModal';
 import './SignupForm.css';
+
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -144,8 +145,9 @@ function SignupFormPage() {
 
 
       </form>
-      <div className='loginModalSignUpPage'>Already have an account? <LoginFormModal /></div>
-
+      <div id='loginWords'>
+      <NavLink  to='/login' className='loginModalSignUpPage'> Already have an account? Login</NavLink>
+      </div>
       </div>
 
       </div>
