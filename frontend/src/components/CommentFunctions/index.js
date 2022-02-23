@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import EditComment from '../EditComment';
-import { useState } from 'react';
+import { useState , useEffect, useRef } from 'react';
 
 
 
@@ -11,6 +11,9 @@ const CommentFunctions = ({commentInfo}) => {
     const userId = user?.id
 
 
+
+
+
     const [edit, setEdit] = useState(false);
 
     const preSession= commentInfo?.userId
@@ -18,14 +21,15 @@ const CommentFunctions = ({commentInfo}) => {
 
 
 return (
-    <div>
+    <div >
+
       <div >
           {/* {!edit &&
             <p className='pComments'key={commentInfo.id}>
               {commentInfo.comment}
             </p>} */}
 
-          {(sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}><i class="fas fa-edit"></i></button>}
+          {(sessionId && !edit  ) && <button className='editCommentButton' onClick={() => setEdit(!edit) }><i class="fa-solid fa-bars"></i></button>}
 
           <div>
             {edit && <EditComment commentInfo={commentInfo} hideForm={() => setEdit(false)} /> }
@@ -33,6 +37,7 @@ return (
             <br />
       </ div>
     </div>
+
   );
 
           }

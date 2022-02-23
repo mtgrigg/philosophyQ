@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  {editComment}  from '../../store/comments';
 import { useHistory } from 'react-router-dom';
 import { getComments, deleteComment } from '../../store/comments';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
 const EditComment = ({commentInfo, hideForm}) => {
@@ -10,6 +11,8 @@ const EditComment = ({commentInfo, hideForm}) => {
     const history = useHistory();
   const user = useSelector(state => state.session.user);
   const userId= user?.id;
+
+  // const node = useRef();
 
 
  const [comment, setComment] = useState(commentInfo.comment);
@@ -20,6 +23,12 @@ const EditComment = ({commentInfo, hideForm}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // if (node.current.contains(e.target)) {
+    //   // inside click
+    //   return;
+    // }
+    // else{
 
     const payload = {
     ...commentInfo,
@@ -33,30 +42,43 @@ const EditComment = ({commentInfo, hideForm}) => {
        if (editedComment) {
         hideForm();
     }
-
+  // }
 
   };
 
   const handleDelete = (e) => {
 
-    // (async()=>{
+    (async()=>{
 
-    //    await dispatch(deleteComment(targetComment))
-    // })()
-    dispatch(deleteComment(commentInfo))
+       await dispatch(deleteComment(commentInfo))
+       hideForm()
+    })()
 
-
-
-//   history.push(`/tweets/${tweetId}`);
 
 }
 
-// console.log(commentInfo, "THIS IS COMMENTIFNO")
+// useEffect(() => {
+//   // add when mounted
+//   document.addEventListener("mousedown", handleSubmit);
+//   // return function to be called when unmounted
+//   return () => {
+//     document.removeEventListener("mousedown", handleSubmit);
+//   };
+// }, []);
+
+//ref={node} needs to go in parent div
 
   return (
-    <div >
 
-      { userId && (
+    <div >
+ <OutsideClickHandler
+      onOutsideClick={() => {
+        hideForm()
+      }}
+    >
+
+
+      { userId &&  (
           <>
         <form onSubmit={handleSubmit}>
 
@@ -71,12 +93,17 @@ const EditComment = ({commentInfo, hideForm}) => {
           />
 
          { <button  type="submit" >Submit Edit comment</button> }
+
         </form>
+
         <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button>
         </>
         )
       }
+        </OutsideClickHandler>
     </div>
+
+    // </div>
 
    )
 

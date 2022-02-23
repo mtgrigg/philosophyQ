@@ -162,6 +162,7 @@ return(
 <div id='singleComment'>
   <div id='commentFunctionCreatedWrapper'>
   <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>
+  {/* <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button> */}
 {(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
 
 </div>
