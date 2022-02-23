@@ -38,7 +38,7 @@ const usersArray= Object.values(users)
 return (
     <div className='tweetFeedWrapper'>
 <div className="t">{tweets.tweet} ---this is tweet assembly-- this is the tweet </div>
-<div><img src={tweets.imgUrl} alt=''/> </div>
+<div><img src={tweets.imgUrl} alt='' onError={(event) => event.target.style.display = 'none'}/> </div>
 {/* <img src={tweets.imgUrl} alt=''/> */}
 <div className='createdAtAndCommentsDiv'>
 

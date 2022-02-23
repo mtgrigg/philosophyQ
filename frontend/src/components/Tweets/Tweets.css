@@ -51,12 +51,23 @@
       color:orange;
   }
 
+
+
+
 .userPhotoNextToCreateATweet{
     border-radius: 50%;
     height: 100px;
     width: 100px;
+    background-color: black;
+    color: black;
+
 
 }
+
+
+
+
+
 
 .navigationOnFeed{
 margin-top:140px;

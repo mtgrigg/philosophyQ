@@ -75,7 +75,7 @@ const SingleTweet = ({tweetss}) => {
       <>
         <div className='userInfoSingleTweetPageWrapper'>
             <div>
-        <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage'/>
+        <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage' onError={(event) => event.target.style.display = 'none'}/>
         </div>
         <div className='singletweetUserNameWrapper'>
           {/* <div>{username}</div> */}
@@ -177,7 +177,7 @@ return(
     return(
         <>
         <div id='commentsUserNameAndPhoto'>
-        {comment?.userId === users?.id  && <img src={users.imgUrl} alt='' className='userProfilePicOnComment'/>}
+        {comment?.userId === users?.id  && <img src={users.imgUrl} alt=' ' onError={(event) => event.target.style.display = 'none'} className='userProfilePicOnComment'/>}
          {comment?.userId === users?.id  && <div>@{users.username}</div>}
 
 

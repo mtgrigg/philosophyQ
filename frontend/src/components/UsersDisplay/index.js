@@ -28,7 +28,7 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
               return (
 <>
                 <div >
-                <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed'/>
+                <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed' onError={(event) => event.target.style.display = 'none'}/>
                 </div>
                 <div>
                 @{user.username}
