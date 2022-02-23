@@ -4,6 +4,7 @@ import  {editComment}  from '../../store/comments';
 import { useHistory } from 'react-router-dom';
 import { getComments, deleteComment } from '../../store/comments';
 import OutsideClickHandler from 'react-outside-click-handler';
+import './EditComment.css'
 
 
 const EditComment = ({commentInfo, hideForm}) => {
@@ -80,23 +81,23 @@ const EditComment = ({commentInfo, hideForm}) => {
 
       { userId &&  (
           <>
+          <div id='editCommentForm'>
         <form onSubmit={handleSubmit}>
 
-          {/* <h1 > Edit Comment </h1> */}
-          <div >
-      </div>
-          <input
+          <textarea
+            id='editCommentTextArea'
             type="text"
             placeholder={comment}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
 
-         { <button  type="submit" >Submit Edit comment</button> }
+         { <button id='editCommentButton' type="submit" >Submit Edit comment</button> }
 
         </form>
 
-        <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button>
+        <button id='editCommentButton2' onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </div>
         </>
         )
       }

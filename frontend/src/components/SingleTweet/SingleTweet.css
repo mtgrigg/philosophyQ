@@ -138,11 +138,11 @@ justify-content: center;
 }
 
 #singleCommentText{
-    max-width: 700px;
+    /* max-width: 700px;
 
     word-wrap: break-word;
     line-break: strict;
-    margin-top: 20px;
+    margin-top: 20px; */
 }
 
 
@@ -155,7 +155,7 @@ justify-content: center;
 
 #singleCommentCreatedAt{
     display: flex;
-    justify-content:flex-end;
+    align-items:start;
     color: orange;
     margin-left: 530px;
 
@@ -163,16 +163,16 @@ justify-content: center;
 }
 
 #commentFucntionsButton{
-    display: flex;
-    justify-content:flex-start;
+    /* display: flex;
+    justify-content:flex-start; */
     /* background-color: black;
     color: orange; */
 
 }
 #commentFunctionCreatedWrapper{
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    /* justify-content: center; */
+    margin-top: 70px;
 }
 
 .editCommentButton{

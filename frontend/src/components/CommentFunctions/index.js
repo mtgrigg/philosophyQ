@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import EditComment from '../EditComment';
 import { useState , useEffect, useRef } from 'react';
+import './CommentFunctions.css'
 
 
 
@@ -32,7 +33,7 @@ return (
           {(sessionId && !edit  ) && <button className='editCommentButton' onClick={() => setEdit(!edit) }><i class="fa-solid fa-bars"></i></button>}
 
           <div>
-            {edit && <EditComment commentInfo={commentInfo} hideForm={() => setEdit(false)} /> }
+            {edit && <EditComment  id='editCommentFunction'commentInfo={commentInfo} hideForm={() => setEdit(false)} /> }
             </div>
             <br />
       </ div>

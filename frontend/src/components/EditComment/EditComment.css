@@ -1,0 +1,60 @@
+#editCommentTextArea{
+
+    height:100px;
+    width: 400px;
+    max-width: 400px;
+    color: white;
+    background-color: black;
+    /* margin-left: 1em  ; */
+    border: none;
+    overflow: auto;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#editCommentButton{
+
+    padding:6px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    margin-left:120px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#editCommentButton:hover{
+
+
+    background-color: orangered;
+
+}
+
+#editCommentButton2{
+
+    padding:6px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    width:50px;
+    margin-left:190px;
+    margin-top: 30px;
+
+}
+
+
+#editCommentButton2:hover{
+
+
+    background-color: orangered;
+
+}
+
+#editCommentForm{
+    display: flex;
+justify-content: center;
+flex-direction: column;
+}

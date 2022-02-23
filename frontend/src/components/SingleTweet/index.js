@@ -160,10 +160,12 @@ return(
     <>
 
 <div id='singleComment'>
+{(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
   <div id='commentFunctionCreatedWrapper'>
+
   <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>
   {/* <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button> */}
-{(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
+
 
 </div>
 {(tweetz?.id === comment?.tweetId) && <div id='singleCommentText' key={comment.id}>{comment?.comment}</div>}
