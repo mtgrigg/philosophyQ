@@ -60,7 +60,7 @@ function SignupFormPage() {
     {/* <input type="checkbox" id="animation" />
 <label for="animation"></label> */}
 
-<div class="match"></div>
+<div className="match"></div>
 </div>
 
 

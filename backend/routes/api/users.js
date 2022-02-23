@@ -5,6 +5,7 @@ const asyncHandler = require("express-async-handler");
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User } = require("../../db/models");
+var emailCheck = require('email-check');
 
 const router = express.Router();
 
@@ -13,6 +14,7 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isEmail()
     .withMessage('Please provide a valid email.'),
+  
   check('username')
     .exists({ checkFalsy: true })
     .isLength({ min: 4 })
@@ -38,6 +40,8 @@ router.post(
     const { email, password, username, imgUrl, bio } = req.body;
     // console.log( req.body, "THIS IS REQ BODY")
     const user = await User.signup({ email, username, password, bio, imgUrl });
+
+
 
 
     await setTokenCookie(res, user);
