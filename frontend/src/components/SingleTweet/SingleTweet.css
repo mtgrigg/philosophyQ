@@ -155,8 +155,20 @@ justify-content: center;
 
 #singleCommentCreatedAt{
     display: flex;
-    justify-content:space-between;
+    justify-content:flex-end;
     color: orange;
     margin-left: 530px;
+  
 
+}
+
+#commentFucntionsButton{
+    display: flex;
+    justify-content:flex-start;
+
+}
+#commentFunctionCreatedWrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }

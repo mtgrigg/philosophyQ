@@ -160,9 +160,9 @@ return(
     <>
 
 <div id='singleComment'>
-  <div id='singleCommentCreatedAt'>
-  <CommentFunctions commentInfo={comment}/>
-{(tweetz?.id === comment?.tweetId) && <div >{comment?.createdAt}</div>}
+  <div id='commentFunctionCreatedWrapper'>
+  <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>
+{(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
 
 </div>
 {(tweetz?.id === comment?.tweetId) && <div id='singleCommentText' key={comment.id}>{comment?.comment}</div>}
