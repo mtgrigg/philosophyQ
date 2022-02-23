@@ -17,7 +17,7 @@ module.exports = {
         unique: true
       },
       imgUrl: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(2000)
       },
       bio: {
         type: Sequelize.TEXT

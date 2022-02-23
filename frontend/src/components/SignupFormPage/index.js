@@ -69,7 +69,7 @@ function SignupFormPage() {
         <div className='siteTitleSignUpPage ' >PhilosophyQ</div>
       <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li id='erros' key={idx}>{error}</li>)}
         </ul>
         <div>Email</div>
         <label>
@@ -115,7 +115,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        <div>Profile Photo (Optional Url)</div>
+        <div>Profile Photo (Url)</div>
         <label>
           {/* imgUrl */}
           <input
@@ -126,7 +126,7 @@ function SignupFormPage() {
 
           />
         </label>
-        <div> User Bio (Optional)</div>
+        <div> User Bio</div>
         <label>
           {/* Bio */}
           <textarea
