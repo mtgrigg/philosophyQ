@@ -110,11 +110,7 @@ const SingleTweet = ({tweetss}) => {
         })()
     }, [dispatch, tweetId])
 
-
-
         const handleDeleteButton = (e) => {
-
-
          (async()=>{
 
            await dispatch(deleteTweet(targetTweet));
@@ -122,19 +118,10 @@ const SingleTweet = ({tweetss}) => {
               history.push("/tweets");
         })();
 
-
-
-
-
-
       }
-
       const handleDelete = (e) => {
-
         dispatch(deleteComment(targetComment))
-
     }
-
 
     return(
         <>
@@ -172,8 +159,8 @@ const SingleTweet = ({tweetss}) => {
 return(
     <>
 
-
-{(tweetz?.id === comment?.tweetId) && <div key={comment.id}>{comment?.comment}</div>}
+<div id='singleComment'>
+{(tweetz?.id === comment?.tweetId) && <div id='singleCommentText' key={comment.id}>{comment?.comment}</div>}
 {(tweetz?.id === comment?.tweetId) && <div >{comment?.createdAt}</div>}
 <CommentFunctions commentInfo={comment}/>
 
@@ -186,6 +173,7 @@ return(
          </>
     )
 })}
+</div>
 </>
 )
 })}
