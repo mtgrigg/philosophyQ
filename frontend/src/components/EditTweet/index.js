@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import  {editTweet}  from '../../store/tweets';
 import { useHistory } from 'react-router-dom';
 import OutsideClickHandler from 'react-outside-click-handler';
+import './EditTweet.css'
 
 
 const EditTweet = ({tweetTweet, tweetImg, tweetId, tweetCreater, hideForm}) => {
@@ -56,19 +57,20 @@ const [edit, setEdit] = useState(true);
 
           <div >
       </div>
-          <input
+          {/* <input
             type="text"
             placeholder="Optional media upload"
             value={imgUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-          />
-          <input
+          /> */}
+          <textarea
+          id='editTweetTextArea'
             type="text"
             placeholder="Create new tweet"
             value={tweet}
             onChange={(e) => setTweet(e.target.value)}
           />
-           <button  type="submit" >Submit edit</button>
+           <button id='editTweetButton' type="submit" >Submit edit</button>
         </form>
         )
       }
