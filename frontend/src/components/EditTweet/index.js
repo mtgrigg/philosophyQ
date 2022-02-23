@@ -15,6 +15,8 @@ const id= tweetId
 
 const [edit, setEdit] = useState(true);
 
+const [errors, setErrors] = useState([]);
+
 // console.log(tweetCreater, "THIS IS id")
 
  const [imgUrl, setImageUrl] = useState(tweetImg);
@@ -31,11 +33,15 @@ const [edit, setEdit] = useState(true);
     };
 
 
-       const newTweet= await dispatch(editTweet(payload))
+       const newTweet= await dispatch(editTweet(payload)).catch(async (res) => {
+        const data = await res.json();
+        if(data && data.errors) setErrors(data.errors)
+      });
 
        if(newTweet){
         // history.push(`/tweets/${id}`);
         // window.location.reload();
+        
         hideForm()
     }
 
@@ -54,7 +60,9 @@ const [edit, setEdit] = useState(true);
       { (userId === tweetCreater) && (
         <form onSubmit={handleSubmit}>
 
-
+<ol id='errorUl'>
+        {errors.map((error, idx) => <li id='errorLi' key={idx}>{error}</li>)}
+          </ol>
           <div >
       </div>
           {/* <input
