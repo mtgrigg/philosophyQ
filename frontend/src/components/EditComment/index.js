@@ -19,6 +19,8 @@ const EditComment = ({commentInfo, hideForm}) => {
  const [comment, setComment] = useState(commentInfo.comment);
  const [edit, setEdit] = useState(false);
 
+ const [errors, setErrors] = useState([]);
+
 //  console.log(commentInfo.id, "THIS IS COMMENTINFO")
 
 
@@ -38,9 +40,13 @@ const EditComment = ({commentInfo, hideForm}) => {
     };
 
 
-       const editedComment= await dispatch(editComment(payload))
+       const editedComment= await dispatch(editComment(payload)).catch(async (res) => {
+        const data = await res.json();
+        if(data && data.errors) setErrors(data.errors)
+      });
 
        if (editedComment) {
+
         hideForm();
     }
   // }
@@ -83,6 +89,9 @@ const EditComment = ({commentInfo, hideForm}) => {
           <>
           <div id='editCommentForm'>
         <form onSubmit={handleSubmit}>
+        <ol id='errorUl'>
+        {errors.map((error, idx) => <li id='errorLi' key={idx}>{error}</li>)}
+          </ol>
 
           <textarea
             id='editCommentTextArea'
