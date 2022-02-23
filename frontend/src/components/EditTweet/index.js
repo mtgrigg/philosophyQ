@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  {editTweet}  from '../../store/tweets';
 import { useHistory } from 'react-router-dom';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
 const EditTweet = ({tweetTweet, tweetImg, tweetId, tweetCreater, hideForm}) => {
@@ -44,6 +45,11 @@ const [edit, setEdit] = useState(true);
 
   return (
     <div >
+      <OutsideClickHandler
+      onOutsideClick={() => {
+        hideForm()
+      }}
+    >
       { (userId === tweetCreater) && (
         <form onSubmit={handleSubmit}>
 
@@ -66,6 +72,7 @@ const [edit, setEdit] = useState(true);
         </form>
         )
       }
+      </OutsideClickHandler>
     </div>
 
    )
