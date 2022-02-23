@@ -17,6 +17,15 @@ const validatesTweets =[
 
 ]
 
+const validatesComments =[
+  check('comment')
+  .exists({ checkFalsy: true })
+  .isLength({ min: 1 })
+  .withMessage('Please leave a reply that is at least one character long.'),
+  handleValidationErrors,
+
+]
+
 router.get(
     '/',
     asyncHandler(async function(req,res){
@@ -96,7 +105,7 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
   }));
 
   router.post(
-    '/:id/comments',
+    '/:id/comments',validatesComments,
     asyncHandler(async function(req, res, next) {
         const newComment = await Comment.create(req.body);
 
@@ -105,7 +114,7 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
   );
 
   router.put(
-    '/:id(\\d+)/comments',
+    '/:id(\\d+)/comments',validatesComments,
     asyncHandler(async function(req, res) {
 
         let editedComment = await Comment.findByPk(req.params.id);

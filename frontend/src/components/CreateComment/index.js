@@ -12,6 +12,8 @@ const CreateComment = ({tweetId}) => {
   const user = useSelector(state => state.session.user);
   const userId= user?.id;
 
+  const [errors, setErrors] = useState([]);
+
 
  const [comment, setComment] = useState("");
 
@@ -33,12 +35,16 @@ const CreateComment = ({tweetId}) => {
     };
 
 
-       const newTweet= await dispatch(createComment(payload))
+       const newTweet= await dispatch(createComment(payload)).catch(async (res) => {
+        const data = await res.json();
+        if(data && data.errors) setErrors(data.errors)
+      });
 
        setComment("")
 
       if(newTweet){
         history.push(`/tweets/${tweetId}`);
+        setErrors([])
       }
 
 
@@ -51,6 +57,9 @@ const CreateComment = ({tweetId}) => {
       { userId && (
         <div className='createCommentWrapper'>
         <form id='createCommentForm 'onSubmit={handleSubmit}>
+        <ol id='errorUl'>
+        {errors.map((error, idx) => <li id='errorLi' key={idx}>{error}</li>)}
+          </ol>
 
           <h3 id='h3Create'> Tweet a reply </h3>
 
