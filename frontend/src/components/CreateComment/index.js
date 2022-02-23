@@ -57,7 +57,7 @@ const CreateComment = ({tweetId}) => {
           <textarea
           className='createCommentInput'
             type="text"
-            placeholder="Tweet your reply..."
+            placeholder="Tweet your reply here..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />

@@ -8,6 +8,7 @@
     border: none;
     overflow: auto;
     outline: none;
+    resize: none;
 }
 #editTweetButton{
 
