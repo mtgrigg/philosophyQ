@@ -5,6 +5,18 @@ const router = express.Router();
 const {Tweet}= require('./../../db/models')
 const {Comment}= require('./../../db/models')
 
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
+
+const validatesTweets =[
+  check('tweet')
+  .exists({ checkFalsy: true })
+  .isLength({ min: 1 })
+  .withMessage('Please leave a tweet that is at least one character long.'),
+  handleValidationErrors,
+
+]
+
 router.get(
     '/',
     asyncHandler(async function(req,res){
@@ -29,7 +41,7 @@ router.get(
 )
 
 router.post(
-    '/',
+    '/', validatesTweets,
     asyncHandler(async function(req, res) {
         const newTweet = await Tweet.create(req.body);
         // console.log(newTweet, "THIS IS NEW TWEET")
@@ -51,7 +63,7 @@ router.post(
   );
 
   router.put(
-    '/:id',
+    '/:id',validatesTweets,
     asyncHandler(async function(req, res) {
         const editedTweet = await Tweet.findByPk(req.params.id);
         const thisTweet= await editedTweet.update(req.body);

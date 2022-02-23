@@ -10,6 +10,7 @@ const CreateTweet = () => {
     const history = useHistory();
   const user = useSelector(state => state.session.user);
   const userId= user?.id;
+  const [errors, setErrors] = useState([]);
 
 
  const [imgUrl, setImageUrl] = useState("");
@@ -25,9 +26,17 @@ const CreateTweet = () => {
     };
 
 
-       const newTweet= await dispatch(createTweet(payload))
+       const newTweet= await dispatch(createTweet(payload)).catch(async (res) => {
+        const data = await res.json();
+        if(data && data.errors) setErrors(data.errors)
+      });
 
-    setTweet("")
+      if(newTweet){
+        history.push(`/tweets`)
+        setTweet("")
+        setErrors([])
+      }
+
 
 
   };
@@ -38,7 +47,9 @@ const CreateTweet = () => {
       { userId && (
         <>
         <form  onSubmit={handleSubmit}>
-
+        <ol id='errorUl'>
+        {errors.map((error, idx) => <li id='errorLi' key={idx}>{error}</li>)}
+          </ol>
 
           <div >
       </div>

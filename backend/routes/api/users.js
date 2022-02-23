@@ -1,7 +1,7 @@
 const express = require("express");
-const { check } = require("express-validator");
-const asyncHandler = require("express-async-handler");
 
+const asyncHandler = require("express-async-handler");
+const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User } = require("../../db/models");
@@ -46,7 +46,7 @@ router.post(
     // console.log( req.body, "THIS IS REQ BODY")
     const user = await User.signup({ email, username, password, bio, imgUrl });
 
-  
+
 
     await setTokenCookie(res, user);
 
