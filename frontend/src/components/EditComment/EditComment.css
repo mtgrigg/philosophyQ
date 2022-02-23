@@ -19,7 +19,7 @@
     background-color: orange;
     color: white;
     cursor: pointer;
-    margin-left:120px;
+    margin-left:160px;
     display: flex;
     justify-content: center;
 
@@ -36,12 +36,16 @@
 #editCommentButton2{
 
     padding:6px;
-    background-color: orange;
-    color: white;
+    background-color: black;
+    color: orange;
     cursor: pointer;
     width:50px;
-    margin-left:190px;
+    margin-left:180px;
     margin-top: 30px;
+    border: none;
+    overflow: auto;
+    outline: none;
+   
 
 }
 
@@ -49,7 +53,8 @@
 #editCommentButton2:hover{
 
 
-    background-color: orangered;
+   color: orangered;
+   background-color: black;
 
 }
 

@@ -92,11 +92,11 @@ const EditComment = ({commentInfo, hideForm}) => {
             onChange={(e) => setComment(e.target.value)}
           />
 
-         { <button id='editCommentButton' type="submit" >Submit Edit comment</button> }
+         { <button id='editCommentButton' type="submit" >Edit Tweet</button> }
 
         </form>
 
-        <button id='editCommentButton2' onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button>
+        <button id='editCommentButton2' onClick={handleDelete}><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
         </div>
         </>
         )
