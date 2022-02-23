@@ -10,8 +10,8 @@
 
 .userProfilePicOnComment{
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 80px;
+    width: 80px;
 
 }
 
@@ -142,4 +142,21 @@ justify-content: center;
 
     word-wrap: break-word;
     line-break: strict;
+    margin-top: 20px;
+}
+
+
+#commentsUserNameAndPhoto{
+    /* display: flex;
+    justify-content: flex-start; */
+    margin-right: 600px;
+
+}
+
+#singleCommentCreatedAt{
+    display: flex;
+    justify-content:space-between;
+    color: orange;
+    margin-left: 530px;
+
 }

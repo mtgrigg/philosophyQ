@@ -160,16 +160,25 @@ return(
     <>
 
 <div id='singleComment'>
-{(tweetz?.id === comment?.tweetId) && <div id='singleCommentText' key={comment.id}>{comment?.comment}</div>}
+  <div id='singleCommentCreatedAt'>
+  <CommentFunctions commentInfo={comment}/>
 {(tweetz?.id === comment?.tweetId) && <div >{comment?.createdAt}</div>}
-<CommentFunctions commentInfo={comment}/>
+
+</div>
+{(tweetz?.id === comment?.tweetId) && <div id='singleCommentText' key={comment.id}>{comment?.comment}</div>}
+
+
 
 {usersArray.map((users)=>{
 
     return(
         <>
+        <div id='commentsUserNameAndPhoto'>
+        {comment?.userId === users?.id  && <img src={users.imgUrl} alt='' className='userProfilePicOnComment'/>}
          {comment?.userId === users?.id  && <div>@{users.username}</div>}
-         {comment?.userId === users?.id  && <img src={users.imgUrl} alt='' className='userProfilePicOnComment'/>}
+
+
+         </div>
          </>
     )
 })}
