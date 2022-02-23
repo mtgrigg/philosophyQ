@@ -145,13 +145,13 @@ const SingleTweet = ({tweetss}) => {
 
         <div className='singleTweetsButton' >
 
-        {(tweetz?.userId === currentUserId) && <button  id='buttonone' onClick={() => setEdit(!edit)}>  <i class="fas fa-edit "></i></button>}
-          {(tweetz?.userId === currentUserId) && <button id='buttonone' onClick={handleDeleteButton}><i class="fa-solid fa-trash-can "></i></button>}
+        {(tweetz?.userId === currentUserId) && tweetz?.id ? <button  id='buttonone' onClick={() => setEdit(!edit)}>  <i class="fas fa-edit "></i></button>: 'Hmmmmm...This page does not exist.. Please click home and choose a valid link.'}
+          {(tweetz?.userId === currentUserId) && tweetz?.id && <button id='buttonone' onClick={handleDeleteButton}><i class="fa-solid fa-trash-can "></i></button>}
 
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
         </div>
         </div>
-        <CreateComment  tweetId={tweetId}/>
+       {tweetz?.id && <CreateComment  tweetId={tweetId}/>}
 
 
          { commentsArray.reverse().map((comment) =>{
@@ -163,7 +163,7 @@ return(
 {(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
   <div id='commentFunctionCreatedWrapper'>
 
-  <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>
+ {tweetz?.id && <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>}
   {/* <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button> */}
 
 
