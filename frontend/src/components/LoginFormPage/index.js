@@ -25,13 +25,17 @@ function LoginFormPage() {
 
   const demoLogin = (e) => {
     e.preventDefault();
-    const demo= dispatch(sessionActions.login({credential:"demo@user.io" , password: 'password' }));
+    const demo= dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
     return demo
   };
 
   return (
     <>
-      <h1>Log In</h1>
+    <div id='loginWrapper'>
+    <div className='container'>
+
+      <div className='logo'></div>
+      <div className='title'>PhilosophyQ</div>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
@@ -41,6 +45,7 @@ function LoginFormPage() {
         <label>
           Username or Email
           <input
+          className='logInput'
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
@@ -50,15 +55,18 @@ function LoginFormPage() {
         <label>
           Password
           <input
+          className='logInput'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Log In</button>
-        <button className='demoButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
+        <button  className='logInButton'type="submit">Log In</button>
+        <button className='logInButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
+      </div>
+      </div>
     </>
   );
 }
