@@ -67,7 +67,7 @@ function SignupFormPage() {
       <div className="signUpContainer">
         <div className='signUpLogo'> </div>
         <div className='siteTitleSignUpPage ' >PhilosophyHQ</div>
-        <div className='siteSubTitleSignUpPage ' >A twitter clone built to allow users to interact with their favorite philsophers, dead and alive. </div>
+        <div className='siteSubTitleSignUpPage ' >A twitter clone built to allow users to interact with their favorite philosophers, dead and alive. </div>
       <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li id='erros' key={idx}>{error}</li>)}
