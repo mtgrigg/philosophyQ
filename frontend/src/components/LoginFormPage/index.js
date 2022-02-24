@@ -35,7 +35,7 @@ function LoginFormPage() {
     <div className='container'>
 
       <div className='logo'></div>
-      <div className='title'>PhilosophyQ</div>
+      <div className='title'>PhilosophyHQ</div>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
