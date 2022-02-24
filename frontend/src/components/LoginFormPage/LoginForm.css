@@ -5,8 +5,8 @@
     border-radius: 20px;
     box-sizing:border-box;
 
-    box-shadow: 14px 14px 20px #cbced1,
--9px -9px 20px rgb(185, 184, 184);
+    box-shadow: 14px 14px 20px #9b7803,
+-9px -9px 20px #9b7803;
 
 }
 .logo{
@@ -21,8 +21,8 @@
     border-radius: 50%;
     box-sizing: border-box;
 
-    box-shadow: 7px 7px 10px #cbced1,
-     -3px -3px 10px white;
+    box-shadow: 7px 7px 10px #9b7803,
+     -3px -3px 10px #9b7803;
 }
 
 .title{

@@ -8,6 +8,7 @@ import { getUsers } from '../../store/users';
 import SingleTweet from '../SingleTweet';
 import CommentDisplay from '../CommentsDisplay';
 // import { createTweet } from '../../store/tweets';
+import './TweetAssembly.css'
 
 
 const TweetAssembly = ({tweets}) => {
@@ -43,7 +44,7 @@ return (
 <div className='createdAtAndCommentsDiv'>
 
 <CommentDisplay  tweetId={tweets.id}/>
-<div>{tweets.createdAt}</div>
+<div id='createdAtFeed'>{tweets.createdAt}</div>
 </div>
 
 </div>

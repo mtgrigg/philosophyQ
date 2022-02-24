@@ -69,10 +69,12 @@ return (
        {usersArray.map((user)=>{
            return(
                <div>
+                   <div id='userImgAndName'>
                    <div id='img-container'>
            {user?.id === userId && <img src={user.imgUrl}  alt=' ' onError={(event) => event.target.style.display = 'none'} className='userPhotoNextToCreateATweet'/> }
                 </div>
            {user?.id === userId && <div>@{user.username}</div>}
+           </div>
            </div>
            )
        })}

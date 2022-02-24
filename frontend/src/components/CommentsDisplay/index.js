@@ -41,7 +41,7 @@ const CommentDisplay = ({tweetId, commentsProp}) =>{
       // </div>
       <>
       <div className='commentsDisplayTweetFeed'>
-<i class="fas fa-comment" ></i>
+<i class="fas fa-comment" id='commentIcon' ></i>
 
       <div className='numberOfComments'>
 

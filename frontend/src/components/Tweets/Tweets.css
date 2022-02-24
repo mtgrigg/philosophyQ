@@ -23,6 +23,11 @@
     justify-content: center;
 }
 
+/* #userImgAndName{
+    display: flex;
+    justify-content: center;
+} */
+
 #test2{
   /* margin-left: 90%; */
   display: flex;
@@ -85,10 +90,13 @@ margin-top:140px;
     line-break: strict;
     /* color: inherit;
     text-decoration: inherit; */
+    /* box-shadow: 3px 3px 3px #9b7803,
+-3px -3px 3px #9b7803; */
 
 
     /* display: grid;
     justify-items: start; */
+
 
 
 }
