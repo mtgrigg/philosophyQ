@@ -66,73 +66,80 @@ function SignupFormPage() {
 
       <div className="signUpContainer">
         <div className='signUpLogo'> </div>
-        <div className='siteTitleSignUpPage ' >PhilosophyQ</div>
+        <div className='siteTitleSignUpPage ' >PhilosophyHQ</div>
+        <div className='siteSubTitleSignUpPage ' >A twitter clone built to allow users to interact with their favorite philsophers, dead and alive. </div>
       <form  className='signUpForm'onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li id='erros' key={idx}>{error}</li>)}
         </ul>
-        <div>Email</div>
+        {/* <div>Email</div> */}
         <label>
           {/* Email */}
           <input
           className='signUpInput'
             type="text"
+            placeholder='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <div>Username</div>
+        {/* <div>Username</div> */}
         <label>
           {/* Username */}
           <input
           className='signUpInput'
             type="text"
+            placeholder='Username'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </label>
-        <div>Password</div>
+        {/* <div>Password</div> */}
         <label>
           {/* Password */}
           <input
           className='signUpInput'
             type="password"
+            placeholder='Password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <div>Confirm Password</div>
+        {/* <div>Confirm Password</div> */}
         <label>
           {/* Confirm Password */}
           <input
           className='signUpInput'
             type="password"
+            placeholder='Confirm Password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-        <div>Profile Photo (Url)</div>
+        {/* <div>Profile Photo (Url)</div> */}
         <label>
           {/* imgUrl */}
           <input
           className='signUpInput'
             type="text"
+            placeholder='Profile Photo(URL)'
             value={imgUrl}
             onChange={(e) => setImgUrl(e.target.value)}
 
           />
         </label>
-        <div> User Bio</div>
+        {/* <div> User Bio</div> */}
         <label>
           {/* Bio */}
           <textarea
           className='signUpInput'
           id="bioButton"
             type="text"
+            placeholder='Bio'
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             required

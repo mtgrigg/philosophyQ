@@ -34,6 +34,13 @@ box-shadow: 14px 14px 20px #9b7803,
 -9px -9px 20px #9b7803;
 }
 
+.siteSubTitleSignUpPage {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  margin-top: 7px;
+}
+
 .leftBackGroundSignUp{
     margin-top: 70px;
     background: url("https://img.lemde.fr/2021/08/03/0/0/3500/2334/664/0/75/0/886a18c_fw1-twitter-safety-0802-11.jpg");
@@ -81,6 +88,7 @@ width:200px;
 box-shadow: inset 6px 6px 6px #cbced1,
 inset -6px -6px 6px white;
 overflow:scroll;
+margin-top: 10px;
 
 
 }
@@ -119,6 +127,7 @@ color:white;
     display: flex;
     flex-flow: column;
     /* display: block; */
+    /* padding:20px; */
 
 }
 
