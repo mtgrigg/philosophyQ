@@ -37,3 +37,7 @@ likes, follows, search, and users pages. As well as possibly creating an ecommer
 Conclusion:
 I hope you have enjoyed this application as much as I enjoyed making it. If you have any questions or would like to chat, please reach out to me on github or
 on linkedin: https://www.linkedin.com/in/maxim-grigg-42a4451a9/.
+
+
+
+![Screenshot](SplashPagePhil.png)
