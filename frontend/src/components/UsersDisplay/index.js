@@ -27,13 +27,15 @@ const UserDisplay = ({tweetId, commentsProp}) =>{
         { filteredUsers.map((user) => {
               return (
 <>
-                <div >
+
                 <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed' onError={(event) => event.target.style.display = 'none'}/>
-                </div>
-                <div>
+                 {/* </div> */}
+                <div id= 'userNameOnTweet'>
+
                 @{user.username}
-                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle" id='checkMark'></i>
                 </div>
+
 </>
               );
 

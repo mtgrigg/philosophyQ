@@ -57,8 +57,8 @@ function SignupFormPage() {
 <div className='flexHelp'>
     {/* <div className="leftBackGroundSignUp"></div> */}
     <div className='flameWrapper'>
-    {/* <input type="checkbox" id="animation" />
-<label for="animation"></label> */}
+    <input type="checkbox" id="animation" />
+<label for="animation"></label>
 
 <div className="match"></div>
 </div>

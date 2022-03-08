@@ -28,7 +28,8 @@ justify-content: center;
 font-size: 60px;
 color: orangered;
 font-weight: bolder;
-font-family:monospace;
+/* font-family:monospace; */
+font-family:initial;
 /* margin-left: 400px; */
 }
 
@@ -50,5 +51,5 @@ font-family:monospace;
 
 .loginButtonNav{
   margin-left: 20px;
-  background-color:;
+ 
 }

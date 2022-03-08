@@ -6,14 +6,46 @@
     text-decoration: none;
 	border: 0 none;
 
+    box-shadow: 4px 4px 4px #9b7803;
+
+    margin-right: 15px;
+    /* margin-bottom: 5px; */
+
+
+    vertical-align:middle;
+
 }
 
 .userDisplayWrapper{
     margin-bottom: 25px;
+    /* display: flex;
+   justify-content: center; */
+    display: inline-block;
+    vertical-align:middle;
+
+
 }
 
 .createdAtAndCommentsDiv{
     display: flex;
     justify-content: space-between;
+
+}
+
+#checkMark{
+    margin-left: 5px;
+    color:orangered
+}
+
+
+#userNameOnTweet{
+    /* display: flex;
+   justify-content: center;
+   margin-bottom: 20px; */
+/* margin-top: 10px; */
+
+display: inline-block;
+vertical-align:middle;
+
 
 }

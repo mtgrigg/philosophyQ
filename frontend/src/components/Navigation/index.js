@@ -41,7 +41,7 @@ function Navigation({ isLoaded }){
     </ul>
 
     </div>
-    <div id='titleP'>Philosophy Twitter</div>
+    <div id='titleP'>PhilosophyHQ</div>
     </>
   );
 }

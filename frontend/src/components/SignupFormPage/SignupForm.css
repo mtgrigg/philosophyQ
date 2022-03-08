@@ -176,10 +176,13 @@ body {
   }
 
   /* see comment below */
-  /* #animation:checked ~ .match {
+  #animation:checked ~ .match {
     animation: burn 4s infinite;
     width: 50vmin;
-  } */
+
+  }
+
+  
 
   .match {
     /*
