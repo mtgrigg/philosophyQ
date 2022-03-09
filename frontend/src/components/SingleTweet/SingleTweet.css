@@ -240,3 +240,10 @@ align-items: center;
    color: orangered;
 
 }
+
+
+.tweetCreatedAtTweetsFeed{
+    display: flex;
+    justify-content: flex-end;
+    color: orange;
+}

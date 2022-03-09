@@ -111,10 +111,14 @@ return (
     {tweetArray.reverse().map((tweet)=>{
         return(
             <>
+
             <div className= 'tweetFeedSingleTweetWrapper' id='item2'>
+            <div className='tweetCreatedAtTweetsFeed'>{tweet.createdAt}</div>
                  <NavLink  key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
                      <div className='userPhotoTweetFeed'>
+
          <UserDisplay tweetId={tweet.userId}/>
+
          </div>
 
             {/* <SingleTweet tweetss={tweet.id}/> */}
