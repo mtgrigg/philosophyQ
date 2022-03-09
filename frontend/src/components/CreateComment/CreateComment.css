@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     color: orangered;
-    margin-top:40px;
+    margin-top:80px;
 }
 .createCommentInput{
     height:100px;
@@ -44,4 +44,5 @@
 #createCommentForm {
     display: flex;
    justify-content: center;
+   /* margin-top: 40px; */
 }

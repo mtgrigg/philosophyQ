@@ -75,13 +75,14 @@ margin-top: 50px;
 
     margin-top: 70px;
     padding-right: 90px;
-    width:600px;
-
+    width:700px;
+    /* height:200px; */
     border: solid rgb(47, 47, 47) .1px;
     border-width: thin;
-    padding:30px;
-    /* padding-left: 90px; */
-
+    padding:10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
     word-wrap: break-word;
     line-break: strict;
     box-shadow: 5px 5px 5px #9b7803;
@@ -162,16 +163,39 @@ word-wrap: break-word;
 align-items: center;
     margin-right: 600px;
     /* vertical-align:middle; */
-    margin-top: 2px;
-    margin-left: 30PX;
+    margin-top: 1px;
+    margin-left: 80PX;
 
 }
+
+#commentsUserNameAndPhoto2{
+    display: flex;
+align-items: center;
+    margin-right: 600px;
+    /* vertical-align:middle; */
+
+
+
+}
+
+
+
 
 #singleCommentCreatedAt{
     display: flex;
     align-items:start;
     color: orange;
     margin-left: 530px;
+
+
+}
+
+#singleCommentCreatedAt2{
+    display: flex;
+    /* align-items:start; */
+    color: orange;
+    margin-left: 600px;
+    vertical-align:top;
 
 
 }

@@ -138,18 +138,36 @@ const SingleTweet = ({tweetss}) => {
 
           {userCard(targetUser)}
 
+
+
           <div className='singleTweetBody2'>
+
 
         <div className='singleTweetImgAndCreateAt'>
           {/* <img src={targetUser.imgUrl} /> */}
-        <div id='singleCreatedAt'>{tweetz?.createdAt}</div>
+          <div id='singleCreatedAt'>{tweetz?.createdAt}</div>
+
+          {usersArray.map((users)=>{
+
+return(
+    <>
+    <div id='commentsUserNameAndPhoto2'>
+    { (users?.id === tweetz?.userId)  && <img src={users.imgUrl} alt=' ' onError={(event) => event.target.style.display = 'none'} className='userProfilePicOnComment'/>}
+     { (users?.id === tweetz?.userId)  && <div>@{users.username}</div>}
+     { (users?.id  === tweetz?.userId) &&  <i class="fas fa-check-circle" id='checkMark'></i>}
+
+     </div>
+
+     </>
+
+)
+})}
+
+
         <img src={tweetz?.imgUrl} alt=''/>
 
+
         <div id='singleTweet'>{tweetz?.tweet}</div>
-
-
-
-
 
         <div className='singleTweetsButton' >
 
@@ -159,6 +177,8 @@ const SingleTweet = ({tweetss}) => {
         {edit && <EditTweet  tweetTweet={tweetz?.tweet} tweetImg={tweetz?.imgUrl} tweetId={tweetz?.id} tweetCreater={tweetz?.userId} hideForm={() => setEdit(false)} />}
         </div>
         </div>
+
+
        {tweetz?.id && <CreateComment  tweetId={tweetId}/>}
 
 
@@ -168,7 +188,7 @@ return(
     <>
 
 <div id='singleComment'>
-{(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>}
+{/* {(tweetz?.id === comment?.tweetId) && <div id='singleCommentCreatedAt' >{comment?.createdAt}</div>} */}
   <div id='commentFunctionCreatedWrapper'>
 
  {tweetz?.id && <CommentFunctions id='commentFucntionsButton'commentInfo={comment}/>}
@@ -184,12 +204,15 @@ return(
 
     return(
         <>
+
         <div id='commentsUserNameAndPhoto'>
+
         {comment?.userId === users?.id  && <img src={users.imgUrl} alt=' ' onError={(event) => event.target.style.display = 'none'} className='userProfilePicOnComment'/>}
          {comment?.userId === users?.id  && <div>@{users.username}</div>}
          {comment?.userId === users?.id  &&  <i class="fas fa-check-circle" id='checkMark'></i>}
 
          </div>
+         {comment?.userId === users?.id  && <div id='singleCommentCreatedAt2' >{comment?.createdAt}</div>}
          </>
     )
 })}

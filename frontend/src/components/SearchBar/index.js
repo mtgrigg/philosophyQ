@@ -75,7 +75,7 @@ function SearchBar() {
             type="text"
             onChange={(e) => setSearchWords(e.target.value)}
             value={searchWords}
-            placeholder="Search by tweet..."
+            placeholder="Search by tweet or username..."
             name="searchWords"
           />
           </div>
