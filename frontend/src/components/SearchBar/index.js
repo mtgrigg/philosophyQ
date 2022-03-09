@@ -66,7 +66,7 @@ function SearchBar() {
         <>
       <div className='searchBar'>
           <div className='searchHeader'>
-         
+
           </div>
          <div  id="searchFormMeta" >
           <input
@@ -81,14 +81,15 @@ function SearchBar() {
           <div className="searchButton">
           <button id='searchButtonButton' type="submit" onClick={handleSubmit} >Search</button>
             </div>
-
-        <ul>
+            </div>
+        <ul className='ulForSearchedTweets'>
           {searchResults.map((searchTerm) => (
             <li key={searchTerm.id}  onClick={(e) => {
               e.preventDefault();
 
             }}>
                 {/* <h2 className='searchH2'>Search Results:</h2> */}
+
               <NavLink className='liSearchList'
                 to={`tweets/${searchTerm.id}`}
                 style={{textDecoration: 'none'}}
@@ -98,7 +99,7 @@ function SearchBar() {
               </NavLink>
             </li>))}
         </ul>
-      </div>
+
       </>
 
     );
