@@ -76,14 +76,16 @@ font-style: none;
 
 
 #searchButtonButton{
-    background-color: rgb(245, 239, 232);
+    background-color: orange;
+    color:whitesmoke;
     padding:6px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
     cursor: pointer;
+
 }
 
 #searchButtonButton:hover{
-    background-color: rgb(133, 28, 28);
+    background-color: orangered;
     color:whitesmoke;
     padding:6px;
     /* border-radius: 10px; */
