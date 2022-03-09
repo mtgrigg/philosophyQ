@@ -107,6 +107,29 @@ margin-top:140px;
 
 }
 
+.tweetFeedSingleTweetWrapper:hover{
+    border: solid rgb(47, 47, 47) .1px;
+    border-width: thin;
+    padding:20px;
+    /* padding-left: 90px; */
+    margin-left: 90px;
+    word-wrap: break-word;
+    line-break: strict;
+
+    margin-top: 15px;
+    /* color: inherit;
+    text-decoration: inherit; */
+     box-shadow: 3px 3px 3px orangered;
+;
+
+
+    /* display: grid;
+    justify-items: start; */
+
+
+
+}
+
 .tweetFeedSingleTweetWrapper a{
 
     color: inherit;
