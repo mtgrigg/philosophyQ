@@ -38,15 +38,19 @@ justify-content: center;
 
 .singletweetBioNameWrapper{
 
-display:flex;
-align-items: center;
+
+display: flex;
 justify-content: center;
-margin-top: 50px;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 20px;
+margin-bottom: 50px;
 
 
-    word-wrap: break-word;
+
+    /* word-wrap: break-word;
     line-break: strict;
-    vertical-align:middle;
+    vertical-align:middle; */
 
 }
 
