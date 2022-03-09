@@ -60,6 +60,7 @@ font-style: none;
     cursor: pointer;
     height:40px;
     width:400px;
+    box-shadow: 3px 3px 3px #9b7803;
 }
 .liSearchList:hover{
     display: flex;

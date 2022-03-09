@@ -14,8 +14,8 @@ function SearchBar() {
     const user = useSelector(state => state.session.user);
     const userId = user?.id
 
-    // const users = useSelector(state => state?.users)
-    // const usersArray = Object.values(users)
+    const users = useSelector(state => state?.users)
+    const usersArray = Object.values(users)
 
      // grab ALL tweets
       const tweets = useSelector(state => state?.tweet);
@@ -26,10 +26,11 @@ function SearchBar() {
 
     const [searchWords, setSearchWords] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const [searchResults2, setSearchResults2] = useState([]);
 
 
     useEffect(() => {
-    //   dispatch(getUsers());
+      dispatch(getUsers());
       dispatch(getTweets());
       setSearchResults([])
       setSearchWords("")
@@ -40,20 +41,20 @@ function SearchBar() {
 
 
 
-    //   const searchResults = usersArray.filter((user) => (
-    //     user.username.toLowerCase().includes(searchWords.toLowerCase())
-    //   ));
+      const searchResults2 = usersArray.filter((user) => (
+        user.username.toLowerCase().includes(searchWords.toLowerCase())
+      ));
 
       const searchResults = tweetsArray.filter((tweet) => (
         tweet.tweet.toLowerCase().includes(searchWords.toLowerCase())
       ));
 
 
-    //   setSearchResults(searchResults2)
+      setSearchResults2(searchResults2)
       setSearchResults(searchResults);
       setSearchWords('');
 
-      if(!searchResults.length){
+      if(!searchResults.length && !searchResults2.length){
        return  alert(`${searchWords} does not exist.`)
 
       }
@@ -96,6 +97,26 @@ function SearchBar() {
               >
 
                 {searchTerm.tweet}
+              </NavLink>
+            </li>))}
+        </ul>
+
+
+        <ul className='ulForSearchedTweets'>
+          {searchResults2.map((searchTerm) => (
+            <li key={searchTerm.id}  onClick={(e) => {
+              e.preventDefault();
+
+            }}>
+                {/* <h2 className='searchH2'>Search Results:</h2> */}
+
+              <NavLink className='liSearchList'
+                to={`tweets/${searchTerm.id}`}
+                style={{textDecoration: 'none'}}
+              >
+
+                @{searchTerm.username}
+                <img src={searchTerm.imgUrl} alt=''  className='userProfilePicOnSingleTweetPage' onError={(event) => event.target.style.display = 'none'}/>
               </NavLink>
             </li>))}
         </ul>
