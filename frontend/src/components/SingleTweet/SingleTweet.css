@@ -12,7 +12,8 @@
     border-radius: 50%;
     height: 80px;
     width: 80px;
-
+    vertical-align:middle;
+    margin-right: 10px;
 }
 
 
@@ -45,7 +46,7 @@ margin-top: 50px;
 
     word-wrap: break-word;
     line-break: strict;
-
+    vertical-align:middle;
 
 }
 
@@ -143,7 +144,7 @@ word-wrap: break-word;
 
     border: solid rgb(47, 47, 47) .1px;
     border-width: thin;
-    padding:30px;
+    padding:10px;
     box-shadow: 5px 5px 5px #9b7803;
 }
 
@@ -157,9 +158,12 @@ word-wrap: break-word;
 
 
 #commentsUserNameAndPhoto{
-    /* display: flex;
-    justify-content: flex-start; */
+    display: flex;
+align-items: center;
     margin-right: 600px;
+    /* vertical-align:middle; */
+    margin-top: 2px;
+    margin-left: 30PX;
 
 }
 
