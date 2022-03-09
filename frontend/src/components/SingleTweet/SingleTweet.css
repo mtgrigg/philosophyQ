@@ -83,6 +83,7 @@ margin-top: 50px;
 
     word-wrap: break-word;
     line-break: strict;
+    box-shadow: 5px 5px 5px #9b7803;
 }
 
 #buttonone {
@@ -143,6 +144,7 @@ word-wrap: break-word;
     border: solid rgb(47, 47, 47) .1px;
     border-width: thin;
     padding:30px;
+    box-shadow: 5px 5px 5px #9b7803;
 }
 
 #singleCommentText{
