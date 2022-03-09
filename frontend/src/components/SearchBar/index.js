@@ -102,7 +102,7 @@ function SearchBar() {
         </ul>
 
 
-        <ul className='ulForSearchedTweets'>
+        <ul className='ulForSearchedUsers'>
           {searchResults2.map((searchTerm) => (
             <li key={searchTerm.id}  onClick={(e) => {
               e.preventDefault();
@@ -110,13 +110,12 @@ function SearchBar() {
             }}>
                 {/* <h2 className='searchH2'>Search Results:</h2> */}
 
-              <NavLink className='liSearchList'
+              <NavLink className='liSearchListUsers'
                 to={`tweets/${searchTerm.id}`}
                 style={{textDecoration: 'none'}}
               >
-
+                <img src={searchTerm.imgUrl} alt=''  className='userProfilePicOnSearch' onError={(event) => event.target.style.display = 'none'}/>
                 @{searchTerm.username}
-                <img src={searchTerm.imgUrl} alt=''  className='userProfilePicOnSingleTweetPage' onError={(event) => event.target.style.display = 'none'}/>
               </NavLink>
             </li>))}
         </ul>

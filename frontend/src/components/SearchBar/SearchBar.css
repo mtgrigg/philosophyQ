@@ -42,6 +42,50 @@ font-style: none;
 
 }
 
+.ulForSearchedUsers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+}
+
+.userProfilePicOnSearch{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    color: black;
+
+    box-shadow: 5px 5px 5px #9b7803;
+    vertical-align:middle;
+    margin-right:10px;
+}
+.userProfilePicOnSearch:hover{
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    background-color: black;
+    color: black;
+
+    box-shadow: 6px 6px 6px #9b7803;
+    vertical-align:middle;
+    margin-right:10px;
+}
+
+.liSearchListUsers{
+    color: rgb(255, 245, 245);
+    vertical-align:middle;
+
+}
+
+.liSearchListUsers:hover{
+    color: orangered;
+    vertical-align:middle;
+
+}
+
 .liSearchList{
     display: flex;
     justify-content: center;
