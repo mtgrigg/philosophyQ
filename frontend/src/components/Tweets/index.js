@@ -11,6 +11,7 @@ import UserDisplay from '../UsersDisplay';
 import CreateTweet from '../CreateTweet';
 import Navigation from '../Navigation'
 import './Tweets.css'
+import SearchBar from '../SearchBar';
 
 
 
@@ -52,6 +53,8 @@ return (
     <>
 
     <div className='feedColumns'>
+
+    <SearchBar />
 
  {/* <div className='navigationOnFeed' id='left'>
 <Navigation />

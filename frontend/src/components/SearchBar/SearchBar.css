@@ -1,0 +1,87 @@
+.searchHeader{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    overflow:scroll;
+
+    color: rgb(133, 28, 28);
+    position: sticky;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-style: none;
+}
+
+#searchForm{
+    display: flex;
+    justify-content: center;
+}
+
+#searchFormMeta{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.searchButton{
+    display: flex;
+    justify-content: center;
+}
+
+.liSearchList{
+    display: flex;
+    justify-content: center;
+    padding: 15.5px 18px ;
+    font-size: 15px;
+    background: rgb(195, 130, 56);
+    border: 1px solid;
+    /* border-radius: 4px; */
+    color: rgb(255, 245, 245);
+    transition: all 0.2s ease;
+    margin-left: 40%;
+    margin-right: 40%;
+    font-weight: bolder;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.liSearchList:hover{
+    display: flex;
+    justify-content: center;
+    padding: 15.5px 18px ;
+    font-size: 15px;
+    background: rgb(133, 28, 28);
+    border: 1px solid;
+    /* border-radius: 4px; */
+    color: whitesmoke;
+    transition: all 0.2s ease;
+    margin-left: 40%;
+    margin-right: 40%;
+    font-weight: bolder;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.searchH2{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+#searchButtonButton{
+    background-color: rgb(245, 239, 232);
+    padding:6px;
+    /* border-radius: 10px; */
+    cursor: pointer;
+}
+
+#searchButtonButton:hover{
+    background-color: rgb(133, 28, 28);
+    color:whitesmoke;
+    padding:6px;
+    /* border-radius: 10px; */
+}

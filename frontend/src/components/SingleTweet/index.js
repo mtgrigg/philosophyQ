@@ -36,6 +36,13 @@ const SingleTweet = ({tweetss}) => {
     const users = useSelector(state => state?.users)
     const usersArray = Object.values(users)
 
+    // console.log(users, 'this is users')
+
+    const currentUser = useSelector(state => state.session.user);
+    const currentUserId = currentUser?.id
+
+    // console.log(currentUser, 'this is currentusers')
+
     // console.log(usersArray, "THIS IS USERSARRAY")
 
   // grab ALL tweets
@@ -43,6 +50,7 @@ const SingleTweet = ({tweetss}) => {
 
     const tweetsArray = Object.values(tweets)
 
+    
 
 
   const [targetTweet] = tweetsArray.filter(tweet => tweet?.id === +tweetId);
@@ -98,8 +106,7 @@ const SingleTweet = ({tweetss}) => {
     const tweetUserId = tweetsArray.filter(tweet => tweet.userId)
     const tweetCommentId = tweetsArray.filter(tweet => tweet?.id)
 
-    const currentUser = useSelector(state => state.session.user);
-    const currentUserId = currentUser?.id
+
 
     useEffect(() => {
         (async()=>{
