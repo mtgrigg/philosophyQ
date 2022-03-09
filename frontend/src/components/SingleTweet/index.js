@@ -50,7 +50,7 @@ const SingleTweet = ({tweetss}) => {
 
     const tweetsArray = Object.values(tweets)
 
-    
+
 
 
   const [targetTweet] = tweetsArray.filter(tweet => tweet?.id === +tweetId);
@@ -88,6 +88,7 @@ const SingleTweet = ({tweetss}) => {
         <div className='singletweetUserNameWrapper'>
           {/* <div>{username}</div> */}
           <div>@{username}</div>
+          <i class="fas fa-check-circle" id='checkMark'></i>
           {/* <div className='singleTweetUserBio'>{bio}</div> */}
           </div>
 
@@ -186,7 +187,7 @@ return(
         <div id='commentsUserNameAndPhoto'>
         {comment?.userId === users?.id  && <img src={users.imgUrl} alt=' ' onError={(event) => event.target.style.display = 'none'} className='userProfilePicOnComment'/>}
          {comment?.userId === users?.id  && <div>@{users.username}</div>}
-
+         {comment?.userId === users?.id  &&  <i class="fas fa-check-circle" id='checkMark'></i>}
 
          </div>
          </>
