@@ -117,11 +117,15 @@ margin-bottom: 50px;
 
 
 #singleTweet{
-    display: flex;
-justify-content: center;
+    /* display: flex;
+justify-content: center; */
 
 word-wrap: break-word;
     line-break: strict;
+
+    text-align: center;
+    inline-size: 450px;
+    margin-left: 18%;
 }
 
 #singleCreatedAt{
@@ -159,6 +163,9 @@ word-wrap: break-word;
     word-wrap: break-word;
     line-break: strict;
     margin-top: 20px; */
+    text-align: center;
+    inline-size: 450px;
+    margin-left: ;
 }
 
 
