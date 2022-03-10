@@ -29,6 +29,7 @@
     background-color: orange;
     color: white;
     cursor: pointer;
+    border: none;
 }
 
 .createCommentButton:hover{
