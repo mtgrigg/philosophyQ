@@ -21,7 +21,9 @@ font-style: none;
     border-radius: 40px;
     height:40px;
     background-color: black;
+    color: whitesmoke;
     caret-color: orangered;
+    /* border-style: none; */
 }
 
 #searchFormMeta{
