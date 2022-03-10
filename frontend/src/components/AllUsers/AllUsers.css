@@ -5,7 +5,18 @@
     margin-top: 20px;
 }
 
+.navLinkAll:hover{
+    list-style: none;
+    color:orangered;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
 
 .divForAllPage{
     margin-top: 90px;
+}
+
+.userProfilePicOnSingleTweetPage{
+    box-shadow: 5px 5px 5px #9b7803;
 }
