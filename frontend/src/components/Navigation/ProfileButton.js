@@ -53,6 +53,7 @@ function ProfileButton({ user }) {
 
           </li>
         </ul>
+        <NavLink key={user.id+1} className='userPageButton'to={`/users/${user.id}`}>User Profile</NavLink>
         <button  className='logOutButton' onClick={logout}>Log Out</button>
 
     </>
