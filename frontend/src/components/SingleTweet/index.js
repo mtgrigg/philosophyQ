@@ -73,7 +73,7 @@ const SingleTweet = ({ tweetss }) => {
     const { username, imgUrl, bio } = user;
     return (
       <>
-       <NavLink to={`/users/${user.id}`}>
+       <NavLink className='navLink' to={`/users/${user.id}`}>
         <div className="userInfoSingleTweetPageWrapper">
           <div>
             <img
