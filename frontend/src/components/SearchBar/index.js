@@ -111,7 +111,7 @@ function SearchBar() {
                 {/* <h2 className='searchH2'>Search Results:</h2> */}
 
               <NavLink className='liSearchListUsers'
-                to={`tweets/${searchTerm.id}`}
+                to={`users/${searchTerm.id}`}
                 style={{textDecoration: 'none'}}
               >
                 <img src={searchTerm.imgUrl} alt=''  className='userProfilePicOnSearch' onError={(event) => event.target.style.display = 'none'}/>
