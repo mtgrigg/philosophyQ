@@ -36,6 +36,7 @@ function Navigation({ isLoaded }){
     <ul>
       <li>
        <NavLink exact to="/tweets">Home</NavLink>
+       <NavLink className='allPhilosButton'exact to="/users">Philosophers</NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>

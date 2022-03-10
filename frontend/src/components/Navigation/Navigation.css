@@ -33,6 +33,10 @@ font-family:initial;
 /* margin-left: 400px; */
 }
 
+.allPhilosButton{
+  margin-left:40px ;
+}
+
 .topnav a:hover {
   background-color: orangered;
   color: rgb(255, 255, 255);
@@ -51,5 +55,5 @@ font-family:initial;
 
 .loginButtonNav{
   margin-left: 20px;
- 
+
 }

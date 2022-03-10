@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { NavLink} from "react-router-dom";
 import { getUsers } from "../../store/users";
+import './AllUsers.css'
 
 
 const AllUsers = () => {
   const dispatch = useDispatch();
- 
+
   // grab ALL users
   const users = useSelector((state) => state?.users);
   const usersArray = Object.values(users);
@@ -51,8 +52,10 @@ const AllUsers = () => {
       {usersArray
         .map((user) => {
           return <>
-          <NavLink key={user.id+2} to={`users/${user.id}`}>
+          <NavLink  className='navLinkAll'key={user.id+2} to={`users/${user.id}`}>
+              <div className='divForAllPage'>
           {userCard(user)}
+          </div>
           </NavLink>
           </>;
         })}
