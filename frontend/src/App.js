@@ -11,6 +11,7 @@ import SingleTweet from "./components/SingleTweet"
 import TweetAssembly from './components/TweetAssembly';
 import {  useSelector } from "react-redux";
 import UsersPage from './components/UsersPage';
+import AllUsers from './components/AllUsers';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,10 @@ function App() {
 
           <Route path='/users/:userId' >
             <UsersPage />
+          </Route>
+
+          <Route path='/users' >
+            <AllUsers />
           </Route>
           {/* <Route  path='/kevin'>
             <TweetAssembly />
