@@ -2,89 +2,94 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link, useHistory } from "react-router-dom";
-import { getComments, deleteComment } from "../../store/comments";
+import { NavLink} from "react-router-dom";
 import { getUsers } from "../../store/users";
 import { getTweets } from "../../store/tweets";
-import { deleteTweet } from "../../store/tweets";
-import EditTweet from "../EditTweet";
-import CreateComment from "../CreateComment";
 import "./UsersPage.css";
-import { useState } from "react";
-import CommentFunctions from "../CommentFunctions";
+import UserDisplay from "../UsersDisplay";
+import TweetAssembly from "../TweetAssembly";
 
 const UsersPage = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-
-    const {userId}= useParams();
-
+  const dispatch = useDispatch();
+  const { userId } = useParams();
 
   // grab ALL users
-    const users = useSelector(state => state?.users)
-    const usersArray = Object.values(users)
+  const users = useSelector((state) => state?.users);
+  const usersArray = Object.values(users);
 
-    const currentUser = useSelector(state => state.session.user);
-    const currentUserId = currentUser?.id
-
-
+  const tweetObj = useSelector((state) => state.tweet);
+  const tweetArray = Object.values(tweetObj);
 
   function userCard(user) {
-
     if (user === undefined) return;
-    const {username, imgUrl, bio} = user;
+    const { username, imgUrl, bio } = user;
     return (
       <>
-        <div className='userInfoSingleTweetPageWrapper'>
-            <div>
-        <img src={imgUrl} alt=''  className='userProfilePicOnSingleTweetPage' onError={(event) => event.target.style.display = 'none'}/>
-        </div>
-        <div className='singletweetUserNameWrapper'>
-
-          <div>@{username}</div>
-          <i class="fas fa-check-circle" id='checkMark'></i>
-
+        <div className="userInfoSingleTweetPageWrapper">
+          <div>
+            <img
+              src={imgUrl}
+              alt=""
+              className="userProfilePicOnSingleTweetPage"
+              onError={(event) => (event.target.style.display = "none")}
+            />
           </div>
+          <div className="singletweetUserNameWrapper">
+            <div>@{username}</div>
+            <i class="fas fa-check-circle" id="checkMark"></i>
+          </div>
+        </div>
+        <br></br>
 
-
-         </div>
-         <br></br>
-
-          <div className='singletweetBioNameWrapper'>{bio}</div>
-
+        <div className="singletweetBioNameWrapper">{bio}</div>
       </>
     );
   }
 
-
-
-    useEffect(() => {
-        (async()=>{
-            await dispatch(getTweets());
-            await dispatch(getUsers());
-            
-        })()
-    }, [dispatch])
-
-
+  useEffect(() => {
+    (async () => {
+      await dispatch(getTweets());
+      await dispatch(getUsers());
+    })();
+  }, [dispatch]);
 
   return (
     <>
+      {usersArray
+        .filter((user) => user.id == userId)
+        .map((user) => {
+          return <>{userCard(user)}</>;
+        })}
 
+      <div className="tweetFeedBody">
+        {tweetArray
+          .filter((tweet) => tweet.userId == userId)
+          .reverse()
+          .map((tweet) => {
+            return (
+              <div className="tweetFeedSingleTweetWrapper" id="item2">
+                <div className="tweetCreatedAtTweetsFeed">
+                  {tweet.createdAt}
+                </div>
+                <NavLink
+                  key={tweet.id + 1}
+                  to={`/tweets/${tweet.id}`}
+                  tweet={tweet}
+                >
+                  <div className="userPhotoTweetFeed">
+                    <UserDisplay tweetId={tweet.userId} />
+                  </div>
 
-
-
-{usersArray.filter(user=>user.id==userId).map(user=>{
-
-return(
-    <>
-
-{userCard(user)}
-
-   </>
-)
-
-})}
+                  <TweetAssembly
+                    className="test"
+                    key={tweet.id}
+                    tweets={tweet}
+                  />
+                </NavLink>
+              </div>
+            );
+          })}
+      </div>
     </>
   );
 };
