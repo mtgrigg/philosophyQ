@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     resize: none;
+    caret-color: orangered;
 }
 
 .createCommentButton{

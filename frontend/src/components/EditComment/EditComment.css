@@ -13,6 +13,7 @@
     justify-content: center;
     flex-direction: column;
     resize: none;
+    caret-color: orangered;
 }
 #editCommentButton{
 

@@ -9,6 +9,7 @@
     overflow: auto;
     outline: none;
     resize: none;
+    caret-color: orangered;
 }
 #editTweetButton{
 
