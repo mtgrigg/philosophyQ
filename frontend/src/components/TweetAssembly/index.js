@@ -9,7 +9,7 @@ import SingleTweet from '../SingleTweet';
 import CommentDisplay from '../CommentsDisplay';
 // import { createTweet } from '../../store/tweets';
 import './TweetAssembly.css'
-
+import Likes from "../Likes"
 
 const TweetAssembly = ({tweets}) => {
     const dispatch = useDispatch();
@@ -45,6 +45,7 @@ return (
 <div className='createdAtAndCommentsDiv'>
 
 <CommentDisplay  tweetId={tweets.id}/>
+{/* <Likes tweetIden={tweets}/> */}
 {/* <div id='createdAtFeed'>{tweets.createdAt}</div> */}
 </div>
 

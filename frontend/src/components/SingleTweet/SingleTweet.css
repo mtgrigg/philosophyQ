@@ -247,3 +247,10 @@ align-items: center;
     justify-content: flex-end;
     color: orange;
 }
+
+.my-heart {
+    font-size: 1.6rem;
+    padding-left: .75rem;
+    padding-top: 0.5rem;
+    color: rgb(36, 36, 36);
+  }

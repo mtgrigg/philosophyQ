@@ -17,13 +17,20 @@ import { Redirect } from "react-router-dom";
 import "./SingleTweet.css";
 import { useState } from "react";
 import CommentFunctions from "../CommentFunctions";
+import Likes from "../Likes";
+
+import { createLike, getAllLikes } from "../../store/tweets";
+
+
+
 
 const SingleTweet = ({ tweetss }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { tweetId } = useParams();
-  // console.log(tweetId, "THIS IS TWEETEYEDDD")
+
+
 
   const [edit, setEdit] = useState(false);
   const [editComment, setEditComment] = useState(false);
@@ -32,14 +39,11 @@ const SingleTweet = ({ tweetss }) => {
   const users = useSelector((state) => state?.users);
   const usersArray = Object.values(users);
 
-  // console.log(users, 'this is users')
+
 
   const currentUser = useSelector((state) => state.session.user);
   const currentUserId = currentUser?.id;
 
-  // console.log(currentUser, 'this is currentusers')
-
-  // console.log(usersArray, "THIS IS USERSARRAY")
 
   // grab ALL tweets
   const tweets = useSelector((state) => state?.tweet);
@@ -47,12 +51,12 @@ const SingleTweet = ({ tweetss }) => {
   const tweetsArray = Object.values(tweets);
 
   const [targetTweet] = tweetsArray.filter((tweet) => tweet?.id === +tweetId);
-  //   console.log(tweetsArray, "THIS IS TARGET TWEET")
+
 
   const [targetUser] = usersArray.filter(
     (user) => user?.id === targetTweet?.userId
   );
-  //   console.log(usersArray, "THIS IS TARGET USSERRR")
+
 
   // grab comments
   const comments = useSelector((state) => state?.comments);
@@ -61,12 +65,6 @@ const SingleTweet = ({ tweetss }) => {
     (comment) => comment?.tweetId === targetTweet?.id
   );
 
-  // const [commentUserId] = commentsArray.map(comment => comment?.userId);
-  // console.log(commentUserId, "THIS IS CommentUSERID")
-
-  // const [commentsUser] = usersArray.filter(user => user?.id=== usersComment.userId);
-
-  //   console.log(commentsUser.id,"THIS IS USERSCOMMENT")
 
   function userCard(user) {
     if (user === undefined) return;
@@ -108,6 +106,7 @@ const SingleTweet = ({ tweetss }) => {
       await dispatch(getTweets(tweetId));
       await dispatch(getUsers(tweetId));
       await dispatch(getComments(tweetId));
+
     })();
   }, [dispatch, tweetId]);
 
@@ -124,6 +123,8 @@ const SingleTweet = ({ tweetss }) => {
 
   return (
     <>
+
+
       {userCard(targetUser)}
 
       <div className="singleTweetBody2">
@@ -179,6 +180,7 @@ const SingleTweet = ({ tweetss }) => {
               />
             )}
           </div>
+          {/* <Likes tweetIden={tweets}/> */}
         </div>
 
         {tweetz?.id && <CreateComment tweetId={tweetId} />}

@@ -5,6 +5,9 @@ const ADD = 'tweets/ADD';
 const UPDATE = 'tweets/UPDATE'
 const REMOVE = 'tweets/REMOVE'
 
+const GET_LIKES= 'tweets/GET_LIKES';
+const CREATE_LIKE = "tweets/CREATE_LIKE";
+
 
 
 const getTweet = tweets => ({
@@ -21,6 +24,47 @@ const removeTweet = tweetId => ({
     type: REMOVE,
     tweetId,
   });
+
+  const getLikesAction = (likes) => {
+    return {
+      type: GET_LIKES,
+      likes,
+    };
+}
+
+const createLikeAction = (like) => {
+  return {
+  type: CREATE_LIKE,
+  like,
+  };
+}
+
+export const createLike = (payload, id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/tweets/${id}/likes`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) {
+    const like = await response.json();
+    dispatch(createLikeAction(like));
+  }
+};
+
+
+
+export const getAllLikes = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/tweets/${id}/likes`);
+
+  if (response.ok) {
+    const likes = await response.json();
+
+    dispatch(getLikesAction(likes));
+  }
+};
 
 export const editTweet = (tweet) => async dispatch => {
     const response = await csrfFetch(`/api/tweets/${tweet.id}`, {

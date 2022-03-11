@@ -4,9 +4,12 @@ const user = require('../../db/models/user');
 const router = express.Router();
 const {Tweet}= require('./../../db/models')
 const {Comment}= require('./../../db/models')
+const {Like}= require('./../../db/models')
 
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
+
+const { Op } = require("sequelize");
 
 const validatesTweets =[
   check('tweet')
@@ -25,6 +28,8 @@ const validatesComments =[
   handleValidationErrors,
 
 ]
+
+//Tweets
 
 router.get(
     '/',
@@ -96,7 +101,7 @@ router.post(
 );
 
 
-
+//Comments
 
 
 router.get('/:id/comments', asyncHandler(async function(req, res) {
@@ -133,6 +138,40 @@ router.get('/:id/comments', asyncHandler(async function(req, res) {
     const comment = await Comment.findByPk(req.params.id);
     comment.destroy();
     return res.json(req.body);
+  })
+);
+
+
+//Likes
+
+router.get(
+  "/:id/likes",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const likes = await Like.findAll({
+      where: { tweetId: { [Op.eq]: id } },
+    });
+    const allLikes = await res.json(likes);
+    return allLikes;
+  })
+);
+
+router.post(
+  "/:id/likes",
+  asyncHandler(async (req, res) => {
+    const { tweetId, userId } = req.body;
+    const alreadyLiked = await Like.findOne({
+      where: {
+        tweetId: tweetId,
+        // userId: userId,
+      },
+    });
+
+    if (!alreadyLiked) {
+      const like = await Like.create(req.body);
+
+      return res.json(like);
+    }
   })
 );
 
