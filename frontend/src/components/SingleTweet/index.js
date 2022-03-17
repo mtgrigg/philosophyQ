@@ -189,6 +189,7 @@ const SingleTweet = ({ tweetss }) => {
 
         {tweetz?.id && <CreateComment tweetId={tweetId} />}
 
+
         {commentsArray.reverse().map((comment) => {
           return (
             <>
@@ -212,6 +213,7 @@ const SingleTweet = ({ tweetss }) => {
                 {usersArray.map((users) => {
                   return (
                     <>
+                     <NavLink  className='navLink' to={`/users/${users.id}`}>
                       <div id="commentsUserNameAndPhoto">
                         {comment?.userId === users?.id && (
                           <img
@@ -235,13 +237,16 @@ const SingleTweet = ({ tweetss }) => {
                           {comment?.createdAt}
                         </div>
                       )}
+                      </NavLink>
                     </>
                   );
                 })}
+
               </div>
             </>
           );
         })}
+
       </div>
     </>
   );
