@@ -21,16 +21,11 @@ import Likes from "../Likes";
 
 import { createLike, getAllLikes } from "../../store/tweets";
 
-
-
-
 const SingleTweet = ({ tweetss }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { tweetId } = useParams();
-
-
 
   const [edit, setEdit] = useState(false);
   const [editComment, setEditComment] = useState(false);
@@ -39,11 +34,8 @@ const SingleTweet = ({ tweetss }) => {
   const users = useSelector((state) => state?.users);
   const usersArray = Object.values(users);
 
-
-
   const currentUser = useSelector((state) => state.session.user);
   const currentUserId = currentUser?.id;
-
 
   // grab ALL tweets
   const tweets = useSelector((state) => state?.tweet);
@@ -52,11 +44,9 @@ const SingleTweet = ({ tweetss }) => {
 
   const [targetTweet] = tweetsArray.filter((tweet) => tweet?.id === +tweetId);
 
-
   const [targetUser] = usersArray.filter(
     (user) => user?.id === targetTweet?.userId
   );
-
 
   // grab comments
   const comments = useSelector((state) => state?.comments);
@@ -65,33 +55,32 @@ const SingleTweet = ({ tweetss }) => {
     (comment) => comment?.tweetId === targetTweet?.id
   );
 
-
   function userCard(user) {
     if (user === undefined) return;
     const { username, imgUrl, bio } = user;
     return (
       <>
-       <NavLink className='navLink' to={`/users/${user.id}`}>
-        <div className="userInfoSingleTweetPageWrapper">
-          <div>
-            <img
-              src={imgUrl}
-              alt=""
-              className="userProfilePicOnSingleTweetPage"
-              onError={(event) => (event.target.style.display = "none")}
-            />
+        <NavLink className="navLink" to={`/users/${user.id}`}>
+          <div className="userInfoSingleTweetPageWrapper">
+            <div>
+              <img
+                src={imgUrl}
+                alt=""
+                className="userProfilePicOnSingleTweetPage"
+                onError={(event) => (event.target.style.display = "none")}
+              />
+            </div>
+            <div className="singletweetUserNameWrapper">
+              {/* <div>{username}</div> */}
+              <div>@{username}</div>
+              <i class="fas fa-check-circle" id="checkMark"></i>
+              {/* <div className='singleTweetUserBio'>{bio}</div> */}
+            </div>
           </div>
-          <div className="singletweetUserNameWrapper">
-            {/* <div>{username}</div> */}
-            <div>@{username}</div>
-            <i class="fas fa-check-circle" id="checkMark"></i>
-            {/* <div className='singleTweetUserBio'>{bio}</div> */}
-          </div>
-        </div>
-        <br></br>
-        {/* <div className='singletweetBioNameWrapper'> */}
-        <div className="singletweetBioNameWrapper">{bio}</div>
-        {/* </div> */}
+          <br></br>
+          {/* <div className='singletweetBioNameWrapper'> */}
+          <div className="singletweetBioNameWrapper">{bio}</div>
+          {/* </div> */}
         </NavLink>
       </>
     );
@@ -106,7 +95,6 @@ const SingleTweet = ({ tweetss }) => {
       await dispatch(getTweets(tweetId));
       await dispatch(getUsers(tweetId));
       await dispatch(getComments(tweetId));
-
     })();
   }, [dispatch, tweetId]);
 
@@ -123,8 +111,6 @@ const SingleTweet = ({ tweetss }) => {
 
   return (
     <>
-
-
       {userCard(targetUser)}
 
       <div className="singleTweetBody2">
@@ -135,23 +121,25 @@ const SingleTweet = ({ tweetss }) => {
           {usersArray.map((users) => {
             return (
               <>
-              <NavLink  className='navLink' to={`/users/${users.id}`}>
-                <div id="commentsUserNameAndPhoto2">
-
-                  {users?.id === tweetz?.userId && (
-                    <img
-                      src={users.imgUrl}
-                      alt=" "
-                      onError={(event) => (event.target.style.display = "none")}
-                      className="userProfilePicOnComment"
-                    />
-                  )}
-                  {users?.id === tweetz?.userId && <div>@{users.username}</div>}
-                  {users?.id === tweetz?.userId && (
-                    <i class="fas fa-check-circle" id="checkMark"></i>
-                  )}
-
-                </div>
+                <NavLink className="navLink" to={`/users/${users.id}`}>
+                  <div id="commentsUserNameAndPhoto2">
+                    {users?.id === tweetz?.userId && (
+                      <img
+                        src={users.imgUrl}
+                        alt=" "
+                        onError={(event) =>
+                          (event.target.style.display = "none")
+                        }
+                        className="userProfilePicOnComment"
+                      />
+                    )}
+                    {users?.id === tweetz?.userId && (
+                      <div>@{users.username}</div>
+                    )}
+                    {users?.id === tweetz?.userId && (
+                      <i class="fas fa-check-circle" id="checkMark"></i>
+                    )}
+                  </div>
                 </NavLink>
               </>
             );
@@ -189,7 +177,6 @@ const SingleTweet = ({ tweetss }) => {
 
         {tweetz?.id && <CreateComment tweetId={tweetId} />}
 
-
         {commentsArray.reverse().map((comment) => {
           return (
             <>
@@ -213,40 +200,38 @@ const SingleTweet = ({ tweetss }) => {
                 {usersArray.map((users) => {
                   return (
                     <>
-                     <NavLink  className='navLink' to={`/users/${users.id}`}>
-                      <div id="commentsUserNameAndPhoto">
-                        {comment?.userId === users?.id && (
-                          <img
-                            src={users.imgUrl}
-                            alt=" "
-                            onError={(event) =>
-                              (event.target.style.display = "none")
-                            }
-                            className="userProfilePicOnComment"
-                          />
-                        )}
-                        {comment?.userId === users?.id && (
-                          <div>@{users.username}</div>
-                        )}
-                        {comment?.userId === users?.id && (
-                          <i class="fas fa-check-circle" id="checkMark"></i>
-                        )}
-                      </div>
-                      {comment?.userId === users?.id && (
-                        <div id="singleCommentCreatedAt2">
-                          {comment?.createdAt}
+                      <NavLink className="navLink" to={`/users/${users.id}`}>
+                        <div id="commentsUserNameAndPhoto">
+                          {comment?.userId === users?.id && (
+                            <img
+                              src={users.imgUrl}
+                              alt=" "
+                              onError={(event) =>
+                                (event.target.style.display = "none")
+                              }
+                              className="userProfilePicOnComment"
+                            />
+                          )}
+                          {comment?.userId === users?.id && (
+                            <div>@{users.username}</div>
+                          )}
+                          {comment?.userId === users?.id && (
+                            <i class="fas fa-check-circle" id="checkMark"></i>
+                          )}
                         </div>
-                      )}
+                        {comment?.userId === users?.id && (
+                          <div id="singleCommentCreatedAt2">
+                            {comment?.createdAt}
+                          </div>
+                        )}
                       </NavLink>
                     </>
                   );
                 })}
-
               </div>
             </>
           );
         })}
-
       </div>
     </>
   );
