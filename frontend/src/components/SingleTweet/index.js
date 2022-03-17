@@ -135,7 +135,9 @@ const SingleTweet = ({ tweetss }) => {
           {usersArray.map((users) => {
             return (
               <>
+              <NavLink  className='navLink' to={`/users/${users.id}`}>
                 <div id="commentsUserNameAndPhoto2">
+
                   {users?.id === tweetz?.userId && (
                     <img
                       src={users.imgUrl}
@@ -148,7 +150,9 @@ const SingleTweet = ({ tweetss }) => {
                   {users?.id === tweetz?.userId && (
                     <i class="fas fa-check-circle" id="checkMark"></i>
                   )}
+
                 </div>
+                </NavLink>
               </>
             );
           })}

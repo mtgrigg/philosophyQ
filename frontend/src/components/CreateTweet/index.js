@@ -62,7 +62,7 @@ const CreateTweet = () => {
           <textarea
           className= "newTweetInput"
             type="text"
-            placeholder="What's Happening? Write your tweet here..."
+            placeholder="What's Happening? Click here to write your tweet..."
             value={tweet}
             onChange={(e) => setTweet(e.target.value)}
           />
