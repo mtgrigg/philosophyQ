@@ -100,13 +100,11 @@ const SingleTweet = ({ tweetss }) => {
 
   const handleDeleteButton = (e) => {
     (async () => {
-      await dispatch(deleteTweet(targetTweet));
-
-      history.push("/tweets");
+      if (window.confirm("Are you sure you want to delete this tweet?")) {
+        await dispatch(deleteTweet(targetTweet));
+        history.push("/tweets");
+      }
     })();
-  };
-  const handleDelete = (e) => {
-    dispatch(deleteComment(targetComment));
   };
 
   return (

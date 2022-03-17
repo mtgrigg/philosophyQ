@@ -42,14 +42,11 @@ const EditComment = ({ commentInfo, hideForm }) => {
 
   const handleDelete = (e) => {
     (async () => {
-
-      if( window.confirm('Are you sure you want to delete this tweet comment?')){
-         await dispatch(deleteComment(commentInfo));
+      if (
+        window.confirm("Are you sure you want to delete this tweet comment?")
+      ) {
+        await dispatch(deleteComment(commentInfo));
       }
-
-
-
-
 
       hideForm();
     })();
@@ -89,7 +86,7 @@ const EditComment = ({ commentInfo, hideForm }) => {
                 }
               </form>
 
-              <button id="editCommentButton2" onClick={  handleDelete }>
+              <button id="editCommentButton2" onClick={handleDelete}>
                 <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
               </button>
             </div>
