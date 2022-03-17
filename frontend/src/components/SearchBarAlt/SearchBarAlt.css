@@ -1,0 +1,156 @@
+.searchHeader{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    overflow:scroll;
+
+    color: rgb(133, 28, 28);
+    position: sticky;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-style: none;
+}
+
+#searchForm{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    border-radius: 40px;
+    height:40px;
+    background-color: black;
+    color: whitesmoke;
+    caret-color: orangered;
+    /* border-style: none; */
+}
+
+#searchFormMeta{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.searchButton{
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+.ulForSearchedTweets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+}
+
+.ulForSearchedUsers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+}
+
+.userProfilePicOnSearch{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    color: black;
+
+    box-shadow: 5px 5px 5px #9b7803;
+    vertical-align:middle;
+    margin-right:10px;
+}
+.userProfilePicOnSearch:hover{
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    background-color: black;
+    color: black;
+
+    box-shadow: 6px 6px 6px #9b7803;
+    vertical-align:middle;
+    margin-right:10px;
+}
+
+.liSearchListUsers{
+    color: rgb(255, 245, 245);
+    vertical-align:middle;
+
+}
+
+.liSearchListUsers:hover{
+    color: orangered;
+    vertical-align:middle;
+
+}
+
+.liSearchList{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 15.5px 18px ;
+    font-size: 15px;
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(60, 58, 58);
+    /* border-radius: 4px; */
+    color: rgb(255, 245, 245);
+    transition: all 0.2s ease;
+    /* margin-left: 40%;
+    margin-right: 40%; */
+    /* font-weight: bolder; */
+    margin-top: 10px;
+    cursor: pointer;
+    height:40px;
+    width:400px;
+    box-shadow: 3px 3px 3px #9b7803;
+}
+.liSearchList:hover{
+    display: flex;
+    justify-content: center;
+    padding: 15.5px 18px ;
+    font-size: 15px;
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(56, 55, 55);
+    /* border-radius: 4px; */
+    color: whitesmoke;
+    transition: all 0.2s ease;
+    /* margin-left: 40%; */
+    /* margin-right: 40%; */
+    /* font-weight: bolder; */
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px orangered;
+}
+
+.searchH2{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+#searchButtonButton{
+    background-color: orange;
+    color:whitesmoke;
+    padding:6px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+
+}
+
+#searchButtonButton:hover{
+    background-color: orangered;
+    color:whitesmoke;
+    padding:6px;
+    /* border-radius: 10px; */
+}

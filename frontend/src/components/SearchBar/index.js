@@ -29,6 +29,8 @@ function SearchBar() {
     const [searchResults2, setSearchResults2] = useState([]);
 
 
+
+
     useEffect(() => {
       dispatch(getUsers());
       dispatch(getTweets());
@@ -41,25 +43,27 @@ function SearchBar() {
 
 
 
-      const searchResults2 = usersArray.filter((user) => (
+      const searchResults22 = usersArray.filter((user) => (
         user.username.toLowerCase().includes(searchWords.toLowerCase())
       ));
 
-      const searchResults = tweetsArray.filter((tweet) => (
+      const searchResults11 = tweetsArray.filter((tweet) => (
         tweet.tweet.toLowerCase().includes(searchWords.toLowerCase())
       ));
 
 
-      setSearchResults2(searchResults2)
-      setSearchResults(searchResults);
+      setSearchResults2(searchResults22)
+      setSearchResults(searchResults11);
       setSearchWords('');
 
-      if(!searchResults.length && !searchResults2.length){
+      if(!searchResults11.length && !searchResults22.length){
        return  alert(`${searchWords} does not exist.`)
 
       }
 
     };
+
+
 
 
 
@@ -86,18 +90,23 @@ function SearchBar() {
         <ul className='ulForSearchedTweets'>
           {searchResults.map((searchTerm) => (
             <li key={searchTerm.id}  onClick={(e) => {
-              e.preventDefault();
+              // e.preventDefault();
 
             }}>
                 {/* <h2 className='searchH2'>Search Results:</h2> */}
+            {searchResults2.map((users)=>(
+  <NavLink className='liSearchList'
+  to={`tweets/${searchTerm.id}`}
+  style={{textDecoration: 'none'}}
+>
+  <img src={users.imgUrl} alt=''/>
 
-              <NavLink className='liSearchList'
-                to={`tweets/${searchTerm.id}`}
-                style={{textDecoration: 'none'}}
-              >
+              -----
+  {searchTerm.tweet}
+</NavLink>
 
-                {searchTerm.tweet}
-              </NavLink>
+            ))}
+
             </li>))}
         </ul>
 
@@ -105,7 +114,7 @@ function SearchBar() {
         <ul className='ulForSearchedUsers'>
           {searchResults2.map((searchTerm) => (
             <li key={searchTerm.id}  onClick={(e) => {
-              e.preventDefault();
+              // e.preventDefault();
 
             }}>
                 {/* <h2 className='searchH2'>Search Results:</h2> */}

@@ -1,50 +1,42 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getUsers } from '../../store/users';
-import './UsersDisplay.css';
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getUsers } from "../../store/users";
+import "./UsersDisplay.css";
 
+const UserDisplay = ({ tweetId, commentsProp }) => {
+  const dispatch = useDispatch();
 
-const UserDisplay = ({tweetId, commentsProp}) =>{
-    const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch, tweetId]);
 
-    useEffect(() => {
+  const usersArray = useSelector((state) => state.users);
+  let users = Object.values(usersArray);
+  const filteredUsers = users.filter((user) => user.id === tweetId);
 
-
-         dispatch(getUsers());
-
-
-
-    }, [dispatch, tweetId])
-
-    const usersArray= useSelector(state => state.users)
-    const users= Object.values(usersArray)
-    const filteredUsers= users.filter(user=> user.id === tweetId)
-
-
-    return(
-        <div className='userDisplayWrapper'>
-        <div >
-        { filteredUsers.map((user) => {
-              return (
-<>
-
-                <img src={user.imgUrl} alt ='' className='userProfilePicOnFeed' onError={(event) => event.target.style.display = 'none'}/>
-                 {/* </div> */}
-                <div id= 'userNameOnTweet'>
-
+  return (
+    <div className="userDisplayWrapper">
+      <div>
+        {filteredUsers.map((user) => {
+          return (
+            <>
+              <img
+                src={user.imgUrl}
+                alt=""
+                className="userProfilePicOnFeed"
+                onError={(event) => (event.target.style.display = "none")}
+              />
+              {/* </div> */}
+              <div id="userNameOnTweet">
                 @{user.username}
-                <i class="fas fa-check-circle" id='checkMark'></i>
-                </div>
-
-</>
-              );
-
-            })}
-        </ div>
+                <i class="fas fa-check-circle" id="checkMark"></i>
+              </div>
+            </>
+          );
+        })}
       </div>
-    )
-
-}
-
+    </div>
+  );
+};
 
 export default UserDisplay;

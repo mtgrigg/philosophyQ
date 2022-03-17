@@ -1,7 +1,7 @@
 import {NavLink, useHistory, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTweets } from '../../store/tweets';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import SingleTweet from '../SingleTweet';
 import { useParams } from 'react-router-dom';
 import TweetAssembly from '../TweetAssembly';
@@ -12,6 +12,7 @@ import CreateTweet from '../CreateTweet';
 import Navigation from '../Navigation'
 import './Tweets.css'
 import SearchBar from '../SearchBar';
+import SearchBarAlt from '../SearchBarAlt';
 
 
 
@@ -23,12 +24,13 @@ const history= useHistory();
 const user = useSelector(state => state.session.user);
 const userId = user?.id
 
+const [input, setInput] = useState("");
 
-// useEffect(()=>{
-//  dispatch(getTweets());
+const handleChange= (e) => {
+    e.preventDefault();
+    setInput(e.target.value)
 
-
-// }, [dispatch])
+}
 
 useEffect(() => {
 
@@ -40,13 +42,21 @@ useEffect(() => {
 }, [dispatch]);
 
 const tweetObj = useSelector(state=> state.tweet)
-const tweetArray= Object.values(tweetObj)
+let tweetArray= Object.values(tweetObj)
 
 const users = useSelector(state=>state.users)
-const usersArray= Object.values(users)
+let usersArray= Object.values(users)
 
 
 
+
+if(input.length >0){
+    tweetArray= tweetArray.filter((i)=>{
+
+        return i.tweet.toLowerCase().match(input.toLowerCase())
+    })
+
+}
 
 
 return (
@@ -54,7 +64,18 @@ return (
 
     <div className='feedColumns'>
 
-    <SearchBar />
+{/* this is an alternative search bar that searches or username and tweets but is not live */}
+    {/* <SearchBar /> */}
+
+    <div  id="searchFormMeta" >
+    <input
+    id="searchForm"
+        type='text'
+        placeholder="Search by keyword(s) in tweet here..."
+        onChange={handleChange}
+        value={input}
+        />
+  </div>
 
  {/* <div className='navigationOnFeed' id='left'>
 <Navigation />
@@ -72,6 +93,7 @@ return (
        {usersArray.map((user)=>{
            return(
                <div>
+
                    <NavLink  className='navLink'to={`/users/${user.id}`}>
                    <div id='userImgAndName'>
                    <div id='img-container'>
@@ -109,7 +131,6 @@ return (
     {/* <div className='tweetArraySingTweetFeedWrapper'> */}
 
 
-
     {tweetArray.reverse().map((tweet)=>{
         return(
             <>
@@ -117,9 +138,27 @@ return (
             <div className= 'tweetFeedSingleTweetWrapper' id='item2'>
             <div className='tweetCreatedAtTweetsFeed'>{tweet.createdAt}</div>
                  <NavLink  key={tweet.id + 1} to={`/tweets/${tweet.id}`} tweet={tweet}>
+
                      <div className='userPhotoTweetFeed'>
 
-         <UserDisplay tweetId={tweet.userId}/>
+         {/* <UserDisplay tweetId={tweet.userId}/> */}
+         {usersArray.filter(user=>user.id==tweet.userId).map((user) => {
+          return (
+            <>
+              <img
+                src={user.imgUrl}
+                alt=""
+                className="userProfilePicOnFeed"
+                onError={(event) => (event.target.style.display = "none")}
+              />
+              {/* </div> */}
+              <div id="userNameOnTweet">
+                @{user.username}
+                <i class="fas fa-check-circle" id="checkMark"></i>
+              </div>
+            </>
+          );
+        })}
 
          </div>
 
