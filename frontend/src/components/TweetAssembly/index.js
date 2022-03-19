@@ -14,6 +14,8 @@ import Likes from "../Likes"
 const TweetAssembly = ({tweets}) => {
     const dispatch = useDispatch();
 
+  
+
     useEffect(() => {
 
         dispatch(getTweets());

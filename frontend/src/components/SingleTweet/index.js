@@ -19,7 +19,8 @@ import { useState } from "react";
 import CommentFunctions from "../CommentFunctions";
 import Likes from "../Likes";
 import { createLike, getAllLikes } from "../../store/tweets";
-import { EditText, EditTextarea } from 'react-edit-text';
+import { EditText, EditTextarea } from "react-edit-text";
+import { editTweet } from "../../store/tweets";
 
 const SingleTweet = ({ tweetss }) => {
   const dispatch = useDispatch();
@@ -27,8 +28,7 @@ const SingleTweet = ({ tweetss }) => {
 
   const { tweetId } = useParams();
 
-  const [edit, setEdit] = useState(false);
-  const [editComment, setEditComment] = useState(false);
+  const id = tweetId;
 
   // grab ALL users
   const users = useSelector((state) => state?.users);
@@ -36,6 +36,9 @@ const SingleTweet = ({ tweetss }) => {
 
   const currentUser = useSelector((state) => state.session.user);
   const currentUserId = currentUser?.id;
+
+  const [edit, setEdit] = useState(false);
+  const [editComment, setEditComment] = useState(false);
 
   // grab ALL tweets
   const tweets = useSelector((state) => state?.tweet);
@@ -47,6 +50,15 @@ const SingleTweet = ({ tweetss }) => {
   const [targetUser] = usersArray.filter(
     (user) => user?.id === targetTweet?.userId
   );
+
+  const tweetz = tweets[tweetId];
+  const tweetUserId = tweetsArray.filter((tweet) => tweet.userId);
+  const tweetCommentId = tweetsArray.filter((tweet) => tweet?.id);
+
+  const [tweet, setTweet] = useState(tweetz?.tweet);
+  const [imgUrl, setImageUrl] = useState("");
+
+
 
   // grab comments
   const comments = useSelector((state) => state?.comments);
@@ -87,9 +99,6 @@ const SingleTweet = ({ tweetss }) => {
   }
 
 
-  const tweetz = tweets[tweetId];
-  const tweetUserId = tweetsArray.filter((tweet) => tweet.userId);
-  const tweetCommentId = tweetsArray.filter((tweet) => tweet?.id);
 
   useEffect(() => {
     (async () => {
@@ -106,6 +115,19 @@ const SingleTweet = ({ tweetss }) => {
         history.push("/tweets");
       }
     })();
+  };
+
+  const handleSubmitTest = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      id,
+      userId: currentUserId,
+      imgUrl,
+      tweet,
+    };
+
+    const newTweet = await dispatch(editTweet(payload));
   };
 
   return (
@@ -146,36 +168,65 @@ const SingleTweet = ({ tweetss }) => {
 
           <img src={tweetz?.imgUrl} alt="" />
 
-          <div id="singleTweet">{tweetz?.tweet}</div>
+          {/* This is the previous way I displayed the tweet body */}
+          {/* <div  id="singleTweet"> {tweetz?.tweet}</div> */}
 
-          <div className="singleTweetsButton">
-            {tweetz?.userId === currentUserId && targetTweet && (
-              <button id="buttonone" onClick={() => setEdit(!edit)}>
-                {" "}
-                <i class="fas fa-edit "></i>
-              </button>
-            )}
-            {tweetz?.userId === currentUserId && targetTweet && (
+
+
+          {/* This is the new edit tweet form that allows inline edits */}
+          {currentUserId === tweetz?.userId ? (
+            <form  id='inlineEditForm' onSubmit={handleSubmitTest}>
+              <textarea
+                id="singleTweetInline"
+                type="text"
+                placeholder={tweet}
+                value={tweet}
+                onChange={(e) => setTweet(e.target.value)}
+              />
+              <div id="editInlineTweetButton">
+
+              {tweetz?.userId === currentUserId && targetTweet && (
               <button id="buttonone" onClick={handleDeleteButton}>
                 <i class="fa-solid fa-trash-can "></i>
               </button>
             )}
-             {/* <EditText />
-             <EditTextarea /> */}
+              <button id="buttonone" type="submit">
+                Submit edit
+              </button>
+            </div>
+            </form>
+          ) : (
+            <div id="singleTweet"> {tweetz?.tweet}</div>
+          )}
 
-            {edit && (
+{/* This is the button to open the original edit tweet form */}
+            {/* {tweetz?.userId === currentUserId && targetTweet && (
+              <button id="buttonone" onClick={() => setEdit(!edit)}>
+                {" "}
+                <i class="fas fa-edit "></i>
+              </button>
+            )} */}
+             {/* <div className="singleTweetsButton"> */}
+            {/* {tweetz?.userId === currentUserId && targetTweet && (
+              <button id="buttonone" onClick={handleDeleteButton}>
+                <i class="fa-solid fa-trash-can "></i>
+              </button>
+            )} */}
+
+{/* This is the orginal edit form-- replaced with inline edit */}
+            {/* {edit && (
               <>
-              <EditTweet
-                tweetTweet={tweetz?.tweet}
-                tweetImg={tweetz?.imgUrl}
-                tweetId={tweetz?.id}
-                tweetCreater={tweetz?.userId}
-                hideForm={() => setEdit(false)}
-              />
-
+                <EditTweet
+                  tweetTweet={tweetz?.tweet}
+                  tweetImg={tweetz?.imgUrl}
+                  tweetId={tweetz?.id}
+                  tweetCreater={tweetz?.userId}
+                  hideForm={() => setEdit(false)}
+                />
               </>
-            )}
-          </div>
+            )} */}
+
+          {/* </div> */}
           {/* <Likes tweetIden={tweets}/> */}
         </div>
 

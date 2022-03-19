@@ -254,3 +254,36 @@ align-items: center;
     padding-top: 0.5rem;
     color: rgb(36, 36, 36);
   }
+
+  #editInlineTweetButton{
+display: flex;
+justify-content: space-between;
+
+
+  }
+  #singleTweetInline{
+    height:70px;
+    width: 500px;
+    max-width: 500px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    /* margin-left: 1em  ; */
+    border: none;
+    overflow: auto;
+    outline: none;
+    /* margin-right: 90px; */
+    resize: none;
+    caret-color: orangered;
+    font-size: large;
+    word-wrap: break-word;
+    line-break: strict;
+
+    text-align: center;
+    inline-size: 450px;
+    margin-left: 18%;
+
+  }
+ #inlineEditForm{
+     display: flex;
+     flex-direction:column;
+ }
