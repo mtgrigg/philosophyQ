@@ -18,8 +18,8 @@ import "./SingleTweet.css";
 import { useState } from "react";
 import CommentFunctions from "../CommentFunctions";
 import Likes from "../Likes";
-
 import { createLike, getAllLikes } from "../../store/tweets";
+import { EditText, EditTextarea } from 'react-edit-text';
 
 const SingleTweet = ({ tweetss }) => {
   const dispatch = useDispatch();
@@ -85,6 +85,7 @@ const SingleTweet = ({ tweetss }) => {
       </>
     );
   }
+
 
   const tweetz = tweets[tweetId];
   const tweetUserId = tweetsArray.filter((tweet) => tweet.userId);
@@ -159,8 +160,11 @@ const SingleTweet = ({ tweetss }) => {
                 <i class="fa-solid fa-trash-can "></i>
               </button>
             )}
+             {/* <EditText />
+             <EditTextarea /> */}
 
             {edit && (
+              <>
               <EditTweet
                 tweetTweet={tweetz?.tweet}
                 tweetImg={tweetz?.imgUrl}
@@ -168,6 +172,8 @@ const SingleTweet = ({ tweetss }) => {
                 tweetCreater={tweetz?.userId}
                 hideForm={() => setEdit(false)}
               />
+
+              </>
             )}
           </div>
           {/* <Likes tweetIden={tweets}/> */}
