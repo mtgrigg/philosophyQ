@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  {editTweet}  from '../../store/tweets';
 import { useHistory } from 'react-router-dom';
-import OutsideClickHandler from 'react-outside-click-handler';
+// import OutsideClickHandler from 'react-outside-click-handler';
 import './EditTweet.css'
 
 
@@ -41,7 +41,7 @@ const [errors, setErrors] = useState([]);
        if(newTweet){
         // history.push(`/tweets/${id}`);
         // window.location.reload();
-        
+
         hideForm()
     }
 
@@ -52,11 +52,11 @@ const [errors, setErrors] = useState([]);
 
   return (
     <div >
-      <OutsideClickHandler
+      {/* <OutsideClickHandler
       onOutsideClick={() => {
         hideForm()
       }}
-    >
+    > */}
       { (userId === tweetCreater) && (
         <form onSubmit={handleSubmit}>
 
@@ -82,7 +82,7 @@ const [errors, setErrors] = useState([]);
         </form>
         )
       }
-      </OutsideClickHandler>
+      {/* </OutsideClickHandler> */}
     </div>
 
    )

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { editComment } from "../../store/comments";
 import { useHistory } from "react-router-dom";
 import { getComments, deleteComment } from "../../store/comments";
-import OutsideClickHandler from "react-outside-click-handler";
+// import OutsideClickHandler from "react-outside-click-handler";
 import "./EditComment.css";
 
 const EditComment = ({ commentInfo, hideForm }) => {
@@ -54,11 +54,11 @@ const EditComment = ({ commentInfo, hideForm }) => {
 
   return (
     <div>
-      <OutsideClickHandler
+      {/* <OutsideClickHandler
         onOutsideClick={() => {
           hideForm();
         }}
-      >
+      > */}
         {userId && (
           <>
             <div id="editCommentForm">
@@ -92,7 +92,7 @@ const EditComment = ({ commentInfo, hideForm }) => {
             </div>
           </>
         )}
-      </OutsideClickHandler>
+      {/* </OutsideClickHandler> */}
     </div>
 
     // </div>
