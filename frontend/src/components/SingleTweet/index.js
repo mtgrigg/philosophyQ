@@ -21,6 +21,7 @@ import Likes from "../Likes";
 import { createLike, getAllLikes } from "../../store/tweets";
 import { EditText, EditTextarea } from "react-edit-text";
 import { editTweet } from "../../store/tweets";
+import { editComment } from "../../store/comments";
 
 const SingleTweet = ({ tweetss }) => {
   const dispatch = useDispatch();
@@ -55,6 +56,8 @@ const SingleTweet = ({ tweetss }) => {
   const tweetUserId = tweetsArray.filter((tweet) => tweet.userId);
   const tweetCommentId = tweetsArray.filter((tweet) => tweet?.id);
 
+
+
   const [tweet, setTweet] = useState(tweetz?.tweet);
   const [imgUrl, setImageUrl] = useState("");
 
@@ -66,6 +69,8 @@ const SingleTweet = ({ tweetss }) => {
   const [targetComment] = commentsArray.filter(
     (comment) => comment?.tweetId === targetTweet?.id
   );
+
+  const [comment, setComment] = useState(targetComment);
 
   function userCard(user) {
     if (user === undefined) return;
@@ -128,6 +133,19 @@ const SingleTweet = ({ tweetss }) => {
     };
 
     const newTweet = await dispatch(editTweet(payload));
+  };
+
+  const handleSubmitComment = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      ...targetComment,
+      comment,
+    };
+
+    const editedComment = await dispatch(editComment(payload))
+
+
   };
 
   return (
@@ -232,7 +250,7 @@ const SingleTweet = ({ tweetss }) => {
 
         {tweetz?.id && <CreateComment tweetId={tweetId} />}
 
-        {commentsArray.reverse().map((comment) => {
+        {commentsArray.reverse().map((comment1) => {
           return (
             <>
               <div id="singleComment">
@@ -241,14 +259,15 @@ const SingleTweet = ({ tweetss }) => {
                   {tweetz?.id && (
                     <CommentFunctions
                       id="commentFucntionsButton"
-                      commentInfo={comment}
+                      commentInfo={comment1}
                     />
                   )}
                   {/* <button  onClick={handleDelete}><i class="fa fa-trash" aria-hidden="true"></i></button> */}
                 </div>
-                {tweetz?.id === comment?.tweetId && (
-                  <div id="singleCommentText" key={comment.id}>
-                    {comment?.comment}
+                {tweetz?.id === comment1?.tweetId && (
+                  <div id="singleCommentText" key={comment1.id}>
+                    {comment1?.comment}
+
                   </div>
                 )}
 
@@ -256,8 +275,13 @@ const SingleTweet = ({ tweetss }) => {
                   return (
                     <>
                       <NavLink className="navLink" to={`/users/${users.id}`}>
+                      {comment1?.userId === users?.id && (
+                          <div id="singleCommentCreatedAt2">
+                            {comment1?.createdAt}
+                          </div>
+                        )}
                         <div id="commentsUserNameAndPhoto">
-                          {comment?.userId === users?.id && (
+                          {comment1?.userId === users?.id && (
                             <img
                               src={users.imgUrl}
                               alt=" "
@@ -267,18 +291,17 @@ const SingleTweet = ({ tweetss }) => {
                               className="userProfilePicOnComment"
                             />
                           )}
-                          {comment?.userId === users?.id && (
+                          {comment1?.userId === users?.id && (
                             <div>@{users.username}</div>
                           )}
-                          {comment?.userId === users?.id && (
+
+                          {comment1?.userId === users?.id && (
                             <i class="fas fa-check-circle" id="checkMark"></i>
+
                           )}
+
                         </div>
-                        {comment?.userId === users?.id && (
-                          <div id="singleCommentCreatedAt2">
-                            {comment?.createdAt}
-                          </div>
-                        )}
+
                       </NavLink>
                     </>
                   );

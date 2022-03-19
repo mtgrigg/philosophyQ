@@ -36,6 +36,7 @@ justify-content: center;
 
 }
 
+
 .singletweetBioNameWrapper{
 
 
@@ -206,8 +207,9 @@ align-items: center;
     display: flex;
     /* align-items:start; */
     color: orange;
-    margin-left: 600px;
+    margin-left: 700px;
     vertical-align:top;
+
 
 
 }
