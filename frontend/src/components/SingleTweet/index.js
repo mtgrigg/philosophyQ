@@ -58,8 +58,8 @@ const SingleTweet = ({ tweetss }) => {
 
 
 
-  const [tweet, setTweet] = useState(tweetz?.tweet);
-  const [imgUrl, setImageUrl] = useState("");
+  // const [tweet, setTweet] = useState(tweetz?.tweet);
+  // const [imgUrl, setImageUrl] = useState("");
 
 
 
@@ -70,7 +70,7 @@ const SingleTweet = ({ tweetss }) => {
     (comment) => comment?.tweetId === targetTweet?.id
   );
 
-  const [comment, setComment] = useState(targetComment);
+  // const [comment, setComment] = useState(targetComment);
 
   function userCard(user) {
     if (user === undefined) return;
@@ -122,31 +122,31 @@ const SingleTweet = ({ tweetss }) => {
     })();
   };
 
-  const handleSubmitTest = async (e) => {
-    e.preventDefault();
+  // const handleSubmitTest = async (e) => {
+  //   e.preventDefault();
 
-    const payload = {
-      id,
-      userId: currentUserId,
-      imgUrl,
-      tweet,
-    };
+  //   const payload = {
+  //     id,
+  //     userId: currentUserId,
+  //     imgUrl,
+  //     tweet,
+  //   };
 
-    const newTweet = await dispatch(editTweet(payload));
-  };
+  //   const newTweet = await dispatch(editTweet(payload));
+  // };
 
-  const handleSubmitComment = async (e) => {
-    e.preventDefault();
+  // const handleSubmitComment = async (e) => {
+  //   e.preventDefault();
 
-    const payload = {
-      ...targetComment,
-      comment,
-    };
+  //   const payload = {
+  //     ...targetComment,
+  //     comment,
+  //   };
 
-    const editedComment = await dispatch(editComment(payload))
+  //   const editedComment = await dispatch(editComment(payload))
 
 
-  };
+  // };
 
   return (
     <>
@@ -192,7 +192,7 @@ const SingleTweet = ({ tweetss }) => {
 
 
           {/* This is the new edit tweet form that allows inline edits */}
-          {currentUserId === tweetz?.userId ? (
+          {/* {currentUserId === tweetz?.userId ? (
             <form  id='inlineEditForm' onSubmit={handleSubmitTest}>
               <textarea
                 id="singleTweetInline"
@@ -215,7 +215,20 @@ const SingleTweet = ({ tweetss }) => {
             </form>
           ) : (
             <div id="singleTweet"> {tweetz?.tweet}</div>
-          )}
+          )} */}
+           <div id="singleTweet">
+
+                <EditTweet
+                  tweetTweet={tweetz?.tweet}
+                  tweetImg={tweetz?.imgUrl}
+                  tweetId={tweetz?.id}
+                  tweetCreater={tweetz?.userId}
+                  hideForm={() => setEdit(false)}
+                />
+
+
+
+                </div>
 
 {/* This is the button to open the original edit tweet form */}
             {/* {tweetz?.userId === currentUserId && targetTweet && (
@@ -225,11 +238,11 @@ const SingleTweet = ({ tweetss }) => {
               </button>
             )} */}
              {/* <div className="singleTweetsButton"> */}
-            {/* {tweetz?.userId === currentUserId && targetTweet && (
+            {tweetz?.userId === currentUserId && targetTweet && (
               <button id="buttonone" onClick={handleDeleteButton}>
                 <i class="fa-solid fa-trash-can "></i>
               </button>
-            )} */}
+            )}
 
 {/* This is the orginal edit form-- replaced with inline edit */}
             {/* {edit && (

@@ -212,8 +212,12 @@ overflow-x:none;
 
 
     text-align: center;
-    inline-size: 450px;
-    margin-left: 20%;
+    /* inline-size: 450px; */
+    /* margin-left: 20%; */
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+
 
 
 
