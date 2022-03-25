@@ -45,7 +45,7 @@ function ProfileButton({ user }) {
       </button> */}
 
         <ul className="profile-dropdown">
-          <li>Welcome, {user.username}!</li>
+          <li id='welcomeBlank'>Welcome, {user.username}!</li>
           {/* <li>{user.email}</li> */}
           <li>
 
