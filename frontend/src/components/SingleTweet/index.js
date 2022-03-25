@@ -223,6 +223,7 @@ const SingleTweet = ({ tweetss }) => {
                   tweetImg={tweetz?.imgUrl}
                   tweetId={tweetz?.id}
                   tweetCreater={tweetz?.userId}
+                  deleteT={tweetz}
                   hideForm={() => setEdit(false)}
                 />
 
@@ -238,11 +239,12 @@ const SingleTweet = ({ tweetss }) => {
               </button>
             )} */}
              {/* <div className="singleTweetsButton"> */}
-            {tweetz?.userId === currentUserId && targetTweet && (
+             
+            {/* {tweetz?.userId === currentUserId && targetTweet && (
               <button id="buttonone" onClick={handleDeleteButton}>
                 <i class="fa-solid fa-trash-can "></i>
               </button>
-            )}
+            )} */}
 
 {/* This is the orginal edit form-- replaced with inline edit */}
             {/* {edit && (

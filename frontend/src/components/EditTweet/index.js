@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { editTweet } from "../../store/tweets";
+import { editTweet, deleteTweet } from "../../store/tweets";
 import { useHistory } from "react-router-dom";
 // import OutsideClickHandler from 'react-outside-click-handler';
 import "./EditTweet.css";
@@ -10,6 +10,7 @@ const EditTweet = ({
   tweetImg,
   tweetId,
   tweetCreater,
+  deleteT,
   hideForm,
 }) => {
   const dispatch = useDispatch();
@@ -45,6 +46,15 @@ const EditTweet = ({
     //
   };
 
+  const handleDeleteButton = (e) => {
+    (async () => {
+      if (window.confirm("Are you sure you want to delete this tweet?")) {
+        await dispatch(deleteTweet(deleteT));
+        history.push("/tweets");
+      }
+    })();
+  };
+
   return (
     <div>
       {/* <OutsideClickHandler
@@ -76,10 +86,14 @@ const EditTweet = ({
             onChange={(e) => setTweet(e.target.value)}
           />
                         <div id="editInlineTweetButton">
+                        <button id="buttonone" onClick={handleDeleteButton}>
+                <i class="fa-solid fa-trash-can "></i>
+              </button>
 
           <button id="buttonone" type="submit">
             Submit edit
           </button>
+
           </div>
         </form>
       ) : (

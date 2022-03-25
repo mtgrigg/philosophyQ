@@ -10,6 +10,9 @@
     outline: none;
     resize: none;
     caret-color: orangered;
+    text-align: center;
+    font-size: large;
+
 }
 #editTweetButton{
 
