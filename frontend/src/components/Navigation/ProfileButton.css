@@ -26,7 +26,8 @@
 
   }
   #welcomeBlank{
-    margin-right: 120px;
+    /* margin-right: 120px; */
+    padding-right: 200px;
   }
 
 
@@ -34,6 +35,7 @@
     display: flex;
     justify-content: end;
     margin-left: 92%;
+
     padding:10px;
     background-color: orange;
     color: white;
@@ -41,6 +43,21 @@
     border: none;
   }
 
+  #navImg{
+   margin-left: 50px;
+   margin-top: 20px;
+  }
+
+  #navForWelcome{
+    background-color: none;
+  }
+
   .logOutButton:hover{
     background-color: orangered;
   }
+
+
+  /* .profileAndLogoutWrap{
+    display: flex;
+    justify-content: center;
+  } */

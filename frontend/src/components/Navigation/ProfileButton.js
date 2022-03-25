@@ -43,9 +43,19 @@ function ProfileButton({ user }) {
       {/* <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button> */}
-
+<div className='profileAndLogoutWrap'>
         <ul className="profile-dropdown">
-          <li id='welcomeBlank'>Welcome, {user.username}!</li>
+
+          <li id='welcomeBlank'>Welcome, {user.username}!   <img
+                        src={user.imgUrl}
+                        alt=" "
+                        onError={(event) =>
+                          (event.target.style.display = "none")
+                        }
+                        className="userProfilePicOnComment"
+                        id='navImg'
+                      /> </li>
+                      
           {/* <li>{user.email}</li> */}
           <li>
 
@@ -55,6 +65,7 @@ function ProfileButton({ user }) {
         </ul>
         <NavLink key={user.id+1} className='userPageButton'to={`/users/${user.id}`}>User Profile</NavLink>
         <button  className='logOutButton' onClick={logout}>Log Out</button>
+        </div>
 
     </>
   );
