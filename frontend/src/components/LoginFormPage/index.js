@@ -63,7 +63,7 @@ function LoginFormPage() {
           />
         </label>
         <button  className='logInButton'type="submit">Log In</button>
-        <button className='logInButton' onClick={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
+        <button className='logInButton' onClick={demoLogin} onTap={demoLogin}  type="submit">Log in as Socrates(Demo)</button>
       </form>
       <div id='loginWords'>
       <NavLink  to='/' className='loginModalSignUpPage'> Need an account? Sign up</NavLink>
