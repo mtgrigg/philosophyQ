@@ -33,6 +33,32 @@ font-family:initial;
 /* margin-left: 400px; */
 }
 
+@media only screen and (max-width: 750px) {
+  /* med logo */
+  #titleP{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    color: orangered;
+    font-weight: bolder;
+    /* font-family:monospace; */
+    font-family:initial;
+    /* margin-left: 400px; */
+    }
+
+    .topnav a{
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 10px;
+      background-color: orange;
+    }
+
+}
+
+
 .allPhilosButton{
   margin-left:40px ;
 }

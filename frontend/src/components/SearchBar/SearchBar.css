@@ -26,6 +26,18 @@ font-style: none;
     /* border-style: none; */
 }
 
+@media only screen and (max-width: 750px) {
+
+    #searchForm{
+     display: none;
+    }
+    #searchFormMeta{
+        display: none;
+    }
+
+
+}
+
 #searchFormMeta{
     display: flex;
     justify-content: center;
