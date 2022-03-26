@@ -24,9 +24,9 @@ function LoginFormPage() {
   };
 
   const demoLogin = (e) => {
-    e.preventDefault();
-    const demo= dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
-    return demo
+    
+     dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
+
   };
 
   return (
