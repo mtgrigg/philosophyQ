@@ -6,28 +6,6 @@
   padding-top: 5px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-    .tweetFeedBody {
-      grid-template-columns: 10px repeat(6, 1fr) 10px;
-      grid-gap: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding-top: 20px;
-    }
-}
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    .tweetFeedBody {
-      grid-template-columns: repeat(6, 1fr);
-      grid-gap: 20px;
-    }
-    .tweetFeedBody {
-      grid-column-end: span 6;
-      margin: 0 10px;
-    }
-  }
 
 #wrapLogos {
   display: flex;
@@ -188,5 +166,100 @@ border-width: thin; */
 }
 
 
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .tweetFeedBody {
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 20px;
+    }
+    .tweetFeedBody {
+      grid-column-end: span 6;
+      margin: 0 10px;
+    }
+
+    #test2 {
+        /* margin-left: 90%; */
+        display: none;
+      }
+
+      #test3 {
+        /* margin-left: 10%; */
+
+        display: none;
+      }
 
 
+      .createTweetForm {
+
+        /* border: solid rgb(47, 47, 47) .1px;
+      border-width: thin; */
+
+        padding: 10px;
+
+        overflow-x: none;
+      
+      }
+
+      .userPhotoNextToCreateATweet {
+
+     display: none;
+
+      }
+      #userImgAndName{
+        display: none;
+      }
+
+
+
+  }
+
+
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    .tweetFeedBody {
+      grid-template-columns: 10px repeat(6, 1fr) 10px;
+      grid-gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding-top: 20px;
+    }
+
+    .userPhotoNextToCreateATweet {
+        display: none;
+
+      }
+
+
+
+      .createTweetForm {
+
+        /* border: solid rgb(47, 47, 47) .1px;
+      border-width: thin; */
+
+      display: flex;
+      justify-content: center;
+        margin-right: 1px;
+        padding-bottom: 10px;
+        padding-top: 9px;
+        overflow-x: none;
+
+      }
+
+      #wrapLogos {
+        display: none;
+      }
+
+      #test2 {
+        /* margin-left: 90%; */
+        display: none;
+      }
+
+      #test3 {
+        /* margin-left: 10%; */
+
+        display: none;
+      }
+
+
+}
