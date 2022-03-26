@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, NavLink } from "react-router-dom";
+import { Redirect, NavLink, useHistory } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -10,6 +10,8 @@ function LoginFormPage() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const history = useHistory()
 
   if (sessionUser) return <Redirect to="/tweets" />;
 
@@ -23,13 +25,16 @@ function LoginFormPage() {
       });
   };
 
-  const demoLogin = (e) => {
+  const demoLogin = async (e) => {
     e.preventDefault();
 
     setCredential("socrates@user.io");
      setPassword("password");
-    dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
+    const demo= await dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
 
+    history.push('/tweets')
+
+    return demo
   };
 
   return (
@@ -66,7 +71,7 @@ function LoginFormPage() {
           />
         </label>
         <button  className='logInButton'type="submit">Log In</button>
-        <button className='logInButton' onTouchStart={demoLogin} onClick={demoLogin}   type="submit">Log in as Socrates(Demo)</button>
+        <button className='logInButton'  onClick={demoLogin}   type="submit">Log in as Socrates(Demo)</button>
       </form>
       <div id='loginWords'>
       <NavLink  to='/' className='loginModalSignUpPage'> Need an account? Sign up</NavLink>
