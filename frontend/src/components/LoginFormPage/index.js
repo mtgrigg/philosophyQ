@@ -25,7 +25,10 @@ function LoginFormPage() {
 
   const demoLogin = (e) => {
     e.preventDefault();
-     dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
+
+    setCredential("socrates@user.io");
+     setPassword("password");
+    dispatch(sessionActions.login({credential:"socrates@user.io" , password: 'password' }));
 
   };
 
