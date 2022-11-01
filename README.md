@@ -33,11 +33,6 @@ While I am happy with the overall design and feel of PhilosophyHQm I plan to imp
 likes, follows, search, and users pages. As well as possibly creating an ecommerce portion for the philosphers to sell their favorite books.
 
 
-
-Conclusion:
-I hope you have enjoyed this application as much as I enjoyed making it. If you have any questions or would like to chat, please reach out to me on github or
-on linkedin: https://www.linkedin.com/in/maxim-grigg-42a4451a9/.
-
 Image gallery of the apps flow:
 
 Signup / splash page:
