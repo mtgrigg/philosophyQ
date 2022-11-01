@@ -28,10 +28,6 @@ PostgresSQL was the database used to build seeder files and easily manage databa
 Sequelize:
 All table management and data was managed with the use of sequelize.
 
-Next Steps:
-While I am happy with the overall design and feel of PhilosophyHQm I plan to implement more features going forward. I plan to implement
-likes, follows, search, and users pages. As well as possibly creating an ecommerce portion for the philosphers to sell their favorite books.
-
 
 Image gallery of the apps flow:
 
