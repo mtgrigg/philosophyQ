@@ -2,7 +2,6 @@
 
 By: Maxim Grigg
 
-Live-Link: https://philosophyq.herokuapp.com/
 
 PhilosophyHq is a full stack application using PSQL, Express.js in the backend, and React.js in the frontend.
 The application allows useres to interact with famous philosphers, dead and alive, by reading tweets, reading tweet replys, as well as
